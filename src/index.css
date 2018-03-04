@@ -1,8 +1,23 @@
 body {
   font-family: 'Roboto Slab', sans-serif;
-  background: white;
+  background: linear-gradient(135deg, #8363a1 0%, #74a8c3 100%);
   color: #484848;
   padding: 40px;
+}
+
+div {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -170px;
+  margin-left: -100px;
+}
+
+div.outsetBorder {
+	border-style: outset;
+	border: 5px solid orange;
+	padding: 200px;
+	margin: -215px;
 }
 
 input {

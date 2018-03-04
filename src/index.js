@@ -1,126 +1,99 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css'
+import request from 'superagent';
+//import './index.css'
+import './css/main.css'
+import './fonts/font-awesome-4.7.0/css/font-awesome.min.css'
+import './fonts/Linearicons-Free-v1.0.0/icon-font.min.css'
+import './images/icons/favicon.ico'
 
-const inputParsers = {
-    date(input) {
-      const split = input.split('/');
-      const day = split[1]
-      const month = split[0];
-      const year = split[2];
-      return `${year}-${month}-${day}`;
-    },
-    uppercase(input) {
-      return input.toUpperCase();
-    },
-    number(input) {
-      return parseFloat(input);
-    },
-  };
-  
-  class ShakingError extends React.Component {
-      constructor() { super(); this.state = { key: 0 }; }
-  
-      componentWillReceiveProps() {
-      // update key to remount the component to rerun the animation
-        this.setState({ key: ++this.state.key });
-    }
-    
-    render() {
-        return <div key={this.state.key} className="bounce">{this.props.text}</div>;
-    }
-  }
-  
   class MyForm extends React.Component {
-    constructor() {
-      super();
-      this.state = {};
-      this.handleSubmit = this.handleSubmit.bind(this);
+    constructor(props) {
+      super(props);
+      this.state = {
+        isLiked : null,
+        userText: '',
+        timer: 0
+      };
+      this.onSubmit = this.onSubmit.bind(this);
+      this.checkLike = this.checkLike.bind(this);
+      this.checkDislike = this.checkDislike.bind(this);
+      this.onChange = this.onChange.bind(this);
     }
-  
-    handleSubmit(event) {
-      event.preventDefault();
-      if (!event.target.checkValidity()) {
-          this.setState({
-          invalid: true,
-          displayErrors: true,
-        });
-        return;
-      }
-      const form = event.target;
-      const data = new FormData(form);
-  
-      for (let name of data.keys()) {
-        const input = form.elements[name];
-        const parserName = input.dataset.parse;
-        console.log('parser name is', parserName);
-        if (parserName) {
-          const parsedValue = inputParsers[parserName](data.get(name))
-          data.set(name, parsedValue);
-        }
+
+    onChange = (e) => {
+      // Because we named the inputs to match their corresponding values in state, it's
+      // super easy to update the state
+      var {userText} = this.state
+      userText = e.target.value;
+      this.setState({'userText': userText});
+    }
+
+    onSubmit = (e) => {
+      e.preventDefault();
+      // get our form data out of state
+      const { userText, isLiked } = this.state;
+
+      if(this.state.isLiked === null){
+        alert('You need to Like or Dislike before continuing. ');
       }
       
-      this.setState({
-          res: stringifyFormData(data),
-        invalid: false,
-        displayErrors: false,
-      });
-  
-      // fetch('/api/form-submit-url', {
-      //   method: 'POST',
-      //   body: data,
-      // });
-    }
-  
-    render() {
-        const { res, invalid, displayErrors } = this.state;
-      return (
-          <div>
-          <form
-            onSubmit={this.handleSubmit}
-            noValidate
-            className={displayErrors ? 'displayErrors' : ''}
-           >
-            <label htmlFor="username">Username:</label>
-            <input
-              id="username"
-              name="username"
-              type="text"
-              data-parse="uppercase"
-            />
-  
-            <label htmlFor="email">Email:</label>
-            <input id="email" name="email" type="email" required />
-  
-            <label htmlFor="birthdate">Birthdate:</label>
-            <input
-              id="birthdate"
-              name="birthdate"
-              type="text"
-              data-parse="date"
-              placeholder="MM/DD//YYYY"
-              pattern="\d{2}\/\d{2}/\d{4}"
-              required
-            />
-  
-            <button>Send data!</button>
-          </form>
-          
-          
-          
-          <div className="res-block">
-            {invalid && (
-              <ShakingError text="Form is not valid" />
-            )}
-            {!invalid && res && (
-                <div>
-                <h3>Transformed data to be sent:</h3>
-                <pre>FormData {res}</pre>
-                </div>
-            )}
-          </div>
-          </div>
+      request
+			.post('http://dusuncembu.com:5000/akkol/consumer/submitForm')
+			.send({ 'userText': userText, 'isLiked': isLiked }) // sends a JSON post body
+			.set('Content-Type', "application/x-www-form-urlencoded")
+			.end((err, res) => {
+      // Calling the end function will send the request
+        }
       );
+    }
+
+
+    checkLike(){
+      this.setState({ isLiked: true });
+    }
+
+    checkDislike(){
+      this.setState({ isLiked: false });
+    }
+
+    render() {
+      return (
+        <div className="container-contact100">
+    
+        <div className="wrap-contact100">
+          <div className="contact100-form-title">
+            <span className="contact100-form-title-1">
+              Contact Us
+            </span>
+    
+            <span className="contact100-form-title-2">
+              Feel free to drop us a line below!
+            </span>
+            <span>
+              <button className='dislike-button' onClick={this.checkDislike}> Dislike</button>
+              <button className='like-button' onClick={this.checkLike}> Like</button>
+            </span>
+          </div>
+    
+          <form className="contact100-form validate-form">
+            <div className="wrap-input100 validate-input" data-validate = "Message is required">
+              <span className="label-input100">Message:</span>
+              <textarea className="input100" onChange={this.onChange} name="message" placeholder="Your Comment..."></textarea>
+              <span className="focus-input100"></span>
+            </div>
+    
+            <div className="container-contact100-form-btn">
+              <button className="contact100-form-btn" onClick={this.onSubmit}>
+                <span>
+                  Submit
+                  <i className="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+                </span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div> );
     }
   }
   
@@ -128,12 +101,3 @@ const inputParsers = {
       <MyForm />,
     document.getElementById('app')
   );
-  
-  
-  function stringifyFormData(fd) {
-    const data = {};
-      for (let key of fd.keys()) {
-        data[key] = fd.get(key);
-    }
-    return JSON.stringify(data, null, 2);
-  }

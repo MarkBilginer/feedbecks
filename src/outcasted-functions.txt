@@ -1,0 +1,31 @@
+const inputParsers = {
+    date(input) {
+      const split = input.split('/');
+      const day = split[1]
+      const month = split[0];
+      const year = split[2];
+      return `${year}-${month}-${day}`;
+    },
+    uppercase(input) {
+      return input.toUpperCase();
+    },
+    number(input) {
+      return parseFloat(input);
+    },
+  };
+
+
+-------------------------
+
+  class ShakingError extends React.Component {
+      constructor() { super(); this.state = { key: 0 }; }
+  
+      componentWillReceiveProps() {
+      // update key to remount the component to rerun the animation
+        this.setState({ key: ++this.state.key });
+    }
+    
+    render() {
+        return <div key={this.state.key} className="bounce">{this.props.text}</div>;
+    }
+  }
