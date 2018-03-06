@@ -202,13 +202,31 @@ iframe {
   padding: 64px 15px 64px 15px;
 }
 /*done by me*/
-div.contact100-form-title {
-  background-image: url('../images/bg-01.jpg');
+.contact100-form-title {
+  background-image: url('../images/akkol-logo.png');
+  background-size: 100%
 }
 
-.dislike-button,
+.dislike-button{
+  background-color: rgb(182, 0, 0);
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+
+}
+div.mytest {
+  position: absolute;
+  left: +70%;
+  top: -60%;
+}
+
 .like-button {
-  background-color: #4CAF50;
+  background-color: rgb(0, 124, 4);
   border: none;
   color: white;
   padding: 20px;
@@ -218,7 +236,7 @@ div.contact100-form-title {
   font-size: 16px;
   margin: 4px 2px;
 }
-body {
+.container-contact100 {
   font-family: 'Roboto Slab', sans-serif;
   background: linear-gradient(135deg, #010a58 0%, #098fa1 100%);
   color: #484848;
@@ -310,6 +328,11 @@ body {
   padding: 0 5px;
 }
 
+#wordcount {
+  position: relative;
+  left: 70%;
+}
+
 .focus-input100 {
   position: absolute;
   display: block;
@@ -334,7 +357,7 @@ body {
   -moz-transition: all 0.6s;
   transition: all 0.6s;
 
-  background: #57b846;
+  background: #040b6d;
 }
 
 
@@ -384,7 +407,7 @@ textarea.input100 {
   padding: 0 20px;
   min-width: 160px;
   height: 50px;
-  background-color: #57b846;
+  background-color: #6846b8;
   border-radius: 25px;
 
   font-family: Poppins-Regular;
