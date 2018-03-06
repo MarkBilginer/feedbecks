@@ -6,16 +6,20 @@ import './css/main.css'
 import './fonts/font-awesome-4.7.0/css/font-awesome.min.css'
 import './fonts/Linearicons-Free-v1.0.0/icon-font.min.css'
 import './images/icons/favicon.ico'
+import MyEmailForm from './MyEmailForm'
+import store from './store.js';
+import { addToFormId }  from './actions/formid-actions';
 
-  class MyForm extends React.Component {
+  class MyMessageForm extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
         isLiked : null,
         userText: '',
+        formID: '',
         timer: 0
       };
-      this.onSubmit = this.onSubmit.bind(this);
+      this.onNext = this.onNext.bind(this);
       this.checkLike = this.checkLike.bind(this);
       this.checkDislike = this.checkDislike.bind(this);
       this.onChange = this.onChange.bind(this);
@@ -24,30 +28,44 @@ import './images/icons/favicon.ico'
     onChange = (e) => {
       // Because we named the inputs to match their corresponding values in state, it's
       // super easy to update the state
-      var {userText} = this.state
+      var userText = this.state.userText;
       userText = e.target.value;
       this.setState({'userText': userText});
     }
 
-    onSubmit = (e) => {
+    onNext = (e) => {
       e.preventDefault();
       // get our form data out of state
-      const { userText, isLiked } = this.state;
+      const { isLiked, userText} = this.state;
 
       if(this.state.isLiked === null){
         alert('You need to Like or Dislike before continuing. ');
       }
-      
-      request
-			.post('http://dusuncembu.com:5000/akkol/consumer/submitForm')
-			.send({ 'userText': userText, 'isLiked': isLiked }) // sends a JSON post body
-			.set('Content-Type', "application/x-www-form-urlencoded")
-			.end((err, res) => {
-      // Calling the end function will send the request
-        }
-      );
-    }
 
+      request
+			.post('https://api.dusuncembu.com/akkol/consumer/submitForm')
+			.send({ 'userText': userText, 'isLiked': isLiked }) // sends a JSON post body
+      .set('Content-Type', "application/x-www-form-urlencoded")
+      .timeout({deadline: 10000}) // if there is no response after 10 seconds abort
+			.then(response => {
+      // Calling the end function will send the request
+        const responseParsed = JSON.parse(response.text);
+        //console.log(JSON.stringify(responseObject));
+        //this.setState({formID: responseObject.extras.formID});
+        store.dispatch(addToFormId(responseParsed.extras.formID));
+        var stateLength = store.getState().formId.length;
+        console.log(store.getState().formId[stateLength-1]);
+        });
+      //.catch(function(err){
+        //alert('error');
+      //});
+      
+      ReactDOM.render(
+        <MyEmailForm />,
+        document.getElementById('app')
+       );
+
+    }
 
     checkLike(){
       this.setState({ isLiked: true });
@@ -84,9 +102,9 @@ import './images/icons/favicon.ico'
             </div>
     
             <div className="container-contact100-form-btn">
-              <button className="contact100-form-btn" onClick={this.onSubmit}>
+              <button className="contact100-form-btn" onClick={this.onNext}>
                 <span>
-                  Submit
+                  Next
                   <i className="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
                 </span>
               </button>
@@ -98,6 +116,6 @@ import './images/icons/favicon.ico'
   }
   
   ReactDOM.render(
-      <MyForm />,
+      <MyMessageForm />,
     document.getElementById('app')
   );
