@@ -19,6 +19,7 @@ class MyMessageForm extends React.Component {
       formID: '',
       charsPerMessage: 280,
       charsLeft: 280,
+      notificationText: '',
       likeBtnColour: "#27AE60",  
       dislikeBtnColour: "#E74C3C"
     };
@@ -41,6 +42,8 @@ class MyMessageForm extends React.Component {
     // Because we named the inputs to match their corresponding values in state, it's
     // super easy to update the state
     if (this.state.charsLeft === 0) {
+      //this.setState({notificationText: 'Maximum char reached.'});
+    } else if(this.state.charsLeft === 280){
 
     }
 
@@ -57,9 +60,11 @@ class MyMessageForm extends React.Component {
 
     if (this.state.isLiked === null) {
       //do something if the person hasnt liked yet
+      this.setState({notificationText: 'Did you like or dislike?'});
       return;
     } else if (this.state.userText.length === 0) {
       //do something if the message is empty
+      this.setState({notificationText: 'Cannot send empty feedback'});
       return;
     }
 
@@ -91,10 +96,16 @@ class MyMessageForm extends React.Component {
   checkLike(e) {
     e.preventDefault();
     this.setState({ isLiked: true, likeBtnColour: "#196F3D" ,dislikeBtnColour: "#E74C3C"});
+    if(this.state.notificationText === 'Did you like or dislike?'){
+    this.setState({notificationText: ''});
   }
+}
   checkDislike(e) {
     e.preventDefault();
     this.setState({ isLiked: false, likeBtnColour: "#27AE60" ,dislikeBtnColour: "#C70039"});
+    if(this.state.notificationText === 'Did you like or dislike?'){
+      this.setState({notificationText: ''});
+    }
   }
 
   render() {
@@ -116,25 +127,29 @@ class MyMessageForm extends React.Component {
             <form className="contact100-form validate-form">
             
               <div className="container-contact100-form-btn">
-              
+                <div className="container-contact100-form-btn">
+                  <h4 style={{top: '-70%', position: 'relative', color: 'red'}}>{this.state.notificationText}</h4>
+                </div>
               
                 <div className="container-contact100-form-btn">
                 <button className='contact100-form-btn'
                         style={{backgroundColor: this.state.dislikeBtnColour}} 
                         onClick={this.checkDislike}> Dislike</button>
+                </div>
+                <div className="container-contact100-form-btn">
                 <button className='contact100-form-btn'
                         style={{backgroundColor: this.state.likeBtnColour}} 
                         onClick={this.checkLike}> Like</button>
                 </div>
                 <div className="wrap-input100 validate-input" data-validate="Message is required">
-                  <span className="label-input100">Message:</span>
+                  <span className="label-input100"><strong>Message:</strong></span>
                   <textarea className="input100"
                     onChange={this.onChange}
                     maxLength='280'
                     placeholder="Your Comment..."></textarea>
                   <span className="focus-input100"></span>
                 </div>
-                <span id='wordcount'>Total Chars left: {this.state.charsLeft}</span>
+                <span id='wordcount'>{this.state.charsLeft}</span>
                 <div className="container-contact100-form-btn">
                   <button className="contact100-form-btn" onClick={this.onNext}>
                     <span>
