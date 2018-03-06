@@ -9,7 +9,7 @@ class ThankForm extends React.Component {
                 <div>
                     <form className="contact100-form validate-form">
                         <div className="container-contact100-form-btn">
-                                <p>Thank you For Your Feedback.</p>
+                                <p>Geribildiriminiz için teşekkür ederiz.</p>
                         </div>
                     </form>
                 </div>

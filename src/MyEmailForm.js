@@ -57,18 +57,18 @@ class MyEmailForm extends React.Component{
         <div className="wrap-contact100">
           <div className="contact100-form-title">
             <span className="contact100-form-title-1">
-              Contact Us
+              Bize Ulaşın
             </span>
             <span className="contact100-form-title-2">
-              Feel free to drop us a line below!
+              
             </span>
         </div>
 
         <form className="contact100-form validate-form">
-            <div className="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+            <div className="wrap-input100 validate-input" >
 				<span className="label-input100">Email:</span>
                 <input className="input100" type="text" name="email" onChange={this.onChange} 
-                        placeholder="Enter email addess"/>
+                        placeholder="Email adresini giriniz"/>
 				<span className="focus-input100"></span>
 		    </div>
 
@@ -76,7 +76,7 @@ class MyEmailForm extends React.Component{
             <div className="container-contact100-form-btn">
               <button className="contact100-form-btn" onClick={this.onSubmit}>
                 <span>
-                  Submit
+                Gönder
                   <i className="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
                 </span>
               </button>

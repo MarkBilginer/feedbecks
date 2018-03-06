@@ -115,11 +115,11 @@ class MyMessageForm extends React.Component {
         <div className="wrap-contact100">
           <div className="contact100-form-title">
             <span className="contact100-form-title-1">
-              Contact Us
+              Bize Ulaşın
             </span>
 
             <span className="contact100-form-title-2">
-              Feel free to drop us a line below!
+              Bizimle iletişime geçmekten lütfen çekinmeyin.
             </span>
 
           </div>
@@ -142,18 +142,18 @@ class MyMessageForm extends React.Component {
                         onClick={this.checkLike}><i className="fa fa-thumbs-o-up" style={{fontSize: "200%"}}></i></button>
                 </div>
                 <div className="wrap-input100 validate-input" data-validate="Message is required">
-                  <span className="label-input100"><strong>Message:</strong></span>
+                  <span className="label-input100"><strong>Mesaj:</strong></span>
                   <textarea className="input100"
                     onChange={this.onChange}
                     maxLength='280'
-                    placeholder="Your Comment..."></textarea>
+                    placeholder="Görüşünüz bizim için önemli..."></textarea>
                   <span className="focus-input100"></span>
                 </div>
                 <span id='wordcount'>{this.state.charsLeft}</span>
                 <div className="container-contact100-form-btn">
                   <button className="contact100-form-btn" onClick={this.onNext}>
                     <span>
-                      Next
+                     İleri
                   <i className="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
                     </span>
                   </button>
