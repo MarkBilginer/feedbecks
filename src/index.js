@@ -131,15 +131,15 @@ class MyMessageForm extends React.Component {
                   <h4 style={{top: '-70%', position: 'relative', color: 'red'}}>{this.state.notificationText}</h4>
                 </div>
               
-                <div className="container-contact100-form-btn">
-                <button className='contact100-form-btn'
+                <div className="container-contact100-form-btn-MarkB">
+                <button className='contact100-form-btn-MarkB'
                         style={{backgroundColor: this.state.dislikeBtnColour}} 
-                        onClick={this.checkDislike}> Dislike</button>
+                        onClick={this.checkDislike}><i class="fa fa-thumbs-o-down" style={{fontSize: "200%"}}></i></button>
                 </div>
-                <div className="container-contact100-form-btn">
-                <button className='contact100-form-btn'
+                <div className="container-contact100-form-btn-MarkB">
+                <button className='contact100-form-btn-MarkB'
                         style={{backgroundColor: this.state.likeBtnColour}} 
-                        onClick={this.checkLike}> Like</button>
+                        onClick={this.checkLike}><i className="fa fa-thumbs-o-up" style={{fontSize: "200%"}}></i></button>
                 </div>
                 <div className="wrap-input100 validate-input" data-validate="Message is required">
                   <span className="label-input100"><strong>Message:</strong></span>

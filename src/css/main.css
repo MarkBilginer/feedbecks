@@ -395,6 +395,61 @@ textarea.input100 {
   flex-wrap: wrap;
   padding-top: 8px;
 }
+/*custom config MarkBilginer*/
+.container-contact100-form-btn-MarkB{
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 8px;
+}
+
+.contact100-form-btn-MarkB {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  min-width: 50px;
+  height: 50px;
+  border-radius: 25px;
+
+  font-family: Poppins-Regular;
+  font-size: 16px;
+  color: #fff;
+  line-height: 1.2;
+
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.contact100-form-btn-MarkB i {
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.contact100-form-btn-MarkB:hover {
+  background-color: #333333;
+}
+
+.contact100-form-btn-MarkB:hover i {
+  -webkit-transform: translateX(10px);
+  -moz-transform: translateX(10px);
+  -ms-transform: translateX(10px);
+  -o-transform: translateX(10px);
+  transform: translateX(10px);
+}
+/*-----------------------------------------------------------------------------*/
 
 .contact100-form-btn {
   display: -webkit-box;
