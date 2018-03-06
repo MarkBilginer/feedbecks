@@ -18,7 +18,9 @@ class MyMessageForm extends React.Component {
       userText: '',
       formID: '',
       charsPerMessage: 280,
-      charsLeft: 280
+      charsLeft: 280,
+      likeBtnColour: "#27AE60",  
+      dislikeBtnColour: "#E74C3C"
     };
     this.onNext = this.onNext.bind(this);
     this.checkLike = this.checkLike.bind(this);
@@ -54,10 +56,10 @@ class MyMessageForm extends React.Component {
     const { isLiked, userText } = this.state;
 
     if (this.state.isLiked === null) {
-      alert('You need to Like or Dislike before continuing. ');
+      //do something if the person hasnt liked yet
       return;
     } else if (this.state.userText.length === 0) {
-      alert('Writa a text ');
+      //do something if the message is empty
       return;
     }
 
@@ -88,12 +90,11 @@ class MyMessageForm extends React.Component {
 
   checkLike(e) {
     e.preventDefault();
-    this.setState({ isLiked: true });
+    this.setState({ isLiked: true, likeBtnColour: "#196F3D" ,dislikeBtnColour: "#E74C3C"});
   }
-
   checkDislike(e) {
     e.preventDefault();
-    this.setState({ isLiked: false });
+    this.setState({ isLiked: false, likeBtnColour: "#27AE60" ,dislikeBtnColour: "#C70039"});
   }
 
   render() {
@@ -118,8 +119,12 @@ class MyMessageForm extends React.Component {
               
               
                 <div className="container-contact100-form-btn">
-                <button className='contact100-form-btn' style={{backgroundColor: "#C70039"}} onClick={this.checkDislike}> Dislike</button>
-                <button className='contact100-form-btn' style={{backgroundColor: "#196F3D"}} onClick={this.checkLike}> Like</button>
+                <button className='contact100-form-btn'
+                        style={{backgroundColor: this.state.dislikeBtnColour}} 
+                        onClick={this.checkDislike}> Dislike</button>
+                <button className='contact100-form-btn'
+                        style={{backgroundColor: this.state.likeBtnColour}} 
+                        onClick={this.checkLike}> Like</button>
                 </div>
                 <div className="wrap-input100 validate-input" data-validate="Message is required">
                   <span className="label-input100">Message:</span>

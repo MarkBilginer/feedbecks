@@ -1,7 +1,9 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import request from 'superagent';
 import './css/main.css'
 import store from './store'
+import ThankForm from './ThankForm'
 
 class MyEmailForm extends React.Component{
     constructor(props) {
@@ -40,6 +42,12 @@ class MyEmailForm extends React.Component{
       console.log(JSON.stringify(responseObject));
         }
       );
+
+      ReactDOM.render(
+        <ThankForm />,
+        document.getElementById('app')
+      );
+
     }
 
     render() {
