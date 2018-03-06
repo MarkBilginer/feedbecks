@@ -9,7 +9,8 @@ class MyEmailForm extends React.Component{
     constructor(props) {
       super(props);
       this.state = {
-        mail: ''
+        mail: '',
+        notificationText: ''
       }
     }
 
@@ -21,6 +22,11 @@ class MyEmailForm extends React.Component{
 
     onSubmit = (event) => {
         event.preventDefault();
+
+        if(this.state.mail === ''){
+          this.setState({notificationText: 'Mail adresi boş olamaz.'})
+          return;
+        }
 
         const mail = this.state.mail;
         const stateLength = store.getState().formId.length;
@@ -66,13 +72,16 @@ class MyEmailForm extends React.Component{
 
         <form className="contact100-form validate-form">
             <div className="wrap-input100 validate-input" >
+            <div className="container-contact100-form-btn">
+                  <h4 style={{top: '-70%', position: 'relative', color: 'red'}}>{this.state.notificationText}</h4>
+                </div>
 				<span className="label-input100">Email:</span>
                 <input className="input100" type="text" name="email" onChange={this.onChange} 
                         placeholder="Email adresini giriniz"/>
 				<span className="focus-input100"></span>
 		    </div>
 
-    
+
             <div className="container-contact100-form-btn">
               <button className="contact100-form-btn" onClick={this.onSubmit}>
                 <span>

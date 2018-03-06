@@ -60,11 +60,11 @@ class MyMessageForm extends React.Component {
 
     if (this.state.isLiked === null) {
       //do something if the person hasnt liked yet
-      this.setState({notificationText: 'Did you like or dislike?'});
+      this.setState({notificationText: 'Deneyimin pozitif mi negatif mi??'});
       return;
     } else if (this.state.userText.length === 0) {
       //do something if the message is empty
-      this.setState({notificationText: 'Cannot send empty feedback'});
+      this.setState({notificationText: 'Görüşünü yazmalısın.'});
       return;
     }
 
@@ -96,14 +96,14 @@ class MyMessageForm extends React.Component {
   checkLike(e) {
     e.preventDefault();
     this.setState({ isLiked: true, likeBtnColour: "#196F3D" ,dislikeBtnColour: "#E74C3C"});
-    if(this.state.notificationText === 'Did you like or dislike?'){
+    if(this.state.notificationText === 'Deneyimin pozitif mi negatif mi?'){
     this.setState({notificationText: ''});
   }
 }
   checkDislike(e) {
     e.preventDefault();
     this.setState({ isLiked: false, likeBtnColour: "#27AE60" ,dislikeBtnColour: "#C70039"});
-    if(this.state.notificationText === 'Did you like or dislike?'){
+    if(this.state.notificationText === 'Deneyimin pozitif mi negatif mi?'){
       this.setState({notificationText: ''});
     }
   }
