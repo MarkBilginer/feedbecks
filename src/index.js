@@ -102,7 +102,7 @@ class MyMessageForm extends React.Component {
 }
   checkDislike(e) {
     e.preventDefault();
-    this.setState({ isLiked: false, likeBtnColour: "#27AE60" ,dislikeBtnColour: "#C70039"});
+    this.setState({ isLiked: false, likeBtnColour: "#27AE60" ,dislikeBtnColour: "#8b0000"});
     if(this.state.notificationText === 'Deneyimin pozitif mi negatif mi?'){
       this.setState({notificationText: ''});
     }
@@ -131,10 +131,10 @@ class MyMessageForm extends React.Component {
                   <h4 style={{top: '-70%', position: 'relative', color: 'red'}}>{this.state.notificationText}</h4>
                 </div>
               
-                <div className="container-contact100-form-btn-MarkB">
+                <div className="container-contact100-form-btn-MarkB dislike">
                 <button className='contact100-form-btn-MarkB'
                         style={{backgroundColor: this.state.dislikeBtnColour}} 
-                        onClick={this.checkDislike}><i class="fa fa-thumbs-o-down" style={{fontSize: "200%"}}></i></button>
+                        onClick={this.checkDislike}><i className="fa fa-thumbs-o-down" style={{fontSize: "200%"}}></i></button>
                 </div>
                 <div className="container-contact100-form-btn-MarkB">
                 <button className='contact100-form-btn-MarkB'
@@ -153,8 +153,8 @@ class MyMessageForm extends React.Component {
                 <div className="container-contact100-form-btn">
                   <button className="contact100-form-btn" onClick={this.onNext}>
                     <span>
-                     İleri
-                  <i className="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+                      İleri &emsp;
+                      <i className="fa fa-forward" aria-hidden="true"></i>
                     </span>
                   </button>
                 </div>

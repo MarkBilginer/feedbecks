@@ -63,7 +63,7 @@ class MyEmailForm extends React.Component{
         <div className="wrap-contact100">
           <div className="contact100-form-title">
             <span className="contact100-form-title-1">
-              Bize Ulaşın
+              Son Adım/Neredeyse Bitti
             </span>
             <span className="contact100-form-title-2">
               
