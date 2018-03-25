@@ -4,11 +4,11 @@ class ThankForm extends React.Component {
     
     render(){
         return (
-        <div className="container-contact100">
-            <div className="wrap-contact100">
+        <div className="container-main">
+            <div className="wrap-main">
                 <div>
-                    <form className="contact100-form validate-form">
-                        <div className="container-contact100-form-btn">
+                    <form className="main-form validate-form">
+                        <div className="container-main-form-btn">
                                 <p>Geribildiriminiz için teşekkür ederiz.</p>
                         </div>
                     </form>

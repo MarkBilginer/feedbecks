@@ -58,21 +58,21 @@ class MyEmailForm extends React.Component{
 
     render() {
       return (
-    <div className="container-contact100">
+    <div className="container-main">
     
-        <div className="wrap-contact100">
-          <div className="contact100-form-title">
-            <span className="contact100-form-title-1">
-              Son Adım/Neredeyse Bitti
+        <div className="wrap-main">
+          <div className="main-form-title">
+            <span className="main-form-title-1">
+              Son Adım
             </span>
-            <span className="contact100-form-title-2">
+            <span className="main-form-title-2">
               
             </span>
         </div>
 
-        <form className="contact100-form validate-form">
+        <form className="main-form validate-form">
             <div className="wrap-input100 validate-input" >
-            <div className="container-contact100-form-btn">
+            <div className="container-main-form-btn">
                   <h4 style={{top: '-70%', position: 'relative', color: 'red'}}>{this.state.notificationText}</h4>
                 </div>
 				<span className="label-input100">Email:</span>
@@ -82,12 +82,9 @@ class MyEmailForm extends React.Component{
 		    </div>
 
 
-            <div className="container-contact100-form-btn">
-              <button className="contact100-form-btn" onClick={this.onSubmit}>
-                <span>
-                Gönder
-                  <i className="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
-                </span>
+            <div className="container-main-form-btn">
+              <button className="main-form-btn" onClick={this.onSubmit}>
+                <span>Gönder</span>
               </button>
             </div>
           </form>
