@@ -4,8 +4,6 @@ class ThankForm extends React.Component {
     
     render(){
         return (
-        <div className="container-main">
-            <div className="wrap-main">
                 <div>
                     <form className="main-form validate-form">
                         <div className="container-main-form-btn">
@@ -13,8 +11,6 @@ class ThankForm extends React.Component {
                         </div>
                     </form>
                 </div>
-            </div>
-        </div>
         );
     }
 

@@ -1,6 +1,6 @@
 /*//////////////////////////////////////////////////////////////////
 [ FONT ]*/
-@font-face {
+/* @font-face {
   font-family: Poppins-Regular;
   src: url('../fonts/poppins/Poppins-Regular.ttf'); 
 }
@@ -18,7 +18,7 @@
 @font-face {
   font-family: Poppins-SemiBold;
   src: url('../fonts/poppins/Poppins-SemiBold.ttf'); 
-}
+} */
 
 /*//////////////////////////////////////////////////////////////////
 [ RESTYLE TAG ]*/
@@ -29,9 +29,10 @@
 	box-sizing: border-box;
 }
 
-body, html {
-	height: 100%;
-	font-family: Poppins-Regular, sans-serif;
+html,
+body {
+  height: 100%;
+  font-size: 100%;
 }
 /*----------------------------------------------------
       LEFT HALF
@@ -47,6 +48,15 @@ body, html {
   flex-direction: column;
   min-height: 100%;
 }
+
+/* .container-root::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: rgba(240, 255, 255, 0.5);
+} */
+
 .container-left-right{
   display: flex;
   flex-grow:1;
@@ -59,74 +69,84 @@ body, html {
   background: #f0ffff;
   align-items: center;
   justify-content: center;
-  padding-bottom: 70px;
+  padding-bottom: 4.3em;
+  min-width: 23.4em;
 }
 
 .thoughtbubble-logo {
-  height: 100px;
-  width: 100px;
+  height: 6.25em;
+  width: 6.25em;
 }
+
 .container-left-half {
+  display: flex;
   width: 50%;
   height: 100%;
   justify-content: center;
   align-items: center;
-}
-
-.communication-item-left {
-    display: flex;
-    font-size: 18px;
-    font-weight: bold;
-    line-height: 24px;
-    margin: 48px auto;
-    position: relative;
+  min-width: 23.4em;
 }
 
 .test-speak {
    -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
-    height: 100px;
-    min-width: 100px;
+    height: 5.9em;
+    min-width: 6.3em;
     position: relative;
-    margin-top: 10px;
+    margin-top: 0.6em;
 }
+
+svg .speak-voice{
+  fill: #FFAC33;
+}
+
+svg .speak-head {
+  fill: #f0ffff;
+}
+
+.fas {
+  margin-right: 1.8em;
+}
+
+.communication-item-left {
+    display: flex;
+    font-size: 1.5em;
+    font-weight: bold;
+    line-height: 1.5em;
+    margin: 3em auto;
+    position: relative;
+    color: white;
+}
+
 .left-header {
   width: 100%;
   height: 50%;
   text-align: center;
-  margin-top: 10px;
-}
-.background-image {
-  /* 1 background-color: #2b2d8c; */
-  background-color: #1976ba;
-  max-width: 100%;
-  height: inherit;
-  display: flex;
-  flex-direction: column;
+  margin-top: 0.6em;
 }
 
-.container-footer {
-  padding-right: 16px;
-  padding-left: 16px;
-  padding-bottom: 40px;
-  width:100%;
-  bottom: 0;
-  position: relative;
-  background-color: #E0DDCF;
+.container-left-half {
+  /* 1 background-color: #2b2d8c; */
+  /* background-color: rgba(186, 168, 152, 1); */
+  background-color: rgba(1, 22, 39, 1);
+  max-width: 100%;
+  height: inherit;
+  flex-direction: column;
 }
 
 /*Header
 ------------------------*/
-.container-header {
-  width: 100%;
-  padding-top: 32px;
-  padding-bottom: 24px;
+.thoughtbubble-image{
+  display: block;
 }
 
-.startup-logo {
-  width: 80px;
-  height: 80px;
-  border-radius: 10%;
+.company-akkol-logo {
+  background-image: url(../images/company/akkol-logo.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  width: 12.5em;
+  height: 3.4em;
+  display: inline-block;
 }
 /* IndexForm
 ------------------------*/
@@ -194,48 +214,22 @@ iframe {
 
 .wrap-main {
   width: 420px;
-  background: #E0DDCFff;
-  border-radius: 10px;
+  min-width: 360px;
+  min-height: 265px;
+  border: 0.18em solid rgba(1, 22, 39, 1);
+  border-radius: 0.6em;
   overflow: hidden;
   position: relative;
-}
-
-/*==================================================================
-[ Title form ]*/
-.main-form-title {
-  width: 100%;
-  position: relative;
-  z-index: 1;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  align-items: center;
-
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-
-  padding: 64px 15px 64px 15px;
-}
-/*done by me*/
-.main-form-title {
-  background-image: url('../images/company/akkol-logo.png');
-  background-size: 100%
 }
 
 .dislike-button{
   border: none;
   color: white;
-  padding: 20px;
+  padding: 1.2em;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
+  margin: 0.25em 0.12em;
 
 }
 
@@ -246,13 +240,12 @@ iframe {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
+  margin: 0.25em 0.12em;
 }
 
 .container-main {
   font-family: 'Roboto Slab', sans-serif;
-  max-width: 350px;
+  max-width: 21.8em;
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -265,56 +258,26 @@ iframe {
   position: relative;
 }
 
-/*----------------------*/
-.main-form-title-1 {
-  font-family: Poppins-Bold;
-  font-size: 20px;
-  color: #fff;
-  line-height: 1.2;
-  text-align: center;
-  padding-bottom: 7px;
-}
-
-.main-form-title-2 {
-  font-family: Poppins-Regular;
-  font-size: 15px;
-  color: #fff;
-  line-height: 1.5;
-  text-align: center;
-}
-
-
-.main-form-title::before {
-  content: "";
-  display: block;
-  position: absolute;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background-color: rgba(54,84,99,0.7);
-}
-
-
 /*==================================================================
 [ Form ]*/
 .main-form-header{
   width: 100%;
   text-align: center;
-  margin-bottom: 15px;
-  margin-top: 10px;
+  margin-bottom: 1em;
+  margin-top: 0.6em;
 }
 
 .main-form-header h1 {
   font-size: 24px;
   font-weight: 300;
-  font-family: Poppins-Regular;
+  /* font-family: Poppins-Regular; */
+  color: rgba(1, 22, 39, 1);
+  margin-top: 3em;
+  margin-bottom: 3em;
 }
 .main-form-header h2 {
-  font-size: 16px;
   font-weight: 100;
-  font-family: Poppins-Regular;
+  /* font-family: Poppins-Regular; */
 }
 
 .main-form {
@@ -326,7 +289,7 @@ iframe {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 15px 50px 20px 100px;
+  padding: 1.25em 2.5em 2em 2.8em;
 }
 
 
@@ -336,39 +299,26 @@ iframe {
 .wrap-input100 {
   width: 100%;
   position: relative;
-  border-bottom: 1px solid #b2b2b2;
-  margin-bottom: 10px;
+  border-bottom: 1px solid rgba(1, 22, 39, 1);
+  margin-bottom: 0.6em;
 }
 
-.label-input100 {
-  font-family: Poppins-Regular;
-  font-size: 15px;
-  color: #808080;
-  line-height: 1.2;
-  text-align: right;
-
-  position: absolute;
-  top: 14px;
-  left: -105px;
-  width: 80px;
-
-}
-
-/*---------------------------------------------*/
 .input100 {
-  font-family: Poppins-Regular;
-  font-size: 15px;
+  /* font-family: Poppins-Regular; */
+  font-size: 1.1em;
   color: #555555;
-  line-height: 1.2;
+  line-height: 1.2em;
 
   display: block;
   width: 100%;
   background: transparent;
-  padding: 0 5px;
+  padding: 0 0.3em;
 }
 
+/*---------------------------------------------*/
+
 #wordcount {
-  font-family: Poppins-Regular;
+  /* font-family: Poppins-Regular; */
   color: #555555;
   position: relative;
   left: 88%;
@@ -387,27 +337,17 @@ iframe {
 
 /*---------------------------------------------*/
 input.input100 {
-  height: 45px;
+  height: 2.8em;
 }
 
 
 textarea.input100 {
-  font-family: Poppins-Regular;
+  /* font-family: Poppins-Regular; */
   color:black;
-  min-height: 110px;
-  padding-top: 15px;
+  min-height: 7em;
+  margin-top: 1.8em;
   padding-bottom: 0;
 }
-
-
-.input100:focus + .focus-input100::before {
-  width: 100%;
-}
-
-.has-val.input100 + .focus-input100::before {
-  width: 100%;
-}
-
 
 /*------------------------------------------------------------------
 [ Button ]*/
@@ -421,6 +361,10 @@ textarea.input100 {
   flex-wrap: wrap;
 }
 
+.container-btn {
+  display: flex;
+}
+
 /*custom config MarkBilginer*/
 .container-main-form-notification {
   width: 100%;
@@ -431,19 +375,6 @@ textarea.input100 {
   display: flex;
   flex-wrap: wrap;
 }
-.container-main-form-btn-MarkB{
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  flex-wrap: wrap;
-  padding-top: 8px;
-}
-
-.container-main-form-btn-MarkB.dislike{
-  margin-right: 20px;
-}
 
 .main-form-btn-MarkB {
   display: -webkit-box;
@@ -453,15 +384,14 @@ textarea.input100 {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 20px;
-  min-width: 50px;
-  height: 40px;
-  border-radius: 5px;
+  padding: 0 1.25em;
+  min-width: 3em;
+  height: 2.5em;
+  border-radius: 0.3em;
 
-  font-family: Poppins-Regular;
-  font-size: 16px;
+  /* font-family: Poppins-Regular; */
   color: #fff;
-  line-height: 1.2;
+  line-height: 1.2em;
 
   -webkit-transition: all 0.4s;
   -o-transition: all 0.4s;
@@ -496,22 +426,27 @@ textarea.input100 {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 20px;
-  min-width: 120px;
-  height: 40px;
-  background-color: #6846b8;
-  border-radius: 5px;
+  padding: 0 1.3em;
+  margin-top: 0.6em;
+  min-width: 23em;
+  height: 2.5em;
+  margin-left: -1.5em;
+  background: linear-gradient(#67ae55, #578843);
+  background-color: #69a74e;
+  box-shadow: inset 0 0.06em 0.06em #a4e388;
+  border: 0.06em solid;
+  border-color: #3b6e22 #3b6e22 #2c5115;
+  border-radius: 0.3em;
 
-  font-family: Poppins-Regular;
-  font-size: 16px;
+  /* font-family: Poppins-Regular; */
   color: #fff;
-  line-height: 1.2;
+  line-height: 1.2em;
 }
-
+div {
+color: #ebf8e1;}
 
 .main-form-btn:hover {
-  background-color: #5f3dad;
-  border: 1px solid black;
+  border: 0.06em solid black;
 }
 
 /*----------------------------------------------------
@@ -519,20 +454,31 @@ textarea.input100 {
 ------------------------------------------------------*/
 /*Footer
 ------------------------*/
+.container-footer {
+  padding-right: 1em;
+  padding-left: 1em;
+  padding-bottom: 2.5em;
+  width:100%;
+  min-width: 46em;
+  bottom: 0;
+  position: relative;
+  background-color: #E0DDCF;
+}
 .footer-links {
   display: flex;
   list-style: none;
   justify-content: center;
+  padding-top: 1.25em;
 }
 
 .footer-links a {
   text-decoration: none;
-  font-size: 12px;
-  font-family: Poppins-Regular, sans-serif;
+  font-size: 1em;
+  /* font-family: Poppins-Regular, sans-serif; */
 }
 
 .mr {
-  margin-right: 15px;
+  margin-right: 0.9em;
 }
 
 /*--------------------------
@@ -540,40 +486,54 @@ textarea.input100 {
 --------------------------*/
 
 /*for phone only*/
-@media (max-width: 599px) { 
-  
+@media (min-width: 360px) and (max-width: 600px) { 
+  .container-left-right {
+    flex-flow: row wrap-reverse;
+    }
+    .container-right-half {
+      width: 100%;
+    }
+
+    .container-left-half {
+      width: 100%;
+    }
+    
+    .container-footer {
+      min-width: 0;
+    }
+
 }
 
 /* for tablet portrait up */
-@media (min-width: 600px) {
-
+@media (min-width: 600px) and (max-width: 1100px) {
+  
 }
 /*for tablet portait only*/
-@media (min-width: 600px) and (max-width: 899px) { 
+/* @media (min-width: 600px) and (max-width: 899px) { 
   
-}
+} */
 
 /*for tablet landscape up*/
-@media (min-width: 900px) { 
+/* @media (min-width: 900px) { 
   
-}
+} */
 
 /*for tablet landscape only*/
-@media (min-width: 900px) and (max-width: 1199px) { 
+/* @media (min-width: 900px) and (max-width: 1199px) { 
 
-}
+} */
 
 /*for desktop up*/
-@media (min-width: 1200px) { 
+/* @media (min-width: 1200px) { 
   
-}
+} */
 
 /*for desktop only*/
-@media (min-width: 1200px) and (max-width: 1799px) {
+/* @media (min-width: 1200px) and (max-width: 1799px) {
   
-}
+} */
 
 /*for big desktop up*/
-@media (min-width: 1800px) { 
+/* @media (min-width: 1800px) { 
   
-}
+} */

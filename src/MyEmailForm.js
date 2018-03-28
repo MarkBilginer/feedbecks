@@ -51,16 +51,14 @@ class MyEmailForm extends React.Component{
 
       ReactDOM.render(
         <ThankForm />,
-        document.getElementById('app')
+        document.getElementById('main')
       );
 
     }
 
     render() {
       return (
-    <div className="container-main">
-    
-        <div className="wrap-main">
+        <div>
           <div className="main-form-title">
             <span className="main-form-title-1">
               Son Adım
@@ -75,7 +73,6 @@ class MyEmailForm extends React.Component{
             <div className="container-main-form-btn">
                   <h4 style={{top: '-70%', position: 'relative', color: 'red'}}>{this.state.notificationText}</h4>
                 </div>
-				<span className="label-input100">Email:</span>
                 <input className="input100" type="text" name="email" onChange={this.onChange} 
                         placeholder="Email adresini giriniz"/>
 				<span className="focus-input100"></span>
@@ -89,7 +86,7 @@ class MyEmailForm extends React.Component{
             </div>
           </form>
         </div>
-    </div> );
+        );
     }
 
   }
