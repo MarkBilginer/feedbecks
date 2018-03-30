@@ -113,7 +113,7 @@ svg .speak-head {
     font-size: 1.5em;
     font-weight: bold;
     line-height: 1.5em;
-    margin: 3em auto;
+    margin: 2em 0.8em;
     position: relative;
     color: white;
 }
@@ -156,12 +156,6 @@ textarea {
   border: none;
 }
 
-textarea:focus::-webkit-input-placeholder { color:transparent; }
-textarea:focus:-moz-placeholder { color:transparent; }
-textarea:focus::-moz-placeholder { color:transparent; }
-textarea:focus:-ms-input-placeholder { color:transparent; }
-
-
 textarea::-webkit-input-placeholder {color: #999999;}
 textarea:-moz-placeholder {color: #999999;}
 textarea::-moz-placeholder {color: #999999;}
@@ -203,19 +197,10 @@ iframe {
 /*//////////////////////////////////////////////////////////////////
 [ Contact ]*/
 
-.main-map {
-  position: absolute;
-  z-index: -2;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-}
-
 .wrap-main {
-  width: 420px;
-  min-width: 360px;
-  min-height: 265px;
+  width: 26.3em;
+  min-width: 22.5em;
+  min-height: fit-content;
   border: 0.18em solid rgba(1, 22, 39, 1);
   border-radius: 0.6em;
   overflow: hidden;
@@ -258,6 +243,10 @@ iframe {
   position: relative;
 }
 
+.container-thank {
+  color: rgba(1, 22, 39, 1);
+}
+
 /*==================================================================
 [ Form ]*/
 .main-form-header{
@@ -289,21 +278,21 @@ iframe {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 1.25em 2.5em 2em 2.8em;
+  padding: 2em 2.8em 2em 2.8em;
 }
 
 
 /*------------------------------------------------------------------
 [ Input ]*/
 
-.wrap-input100 {
+.wrap-input {
   width: 100%;
   position: relative;
   border-bottom: 1px solid rgba(1, 22, 39, 1);
   margin-bottom: 0.6em;
 }
 
-.input100 {
+.input {
   /* font-family: Poppins-Regular; */
   font-size: 1.1em;
   color: #555555;
@@ -324,26 +313,17 @@ iframe {
   left: 88%;
 }
 
-.focus-input100 {
-  position: absolute;
-  display: block;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-}
 
 
 /*---------------------------------------------*/
-input.input100 {
+input.input {
   height: 2.8em;
 }
 
 
-textarea.input100 {
+textarea.input {
   /* font-family: Poppins-Regular; */
-  color:black;
+  color:rgba(1, 22, 39, 1);
   min-height: 7em;
   margin-top: 1.8em;
   padding-bottom: 0;
@@ -365,7 +345,6 @@ textarea.input100 {
   display: flex;
 }
 
-/*custom config MarkBilginer*/
 .container-main-form-notification {
   width: 100%;
   display: -webkit-box;
@@ -376,7 +355,7 @@ textarea.input100 {
   flex-wrap: wrap;
 }
 
-.main-form-btn-MarkB {
+.main-form-btn {
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -384,9 +363,7 @@ textarea.input100 {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 1.25em;
-  min-width: 3em;
-  height: 2.5em;
+  padding: 0.3em;
   border-radius: 0.3em;
 
   /* font-family: Poppins-Regular; */
@@ -399,18 +376,11 @@ textarea.input100 {
   transition: all 0.4s;
 }
 
-.main-form-btn-MarkB i {
-  -webkit-transition: all 0.4s;
-  -o-transition: all 0.4s;
-  -moz-transition: all 0.4s;
-  transition: all 0.4s;
+.main-form-btn:hover {
+  cursor: pointer;
 }
 
-.main-form-btn-MarkB:hover {
-  background-color: #333333;
-}
-
-.main-form-btn-MarkB:hover i {
+.main-form-btn:active {
   -webkit-transform: translateX(10px);
   -moz-transform: translateX(10px);
   -ms-transform: translateX(10px);
@@ -418,7 +388,7 @@ textarea.input100 {
   transform: translateX(10px);
 }
 
-.main-form-btn {
+.main-form-btn-next {
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -442,10 +412,12 @@ textarea.input100 {
   color: #fff;
   line-height: 1.2em;
 }
-div {
-color: #ebf8e1;}
 
-.main-form-btn:hover {
+div {
+color: #ebf8e1;
+}
+
+.main-form-btn-next:hover {
   border: 0.06em solid black;
 }
 
@@ -464,6 +436,7 @@ color: #ebf8e1;}
   position: relative;
   background-color: #E0DDCF;
 }
+
 .footer-links {
   display: flex;
   list-style: none;
@@ -479,6 +452,125 @@ color: #ebf8e1;}
 
 .mr {
   margin-right: 0.9em;
+}
+
+/*--------------------------
+      Form-Validation
+--------------------------*/
+
+.form-validation {
+  
+}
+
+.tooltip{
+  visibility: hidden;
+  position: absolute;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+  background-color: rgb(226, 76, 75);
+  text-align: center;
+  border-radius: 0.4em;
+  padding: 0.3em 0;
+}
+
+.tooltip.like-dislike {
+  top: 0.1em;
+  left: 1.8em;
+  width: 10.0em;
+}
+
+.tooltip.textarea {
+  top: -1.5em;
+  left: -1.2em;
+  width: 7.5em;
+}
+
+.tooltip.like-dislike:after {
+    content: "";
+    position: absolute;
+    top: 1.8em;
+    left: 0.6em;
+    border-width: 0.3em;
+    border-style: solid;
+    border-color: rgb(226, 76, 75) transparent transparent transparent;
+}
+
+.tooltip.textarea:after {
+  content: "";
+  position: absolute;
+  top: 3.0em;
+  left: 0.8em;
+  border-width: 0.3em;
+  border-style: solid;
+  border-color: rgb(226, 76, 75) transparent transparent transparent;
+}
+
+.container-btn {
+  /* border: 1px solid red; */
+  border-radius: 0.3em;
+  width: 100%;
+}
+
+.input-error-svg-btn {
+  visibility: hidden;
+  background-image: url("../images/warning.svg");
+  background-repeat: no-repeat;
+  width: 1.9em;
+  height: 1.9em;
+  position: absolute;
+  right: 3.2em;
+  top: 2.7em;
+}
+
+textarea.input {
+  /* border: 1px solid red; */
+  border-radius: 0.3em;
+}
+
+.input-error-svg-textarea {
+  visibility: hidden;
+  background-image: url("../images/warning.svg");
+  background-repeat: no-repeat;
+  width: 1.9em;
+  height: 1.9em;
+  position: absolute;
+  right: 0.3em;
+  top: 1.8em;
+}
+
+/*       Email
+--------------------------*/
+
+input.input {
+  /* border: 1px solid red; */
+  border-radius: 0.3em;
+}
+
+.input-error-svg-email {
+  visibility: hidden;
+  background-image: url("../images/warning.svg");
+  background-repeat: no-repeat;
+  width: 1.9em;
+  height: 1.9em;
+  position: absolute;
+  right: 0.5em;
+  top: 0.6em;
+}
+
+.tooltip.email {
+  top: -1.9em;
+  left: -1.2em;
+  width: 15em;
+}
+
+.tooltip.email:after {
+  content: "";
+  position: absolute;
+  top: 1.8em;
+  left: 0.8em;
+  border-width: 0.3em;
+  border-style: solid;
+  border-color: rgb(226, 76, 75) transparent transparent transparent;
 }
 
 /*--------------------------

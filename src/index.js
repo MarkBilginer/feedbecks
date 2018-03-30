@@ -1,10 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import request from 'superagent';
-//import './index.css'
 import './css/main.css'
 import './fonts/fontawesome-free-5.0.8/web-fonts-with-css/css/fontawesome-all.min.css'
-import './fonts/Linearicons-Free-v1.0.0/icon-font.min.css'
 import './images/icons/favicon.ico'
 import MyEmailForm from './MyEmailForm'
 import store from './store.js';
@@ -20,8 +18,8 @@ class MyMessageForm extends React.Component {
       charsPerMessage: 280,
       charsLeft: 280,
       notificationText: '',
-      likeBtnColour: "#d3d3d3",  
-      dislikeBtnColour: "#d3d3d3"
+      likeBtnColour: "rgba(1, 22, 39, 1)",  
+      dislikeBtnColour: "rgba(1, 22, 39, 1)"
     };
     this.onNext = this.onNext.bind(this);
     this.checkLike = this.checkLike.bind(this);
@@ -95,14 +93,14 @@ class MyMessageForm extends React.Component {
 
   checkLike(e) {
     e.preventDefault();
-    this.setState({ isLiked: true, likeBtnColour: "#365899" ,dislikeBtnColour: "#d3d3d3"});
+    this.setState({ isLiked: true, likeBtnColour: "#365899" ,dislikeBtnColour: "rgba(1, 22, 39, 1)"});
     if(this.state.notificationText === 'Deneyimin pozitif mi negatif mi?'){
     this.setState({notificationText: ''});
   }
 }
   checkDislike(e) {
     e.preventDefault();
-    this.setState({ isLiked: false, likeBtnColour: "#d3d3d3" ,dislikeBtnColour: "#9b3659"});
+    this.setState({ isLiked: false, likeBtnColour: "rgba(1, 22, 39, 1)" ,dislikeBtnColour: "#9b3659"});
     if(this.state.notificationText === 'Deneyimin pozitif mi negatif mi?'){
       this.setState({notificationText: ''});
     }
@@ -146,15 +144,16 @@ class MyMessageForm extends React.Component {
               
               <div className="communication-item-left">
                 <i className="fas fa-users"></i>
-                Item1
+                Kullandığınız Ürün ve Hizmetleri <br/> 1. Beğenip beğenmediginizi seçin...
+                <br/>2. Açıklayıcı bir degerlendirme yazın...
               </div>
               <div className="communication-item-left">
               <i className="fas fa-search"></i>
-                Item2
+                ...değerlendirmeniz islendikten sonra...
               </div>
               <div className="communication-item-left">
                 <i className="fas fa-file-alt"></i>
-                  Item3
+                Şirketin üst-düzeyine ulastırılır.
               </div>
           </div>
 
@@ -197,12 +196,14 @@ class MyMessageForm extends React.Component {
                   </a>
                 </span>
                 <i className="company-akkol-logo"></i>
-                <h1 className="main-form-title"> What to write here</h1>
+                <h1 className="main-form-title"> 1. Beğenip beğenmediginizi seçin.<br/>
+                2. Açıklayıcı bir degerlendirme yazın.
+                <br/>3. İleri tıklayınız.</h1>
               </div>
 
               <div id="main" className="wrap-main">
                 <div>
-                  <form className="main-form validate-form">
+                  <form className="main-form">
                   
                     <div className="container-main-form-btn">
                       
@@ -214,36 +215,43 @@ class MyMessageForm extends React.Component {
 
                       </div>
 
-                      <div className="container-btn invalid-input">
-                        
-                          <button className='main-form-btn-MarkB mr'
-                                  style={{backgroundColor: this.state.dislikeBtnColour}} 
-                                  onClick={this.checkDislike}>
-                                  <i className="far fa-thumbs-down" style={{fontSize: "200%", color: "black"}}></i>
-                          </button>  
-                          <button className='main-form-btn-MarkB'
-                                  style={{backgroundColor: this.state.likeBtnColour}} 
-                                  onClick={this.checkLike}>
-                                    <i className="far fa-thumbs-up" style={{fontSize: "200%", color: "black"}}></i>
-                          </button>
+                      <div className="container-btn form-validate">
+                          <div className="tooltip like-dislike" > 
+                            <span className="tooltiptext like-dislike">Like or Dislike.</span>
+                          </div>
+                          <i className="main-form-btn mr far fa-thumbs-down"
+                            style={{fontSize: "200%", 
+                            color: this.state.dislikeBtnColour,
+                            visibility: "visible"}}
+                            onClick={this.checkDislike}></i>
+                  
+                  
+                          <i className="main-form-btn far fa-thumbs-up" 
+                          style={{fontSize: "200%", 
+                          color: this.state.likeBtnColour,
+                          visibility: "visible"}}
+                          onClick={this.checkLike}></i>
+                          <span><svg className="input-error-svg-btn"></svg></span>
 
                       </div>
 
-                      <div className="wrap-input100 validate-input" data-validate="Message is required">
-                        
-                        <textarea className="input100"
+                      <div className="wrap-input">
+                        <div className="tooltip textarea" >
+                          <span className="tooltiptext textarea">Write your message.</span>
+                        </div>
+                        <textarea className="input form-validate"
                           onChange={this.onChange}
                           maxLength='280'
-                          placeholder="Görüşünüz bizim için önemli..."></textarea>
+                          placeholder="Görüşünüz bizim için önemli"></textarea>
 
-                        <span className="focus-input100"></span>
+                        <span><svg className="input-error-svg-textarea"></svg></span>
                       </div>
 
                       <span id='wordcount'>{this.state.charsLeft}</span>
 
                       <div className="container-main-form-btn">
                         
-                        <button className="main-form-btn" onClick={this.onNext}>
+                        <button className="main-form-btn-next" onClick={this.onNext}>
                           İleri
                         </button>
 

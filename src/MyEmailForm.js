@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import request from 'superagent';
 import './css/main.css'
 import store from './store'
-import ThankForm from './ThankForm'
+import ThankNote from './ThankNote'
 
 class MyEmailForm extends React.Component{
     constructor(props) {
@@ -50,7 +50,7 @@ class MyEmailForm extends React.Component{
       );
 
       ReactDOM.render(
-        <ThankForm />,
+        <ThankNote />,
         document.getElementById('main')
       );
 
@@ -58,34 +58,26 @@ class MyEmailForm extends React.Component{
 
     render() {
       return (
-        <div>
-          <div className="main-form-title">
-            <span className="main-form-title-1">
-              Son Adım
-            </span>
-            <span className="main-form-title-2">
-              
-            </span>
-        </div>
-
-        <form className="main-form validate-form">
-            <div className="wrap-input100 validate-input" >
-            <div className="container-main-form-btn">
-                  <h4 style={{top: '-70%', position: 'relative', color: 'red'}}>{this.state.notificationText}</h4>
-                </div>
-                <input className="input100" type="text" name="email" onChange={this.onChange} 
-                        placeholder="Email adresini giriniz"/>
-				<span className="focus-input100"></span>
-		    </div>
+        <form className="main-form">
+            
+            <div className="wrap-input">
+              <div className="container-main-form-btn">
+                <h4 style={{top: '-70%', position: 'relative', color: 'red'}}>{this.state.notificationText}</h4>
+              </div>
+              <div className="tooltip email" >Write your E-mail.</div>
+              <input className="input" type="email" name="email" onChange={this.onChange} 
+                     placeholder="you@email.com"/>
+              <span><svg class="input-error-svg-email"></svg></span>
+		        </div>
 
 
             <div className="container-main-form-btn">
-              <button className="main-form-btn" onClick={this.onSubmit}>
+              <button className="main-form-btn-next" onClick={this.onSubmit}>
                 <span>Gönder</span>
               </button>
             </div>
+
           </form>
-        </div>
         );
     }
 
