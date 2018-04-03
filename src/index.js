@@ -100,11 +100,20 @@ class MyMessageForm extends React.Component {
     // get our form data out of state
     const { isLiked, userText } = this.state;
 
-    if(this.state.isLiked === null && this.state.userText.length === 0){
-      this.IndexFormAddError('like-dislike');
-      this.IndexFormAddError('textarea');
-      return;
-    }else if (this.state.isLiked === null) {
+    // if(this.state.isLiked === null && this.state.userText.length === 0){
+    //   this.IndexFormAddError('like-dislike');
+    //   this.IndexFormAddError('textarea');
+    //   return;
+    // }else if (this.state.isLiked === null) {
+    //   //add error classes for visualization if the person hasnt liked yet
+    //   this.IndexFormAddError('like-dislike');
+    //   return;
+    // } else if (this.state.userText.length === 0) {
+    //   //add error classes for visualization if the message is empty
+    //   this.IndexFormAddError('textarea');
+    //   return;
+    // }
+    if (this.state.isLiked === null) {
       //add error classes for visualization if the person hasnt liked yet
       this.IndexFormAddError('like-dislike');
       return;
@@ -206,21 +215,19 @@ class MyMessageForm extends React.Component {
                 <div className="communication-item-left">
                   <i className="fas fa-users"></i>
                   <span className="communication-item-text">
-                    Kullandığınız Ürün ve Hizmetleri <br/> 
-                    1. Beğenip beğenmediginizi seçin...
-                    <br/>2. Açıklayıcı bir degerlendirme yazın...
+                    Düşünceni belirt
                   </span>
                 </div>
                 <div className="communication-item-left">
                   <i className="fas fa-search"></i>
                   <span className="communication-item-text">
-                    ...değerlendirmeniz islendikten sonra...
+                    Biz Şirkete ulaştıralım
                   </span>
                 </div>
                 <div className="communication-item-left">
                   <i className="fas fa-file-alt"></i>
                   <span className="communication-item-text">
-                    Şirketin üst-düzeyine ulastırılır.
+                    Şirket üst-düzey yöneticisi değerlendirsin
                   </span>
                 </div>
               </div>
@@ -265,7 +272,7 @@ class MyMessageForm extends React.Component {
                   </a>
                 </span>
                 <i className="company-akkol-logo"></i>
-                <h1 className="main-form-title">dusuncembu.com</h1>
+                <h1 className="main-form-title">Düşünceni belirt</h1>
               </div>
 
               <div id="main" className="wrap-main">
@@ -277,17 +284,17 @@ class MyMessageForm extends React.Component {
                       <div className="container-btn">
                           <div className="tooltip like-dislike" > 
                             <span className="tooltiptext like-dislike">
-                            Lütfen beğenip beğenmediğinizi belirtiniz.
+                            Lütfen beğenip beğenmediğini seç.
                             </span>
                           </div>
-                          <i className="main-form-btn mr far fa-thumbs-down"
+                          <i className="main-form-btn mr fas fa-thumbs-down"
                             style={{fontSize: "200%", 
                             color: this.state.dislikeBtnColour,
                             visibility: "visible"}}
                             onClick={this.checkDislike}></i>
                   
                   
-                          <i className="main-form-btn far fa-thumbs-up" 
+                          <i className="main-form-btn fas fa-thumbs-up" 
                           style={{fontSize: "200%", 
                           color: this.state.likeBtnColour,
                           visibility: "visible"}}
