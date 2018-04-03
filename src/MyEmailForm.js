@@ -68,7 +68,7 @@ class MyEmailForm extends React.Component{
         const formID = responseParsed.formId;
 
         request
-			.post('https://api.dusuncembu.com/private_test/consumer/updateForm')
+			.post('https://api.dusuncembu.com/akkol/consumer/updateForm')
 			.send({ 'formID': formID, 'mail': mail }) // sends a JSON post body
 			.set('Content-Type', "application/x-www-form-urlencoded")
 			.then(response => {

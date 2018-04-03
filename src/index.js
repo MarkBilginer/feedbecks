@@ -124,7 +124,7 @@ class MyMessageForm extends React.Component {
     }
 
     request
-      .post('https://api.dusuncembu.com/private_test/consumer/submitForm')
+      .post('https://api.dusuncembu.com/akkol/consumer/submitForm')
       .send({ 'userText': userText, 'isLiked': isLiked }) // sends a JSON post body
       .set('Content-Type', "application/x-www-form-urlencoded")
       .timeout({ deadline: 10000 }) // if there is no response after 10 seconds abort
