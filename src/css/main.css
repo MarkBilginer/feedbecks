@@ -1,24 +1,3 @@
-/*//////////////////////////////////////////////////////////////////
-[ FONT ]*/
-/* @font-face {
-  font-family: Poppins-Regular;
-  src: url('../fonts/poppins/Poppins-Regular.ttf'); 
-}
-
-@font-face {
-  font-family: Poppins-Medium;
-  src: url('../fonts/poppins/Poppins-Medium.ttf'); 
-}
-
-@font-face {
-  font-family: Poppins-Bold;
-  src: url('../fonts/poppins/Poppins-Bold.ttf'); 
-}
-
-@font-face {
-  font-family: Poppins-SemiBold;
-  src: url('../fonts/poppins/Poppins-SemiBold.ttf'); 
-} */
 
 /*//////////////////////////////////////////////////////////////////
 [ RESTYLE TAG ]*/
@@ -48,14 +27,6 @@ body {
   flex-direction: column;
   min-height: 100%;
 }
-
-/* .container-root::before {
-  content: "";
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  background-color: rgba(240, 255, 255, 0.5);
-} */
 
 .container-left-right{
   display: flex;
@@ -108,12 +79,16 @@ svg .speak-head {
   margin-right: 1.8em;
 }
 
+.communication-item-left-group {
+  font-family: 'Arvo', serif;
+}
+
 .communication-item-left {
     display: flex;
     font-size: 1.5em;
     font-weight: bold;
     line-height: 1.5em;
-    margin: 2em 0.8em;
+    margin: 2em auto;
     position: relative;
     color: white;
 }
@@ -126,8 +101,6 @@ svg .speak-head {
 }
 
 .container-left-half {
-  /* 1 background-color: #2b2d8c; */
-  /* background-color: rgba(186, 168, 152, 1); */
   background-color: rgba(1, 22, 39, 1);
   max-width: 100%;
   height: inherit;
@@ -229,7 +202,6 @@ iframe {
 }
 
 .container-main {
-  font-family: 'Roboto Slab', sans-serif;
   max-width: 21.8em;
   display: -webkit-box;
   display: -webkit-flex;
@@ -257,16 +229,15 @@ iframe {
 }
 
 .main-form-header h1 {
+  font-family: 'Arvo', serif;
   font-size: 24px;
-  font-weight: 300;
-  /* font-family: Poppins-Regular; */
+  font-weight: 700;
   color: rgba(1, 22, 39, 1);
   margin-top: 3em;
-  margin-bottom: 3em;
+  margin-bottom: 1em;
 }
 .main-form-header h2 {
   font-weight: 100;
-  /* font-family: Poppins-Regular; */
 }
 
 .main-form {
@@ -293,7 +264,6 @@ iframe {
 }
 
 .input {
-  /* font-family: Poppins-Regular; */
   font-size: 1.1em;
   color: #555555;
   line-height: 1.2em;
@@ -307,7 +277,6 @@ iframe {
 /*---------------------------------------------*/
 
 #wordcount {
-  /* font-family: Poppins-Regular; */
   color: #555555;
   position: relative;
   left: 88%;
@@ -322,7 +291,6 @@ input.input {
 
 
 textarea.input {
-  /* font-family: Poppins-Regular; */
   color:rgba(1, 22, 39, 1);
   min-height: 7em;
   margin-top: 1.8em;
@@ -345,15 +313,6 @@ textarea.input {
   display: flex;
 }
 
-.container-main-form-notification {
-  width: 100%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  flex-wrap: wrap;
-}
 
 .main-form-btn {
   display: -webkit-box;
@@ -366,7 +325,6 @@ textarea.input {
   padding: 0.3em;
   border-radius: 0.3em;
 
-  /* font-family: Poppins-Regular; */
   color: #fff;
   line-height: 1.2em;
 
@@ -408,7 +366,6 @@ textarea.input {
   border-color: #3b6e22 #3b6e22 #2c5115;
   border-radius: 0.3em;
 
-  /* font-family: Poppins-Regular; */
   color: #fff;
   line-height: 1.2em;
 }
@@ -427,11 +384,12 @@ color: #ebf8e1;
 /*Footer
 ------------------------*/
 .container-footer {
+  font-family: 'Arvo', serif;
   padding-right: 1em;
   padding-left: 1em;
   padding-bottom: 2.5em;
   width:100%;
-  min-width: 46em;
+  min-width: 23.6em;
   bottom: 0;
   position: relative;
   background-color: #E0DDCF;
@@ -447,7 +405,6 @@ color: #ebf8e1;
 .footer-links a {
   text-decoration: none;
   font-size: 1em;
-  /* font-family: Poppins-Regular, sans-serif; */
 }
 
 .mr {
@@ -457,12 +414,8 @@ color: #ebf8e1;
 /*--------------------------
       Form-Validation
 --------------------------*/
-
-.form-validation {
-  
-}
-
 .tooltip{
+  font-family: 'Lato', sans-serif;
   visibility: hidden;
   position: absolute;
   display: inline-block;
@@ -472,30 +425,20 @@ color: #ebf8e1;
   border-radius: 0.4em;
   padding: 0.3em 0;
 }
-
-.tooltip.like-dislike {
-  top: 0.1em;
-  left: 1.8em;
-  width: 10.0em;
-}
+/*textarea and its error notification*/
 
 .tooltip.textarea {
   top: -1.5em;
   left: -1.2em;
-  width: 7.5em;
+  width: 20.5em;
 }
 
-.tooltip.like-dislike:after {
-    content: "";
-    position: absolute;
-    top: 1.8em;
-    left: 0.6em;
-    border-width: 0.3em;
-    border-style: solid;
-    border-color: rgb(226, 76, 75) transparent transparent transparent;
+.tooltip.textarea.error {
+  visibility: visible;
 }
 
 .tooltip.textarea:after {
+  visibility: hidden;
   content: "";
   position: absolute;
   top: 3.0em;
@@ -505,26 +448,16 @@ color: #ebf8e1;
   border-color: rgb(226, 76, 75) transparent transparent transparent;
 }
 
-.container-btn {
-  /* border: 1px solid red; */
-  border-radius: 0.3em;
-  width: 100%;
-}
-
-.input-error-svg-btn {
-  visibility: hidden;
-  background-image: url("../images/warning.svg");
-  background-repeat: no-repeat;
-  width: 1.9em;
-  height: 1.9em;
-  position: absolute;
-  right: 3.2em;
-  top: 2.7em;
+.tooltip.textarea.error:after {
+  visibility: visible;
 }
 
 textarea.input {
-  /* border: 1px solid red; */
   border-radius: 0.3em;
+}
+
+textarea.input.error {
+  border: 1px solid red;
 }
 
 .input-error-svg-textarea {
@@ -538,12 +471,68 @@ textarea.input {
   top: 1.8em;
 }
 
-/*       Email
---------------------------*/
+.input-error-svg-textarea.error {
+  visibility: visible;
+}
+
+/*like or dislike and its error notification*/
+.container-btn {
+  border-radius: 0.3em;
+  width: 100%;
+}
+
+.container-btn.error {
+  border: 1px solid red;
+}
+
+.input-error-svg-btn {
+  visibility: hidden;
+  background-image: url("../images/warning.svg");
+  background-repeat: no-repeat;
+  width: 1.9em;
+  height: 1.9em;
+  position: absolute;
+  right: 3.2em;
+  top: 2.7em;
+}
+
+.input-error-svg-btn.error {
+  visibility: visible;
+}
+
+.tooltip.like-dislike {
+  visibility: hidden;
+  top: 0.1em;
+  left: 1.8em;
+  width: 20em;;
+}
+
+.tooltip.like-dislike.error {
+  visibility: visible;
+}
+
+.tooltip.like-dislike:after {
+  visibility: hidden;
+  content: "";
+  position: absolute;
+  top: 1.8em;
+  left: 0.6em;
+  border-width: 0.3em;
+  border-style: solid;
+  border-color: rgb(226, 76, 75) transparent transparent transparent;
+}
+.tooltip.like-dislike.error:after {
+  visibility: visible;
+}
+
+/*email and its error notification*/
 
 input.input {
-  /* border: 1px solid red; */
   border-radius: 0.3em;
+}
+
+input.input.error {
+  border: 1px solid red;
 }
 
 .input-error-svg-email {
@@ -557,20 +546,33 @@ input.input {
   top: 0.6em;
 }
 
-.tooltip.email {
-  top: -1.9em;
-  left: -1.2em;
-  width: 15em;
+.input-error-svg-email.error {
+  visibility: visible;
 }
 
-.tooltip.email:after {
+.tooltip.email {
+  visibility: hidden;
+  top: -1.9em;
+  left: -1.2em;
+  width: 20em;
+}
+.tooltip.email.error {
+  visibility: visible;
+}
+
+.tooltip.email.error:after {
+  visibility: hidden;
   content: "";
   position: absolute;
-  top: 1.8em;
-  left: 0.8em;
+  top: 3.0em;
+  left: 0.5em;
   border-width: 0.3em;
   border-style: solid;
   border-color: rgb(226, 76, 75) transparent transparent transparent;
+}
+
+.tooltip.email.error:after {
+  visibility: visible;
 }
 
 /*--------------------------
@@ -578,7 +580,31 @@ input.input {
 --------------------------*/
 
 /*for phone only*/
-@media (min-width: 360px) and (max-width: 600px) { 
+@media (min-width: 0px) and (max-width: 600px) { 
+
+  .container-left-right {
+    flex-flow: row wrap-reverse;
+    }
+    
+    .container-right-half {
+      width: 100%;
+      min-width: 360px;
+    }
+
+    .container-left-half {
+      width: 100%;
+      min-width: 360px;
+    }
+    
+    .container-footer {
+      width: 100%;
+      min-width: 360px;
+    }
+
+}
+
+/* for tablet portrait up */
+@media (min-width: 600px) and (max-width: 1100px) {
   .container-left-right {
     flex-flow: row wrap-reverse;
     }
@@ -593,12 +619,6 @@ input.input {
     .container-footer {
       min-width: 0;
     }
-
-}
-
-/* for tablet portrait up */
-@media (min-width: 600px) and (max-width: 1100px) {
-  
 }
 /*for tablet portait only*/
 /* @media (min-width: 600px) and (max-width: 899px) { 

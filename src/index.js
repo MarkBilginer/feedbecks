@@ -8,6 +8,8 @@ import MyEmailForm from './MyEmailForm'
 import store from './store.js';
 import { addToFormId } from './actions/formid-actions';
 
+window.React = React;
+
 class MyMessageForm extends React.Component {
   constructor(props) {
     super(props);
@@ -39,10 +41,16 @@ class MyMessageForm extends React.Component {
   onChange = (e) => {
     // Because we named the inputs to match their corresponding values in state, it's
     // super easy to update the state
-    if (this.state.charsLeft === 0) {
-      //this.setState({notificationText: 'Maximum char reached.'});
-    } else if(this.state.charsLeft === 280){
 
+    // if (this.state.charsLeft === 0) {
+    // } else if(this.state.charsLeft === 280){
+    // }
+    const textarea_tooltip_error= document.querySelector('.tooltip.textarea.error');
+    const textarea_input_error= document.querySelector('textarea.input.error');
+    const input_svg_error= document.querySelector('.input-error-svg-textarea.error');
+
+    if(textarea_tooltip_error && textarea_input_error && input_svg_error) {
+      this.IndexFormRemoveError('textarea');
     }
 
     this.countWord(e);
@@ -51,23 +59,63 @@ class MyMessageForm extends React.Component {
     this.setState({ 'userText': userText });
   }
 
+  IndexFormAddError(string){
+
+    switch(string){
+    case 'like-dislike': 
+                  document.querySelector(".container-btn").classList.add("error");
+                  document.querySelector(".input-error-svg-btn").classList.add("error");
+                  document.querySelector(".tooltip.like-dislike").classList.add("error");
+                  break;
+    case 'textarea':  
+                  document.querySelector(".tooltip.textarea").classList.add("error");
+                  document.querySelector("textarea.input").classList.add("error");
+                  document.querySelector(".input-error-svg-textarea").classList.add("error");
+                  break;
+    default:
+          break;
+    }
+  }
+
+  IndexFormRemoveError(string){
+
+    switch(string){
+    case 'like-dislike': 
+                  document.querySelector(".container-btn").classList.remove("error");
+                  document.querySelector(".input-error-svg-btn").classList.remove("error");
+                  document.querySelector(".tooltip.like-dislike").classList.remove("error");
+                  break;
+    case 'textarea':  
+                  document.querySelector(".tooltip.textarea").classList.remove("error");
+                  document.querySelector("textarea.input").classList.remove("error");
+                  document.querySelector(".input-error-svg-textarea").classList.remove("error");
+                  break;
+    default: 
+          break;
+    }
+  }
+
   onNext = (e) => {
     e.preventDefault();
     // get our form data out of state
     const { isLiked, userText } = this.state;
 
-    if (this.state.isLiked === null) {
-      //do something if the person hasnt liked yet
-      this.setState({notificationText: 'Deneyimin pozitif mi negatif mi??'});
+    if(this.state.isLiked === null && this.state.userText.length === 0){
+      this.IndexFormAddError('like-dislike');
+      this.IndexFormAddError('textarea');
+      return;
+    }else if (this.state.isLiked === null) {
+      //add error classes for visualization if the person hasnt liked yet
+      this.IndexFormAddError('like-dislike');
       return;
     } else if (this.state.userText.length === 0) {
-      //do something if the message is empty
-      this.setState({notificationText: 'Görüşünü yazmalısın.'});
+      //add error classes for visualization if the message is empty
+      this.IndexFormAddError('textarea');
       return;
     }
 
     request
-      .post('https://api.dusuncembu.com/akkol/consumer/submitForm')
+      .post('https://api.dusuncembu.com/private_test/consumer/submitForm')
       .send({ 'userText': userText, 'isLiked': isLiked }) // sends a JSON post body
       .set('Content-Type', "application/x-www-form-urlencoded")
       .timeout({ deadline: 10000 }) // if there is no response after 10 seconds abort
@@ -93,17 +141,30 @@ class MyMessageForm extends React.Component {
 
   checkLike(e) {
     e.preventDefault();
-    this.setState({ isLiked: true, likeBtnColour: "#365899" ,dislikeBtnColour: "rgba(1, 22, 39, 1)"});
-    if(this.state.notificationText === 'Deneyimin pozitif mi negatif mi?'){
-    this.setState({notificationText: ''});
-  }
+
+    const container_btn_error= document.querySelector('.container-btn.error');
+    const input_svg_error= document.querySelector('.input-error-svg-btn.error');
+    const btn_tooltip_error= document.querySelector('.tooltip.like-dislike.error');
+
+    if(container_btn_error && input_svg_error && btn_tooltip_error) {
+      this.IndexFormRemoveError('like-dislike');
+    }
+
+    this.setState({ isLiked: true, likeBtnColour: "#365899", dislikeBtnColour: "rgba(1, 22, 39, 1)"});
 }
+
   checkDislike(e) {
     e.preventDefault();
-    this.setState({ isLiked: false, likeBtnColour: "rgba(1, 22, 39, 1)" ,dislikeBtnColour: "#9b3659"});
-    if(this.state.notificationText === 'Deneyimin pozitif mi negatif mi?'){
-      this.setState({notificationText: ''});
+
+    const container_btn_error= document.querySelector('.container-btn.error');
+    const input_svg_error= document.querySelector('.input-error-svg-btn.error');
+    const btn_tooltip_error= document.querySelector('.tooltip.like-dislike.error');
+
+    if(container_btn_error && input_svg_error && btn_tooltip_error) {
+      this.IndexFormRemoveError('like-dislike');
     }
+
+    this.setState({ isLiked: false, likeBtnColour: "rgba(1, 22, 39, 1)", dislikeBtnColour: "#9b3659"});
   }
 
   render() {
@@ -141,19 +202,27 @@ class MyMessageForm extends React.Component {
                   </g>
                 </svg>
               </div>
-              
-              <div className="communication-item-left">
-                <i className="fas fa-users"></i>
-                Kullandığınız Ürün ve Hizmetleri <br/> 1. Beğenip beğenmediginizi seçin...
-                <br/>2. Açıklayıcı bir degerlendirme yazın...
-              </div>
-              <div className="communication-item-left">
-              <i className="fas fa-search"></i>
-                ...değerlendirmeniz islendikten sonra...
-              </div>
-              <div className="communication-item-left">
-                <i className="fas fa-file-alt"></i>
-                Şirketin üst-düzeyine ulastırılır.
+              <div className="communication-item-left-group">
+                <div className="communication-item-left">
+                  <i className="fas fa-users"></i>
+                  <span className="communication-item-text">
+                    Kullandığınız Ürün ve Hizmetleri <br/> 
+                    1. Beğenip beğenmediginizi seçin...
+                    <br/>2. Açıklayıcı bir degerlendirme yazın...
+                  </span>
+                </div>
+                <div className="communication-item-left">
+                  <i className="fas fa-search"></i>
+                  <span className="communication-item-text">
+                    ...değerlendirmeniz islendikten sonra...
+                  </span>
+                </div>
+                <div className="communication-item-left">
+                  <i className="fas fa-file-alt"></i>
+                  <span className="communication-item-text">
+                    Şirketin üst-düzeyine ulastırılır.
+                  </span>
+                </div>
               </div>
           </div>
 
@@ -196,9 +265,7 @@ class MyMessageForm extends React.Component {
                   </a>
                 </span>
                 <i className="company-akkol-logo"></i>
-                <h1 className="main-form-title"> 1. Beğenip beğenmediginizi seçin.<br/>
-                2. Açıklayıcı bir degerlendirme yazın.
-                <br/>3. İleri tıklayınız.</h1>
+                <h1 className="main-form-title">dusuncembu.com</h1>
               </div>
 
               <div id="main" className="wrap-main">
@@ -206,18 +273,12 @@ class MyMessageForm extends React.Component {
                   <form className="main-form">
                   
                     <div className="container-main-form-btn">
-                      
-                      <div className="container-main-form-notification">
 
-                        <h4 style={{top: '-70%', position: 'relative', color: 'red'}}>
-                          {this.state.notificationText}
-                        </h4>
-
-                      </div>
-
-                      <div className="container-btn form-validate">
+                      <div className="container-btn">
                           <div className="tooltip like-dislike" > 
-                            <span className="tooltiptext like-dislike">Like or Dislike.</span>
+                            <span className="tooltiptext like-dislike">
+                            Lütfen beğenip beğenmediğinizi belirtiniz.
+                            </span>
                           </div>
                           <i className="main-form-btn mr far fa-thumbs-down"
                             style={{fontSize: "200%", 
@@ -237,7 +298,10 @@ class MyMessageForm extends React.Component {
 
                       <div className="wrap-input">
                         <div className="tooltip textarea" >
-                          <span className="tooltiptext textarea">Write your message.</span>
+                          <span className="tooltiptext textarea">
+                            İyi veya kötü bir değerlendirme yaz, 
+                            İşletmeler neyi iyi ve kötü yaptıklarını öğrensinler.
+                          </span>
                         </div>
                         <textarea className="input form-validate"
                           onChange={this.onChange}
@@ -280,7 +344,7 @@ class MyMessageForm extends React.Component {
                 <a className="mr" href="#4">Licenses</a>
               </li>
               <li>
-                <a href="#5">Contact dusuncembu.com</a>
+                <a href="#5">Contact Us</a>
               </li>
             </ul>
           </div>

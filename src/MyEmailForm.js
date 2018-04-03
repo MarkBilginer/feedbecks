@@ -9,26 +9,55 @@ class MyEmailForm extends React.Component{
     constructor(props) {
       super(props);
       this.state = {
-        mail: '',
-        notificationText: ''
+        mail: ''
       }
     }
 
     onChange = (event) => {
-        var mail = this.state.mail;
-        mail = event.target.value;
-        this.setState({ 'mail': mail});
+
+      const input_error= document.querySelector('input.input.error');
+      const input_svg_error= document.querySelector('.input-error-svg-email.error');
+      const input_tooltip_error= document.querySelector('.tooltip.email.error');
+  
+      if(input_error && input_svg_error && input_tooltip_error) {
+        this.EmailFormRemoveError('like-dislike');
+      }
+
+      var mail = this.state.mail;
+      mail = event.target.value;
+      this.setState({ 'mail': mail});
     }
+
+    EmailFormAddError(){ 
+      document.querySelector("input.input").classList.add("error");
+      document.querySelector(".input-error-svg-email").classList.add("error");
+      document.querySelector(".tooltip.email").classList.add("error");
+    }
+
+    EmailFormRemoveError(){ 
+      document.querySelector("input.input").classList.remove("error");
+      document.querySelector(".input-error-svg-email").classList.remove("error");
+      document.querySelector(".tooltip.email").classList.remove("error");
+  }
+   
+  isEmailValid(string){
+    
+
+    return false;
+  }
 
     onSubmit = (event) => {
         event.preventDefault();
 
+        const mail = this.state.mail;
+
         if(this.state.mail === ''){
-          this.setState({notificationText: 'Mail adresi boş olamaz.'})
+          this.EmailFormAddError();
           return;
+        } else if (!this.isEmailValid(mail)){
+          
         }
 
-        const mail = this.state.mail;
         const stateLength = store.getState().formId.length;
         const responseObject = store.getState().formId[stateLength-1]
         //const formID = JSON.stringify(store.getState().formId[stateLength-1]);
@@ -37,8 +66,9 @@ class MyEmailForm extends React.Component{
         const responseParsed = JSON.parse(responseString);
         console.log('parsed: '+responseParsed.formId);
         const formID = responseParsed.formId;
+
         request
-			.post('https://api.dusuncembu.com/akkol/consumer/updateForm')
+			.post('https://api.dusuncembu.com/private_test/consumer/updateForm')
 			.send({ 'formID': formID, 'mail': mail }) // sends a JSON post body
 			.set('Content-Type', "application/x-www-form-urlencoded")
 			.then(response => {
@@ -61,19 +91,20 @@ class MyEmailForm extends React.Component{
         <form className="main-form">
             
             <div className="wrap-input">
-              <div className="container-main-form-btn">
-                <h4 style={{top: '-70%', position: 'relative', color: 'red'}}>{this.state.notificationText}</h4>
+
+              <div className="tooltip email">
+                Lütfen geçerli bir e-posta adresi gir. Şirketler buradan 
+                sana ulaşabileck.
               </div>
-              <div className="tooltip email" >Write your E-mail.</div>
               <input className="input" type="email" name="email" onChange={this.onChange} 
-                     placeholder="you@email.com"/>
-              <span><svg class="input-error-svg-email"></svg></span>
+                     placeholder="your@email.com"/>
+              <span><svg className="input-error-svg-email"></svg></span>
 		        </div>
 
 
             <div className="container-main-form-btn">
               <button className="main-form-btn-next" onClick={this.onSubmit}>
-                <span>Gönder</span>
+                <span>Paylaş</span>
               </button>
             </div>
 
