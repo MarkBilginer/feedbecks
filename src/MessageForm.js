@@ -96,20 +96,7 @@ class MessageForm extends React.Component{
         e.preventDefault();
         // get our form data out of state
         const { isLiked, userText } = this.state;
-
-        // if(this.state.isLiked === null && this.state.userText.length === 0){
-        //   this.IndexFormAddError('like-dislike');
-        //   this.IndexFormAddError('textarea');
-        //   return;
-        // }else if (this.state.isLiked === null) {
-        //   //add error classes for visualization if the person hasnt liked yet
-        //   this.IndexFormAddError('like-dislike');
-        //   return;
-        // } else if (this.state.userText.length === 0) {
-        //   //add error classes for visualization if the message is empty
-        //   this.IndexFormAddError('textarea');
-        //   return;
-        // }
+        
         if (this.state.isLiked === null) {
         //add error classes for visualization if the person hasnt liked yet
         this.IndexFormAddError('like-dislike');

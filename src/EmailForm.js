@@ -2,17 +2,28 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import request from 'superagent';
 import { Form, Button } from 'react-bootstrap';
-import './css/main.css'
+import './fonts/fontawesome-free-5.0.8/web-fonts-with-css/css/fontawesome-all.min.css'
 import store from './store'
 import ThankNote from './ThankNote'
 
 class EmailForm extends React.Component{
     constructor(props) {
       super(props);
+      let email = localStorage.getItem('email');
       this.state = {
-        mail: ''
+        mail: email ? email : ''
+      }
+      console.log('contructor variable mail has value: ' + this.state.mail);
+
+    }
+
+    componentDidMount() {
+      if(this.state.mail !== ''){
+        document.getElementsByName('email')[0].value = this.state.mail;
       }
     }
+
+    componentWillUnmount(){}
 
     onChange = (event) => {
 
@@ -43,32 +54,33 @@ class EmailForm extends React.Component{
    
   isEmailValid(string){
     
-
     return false;
   }
 
     onSubmit = (event) => {
-        event.preventDefault();
+      event.preventDefault();
 
-        const mail = this.state.mail;
+      const mail = this.state.mail;
+      
+      localStorage.setItem('email', mail);
 
-        if(this.state.mail === ''){
-          this.EmailFormAddError();
-          return;
-        } else if (!this.isEmailValid(mail)){
-          
-        }
+      if(this.state.mail === ''){
+        this.EmailFormAddError();
+        return;
+      } else if (!this.isEmailValid(mail)){
+        
+      }
 
-        const stateLength = store.getState().formId.length;
-        const responseObject = store.getState().formId[stateLength-1]
-        //const formID = JSON.stringify(store.getState().formId[stateLength-1]);
-        const responseString = JSON.stringify(responseObject);
-        console.log('string: '+responseString);
-        const responseParsed = JSON.parse(responseString);
-        console.log('parsed: '+responseParsed.formId);
-        const formID = responseParsed.formId;
+      const stateLength = store.getState().formId.length;
+      const responseObject = store.getState().formId[stateLength-1]
+      //const formID = JSON.stringify(store.getState().formId[stateLength-1]);
+      const responseString = JSON.stringify(responseObject);
+      console.log('string: '+responseString);
+      const responseParsed = JSON.parse(responseString);
+      console.log('parsed: '+responseParsed.formId);
+      const formID = responseParsed.formId;
 
-        request
+      request
 			.post('https://api.dusuncembu.com/akkol/consumer/updateForm')
 			.send({ 'formID': formID, 'mail': mail }) // sends a JSON post body
 			.set('Content-Type', "application/x-www-form-urlencoded")
@@ -87,12 +99,15 @@ class EmailForm extends React.Component{
 
     }
 
+    clearEmailField = (event) => {
+      event.preventDefault();
+      document.getElementsByName('email')[0].value ='';
+    }
+
     render() {
       return (
-        <Form className="main-form">
-            
-            <div className="wrap-input">
-
+        <Form className="main-form-email">
+            <div className="wrap-input email">
               <div className="customtooltip email">
                 Lütfen geçerli bir e-posta adresi gir. Şirketler buradan 
                 sana ulaşabileck.
@@ -101,14 +116,15 @@ class EmailForm extends React.Component{
                      placeholder="your@email.com"/>
               <span><svg className="input-error-svg-email"></svg></span>
 		        </div>
-
-
+            <i 
+              className="fas fa-times" 
+              style={{color:'rgba(1, 22, 39, 1)'}}
+              onClick={this.clearEmailField}></i>
             <div className="container-main-form-btn">
               <Button className="main-form-btn-next" onClick={this.onSubmit}>
                 <span>Paylaş</span>
               </Button>
             </div>
-
           </Form>
         );
     }

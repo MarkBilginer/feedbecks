@@ -210,15 +210,23 @@ iframe {
   padding: 2em 2.8em 2em 2.8em;
 }
 
+.main-form-email {
+  padding: 2em 0.8em 2em 2.8em;
+}
 
 /*------------------------------------------------------------------
 [ Input ]*/
 
 .wrap-input {
+  display: inline-block;
   width: 100%;
   position: relative;
   border-bottom: 1px solid rgba(1, 22, 39, 1);
   margin-bottom: 0.6em;
+}
+
+.wrap-input.email {
+  width: 85%;
 }
 
 .input {
