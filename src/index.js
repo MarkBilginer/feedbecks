@@ -5,6 +5,4 @@ import './images/icons/favicon.ico';
 import './css/main.css';
 
 ReactDOM.render(
-  <IndexSite />,
-  document.getElementById('app')
-);
+  <IndexSite/>, document.getElementById('app'));
