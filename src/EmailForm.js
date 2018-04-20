@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import request from 'superagent';
+import { Form, Button } from 'react-bootstrap';
 import './css/main.css'
 import store from './store'
 import ThankNote from './ThankNote'
 
-class MyEmailForm extends React.Component{
+class EmailForm extends React.Component{
     constructor(props) {
       super(props);
       this.state = {
@@ -17,7 +18,7 @@ class MyEmailForm extends React.Component{
 
       const input_error= document.querySelector('input.input.error');
       const input_svg_error= document.querySelector('.input-error-svg-email.error');
-      const input_tooltip_error= document.querySelector('.tooltip.email.error');
+      const input_tooltip_error= document.querySelector('.customtooltip.email.error');
   
       if(input_error && input_svg_error && input_tooltip_error) {
         this.EmailFormRemoveError('like-dislike');
@@ -31,13 +32,13 @@ class MyEmailForm extends React.Component{
     EmailFormAddError(){ 
       document.querySelector("input.input").classList.add("error");
       document.querySelector(".input-error-svg-email").classList.add("error");
-      document.querySelector(".tooltip.email").classList.add("error");
+      document.querySelector(".customtooltip.email").classList.add("error");
     }
 
     EmailFormRemoveError(){ 
       document.querySelector("input.input").classList.remove("error");
       document.querySelector(".input-error-svg-email").classList.remove("error");
-      document.querySelector(".tooltip.email").classList.remove("error");
+      document.querySelector(".customtooltip.email").classList.remove("error");
   }
    
   isEmailValid(string){
@@ -88,11 +89,11 @@ class MyEmailForm extends React.Component{
 
     render() {
       return (
-        <form className="main-form">
+        <Form className="main-form">
             
             <div className="wrap-input">
 
-              <div className="tooltip email">
+              <div className="customtooltip email">
                 Lütfen geçerli bir e-posta adresi gir. Şirketler buradan 
                 sana ulaşabileck.
               </div>
@@ -103,15 +104,15 @@ class MyEmailForm extends React.Component{
 
 
             <div className="container-main-form-btn">
-              <button className="main-form-btn-next" onClick={this.onSubmit}>
+              <Button className="main-form-btn-next" onClick={this.onSubmit}>
                 <span>Paylaş</span>
-              </button>
+              </Button>
             </div>
 
-          </form>
+          </Form>
         );
     }
 
   }
 
-  export default MyEmailForm;
+  export default EmailForm;
