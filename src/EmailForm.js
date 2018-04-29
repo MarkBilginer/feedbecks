@@ -147,8 +147,9 @@ class EmailForm extends React.Component {
         <i
           className="fas fa-times"
           style={{
-          color: 'rgba(1, 22, 39, 1)'
-        }}
+          color: 'rgba(1, 22, 39, 1)',
+          cursor: 'pointer'
+          }}
           onClick={this.clearEmailField}></i>
         <div className="container-main-form-btn">
           <Button className="main-form-btn-next" onClick={this.onSubmit}>
