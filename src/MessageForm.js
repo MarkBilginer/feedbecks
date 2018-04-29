@@ -6,6 +6,8 @@ import './fonts/fontawesome-free-5.0.8/web-fonts-with-css/css/fontawesome-all.mi
 import EmailForm from './EmailForm'
 import store from './store.js';
 import {addToFormId} from './actions/formid-actions';
+import audioPop1 from './sounds/pop1.mp3'
+import audioPop2 from './sounds/pop2.mp3'
 
 class MessageForm extends React.Component {
     constructor(props) {
@@ -35,6 +37,7 @@ class MessageForm extends React.Component {
         this.countWord = this
             .countWord
             .bind(this);
+        
     }
 
     countWord = (e) => {
@@ -181,6 +184,9 @@ class MessageForm extends React.Component {
     checkLike(e) {
         e.preventDefault();
 
+        let pop1 = new Audio(audioPop1);
+        let pop2 = new Audio(audioPop2);
+
         const container_btn_error = document.querySelector('.container-btn.error');
         const input_svg_error = document.querySelector('.input-error-svg-btn.error');
         const btn_tooltip_error = document.querySelector('.customtooltip.like-dislike.error');
@@ -193,21 +199,30 @@ class MessageForm extends React.Component {
             this.setState({isLiked: '', 
                             likeBtnColour: "rgba(1, 22, 39, 1)"
                         });
+            pop2.play();
+
         } else if(this.state.isLiked === false) {
             this.setState({isLiked: true, 
                             likeBtnColour: "#365899",
                             dislikeBtnColour: "rgba(1, 22, 39, 1)"
                         });
+            pop1.play();
+
         }else {
             this.setState({isLiked: true, 
                             likeBtnColour: "#365899",
                             dislikeBtnColour: "rgba(1, 22, 39, 1)"
                         });
+            pop1.play();
+
         }
     }
 
     checkDislike(e) {
         e.preventDefault();
+
+        let pop1 = new Audio(audioPop1);
+        let pop2 = new Audio(audioPop2);
 
         const container_btn_error = document.querySelector('.container-btn.error');
         const input_svg_error = document.querySelector('.input-error-svg-btn.error');
@@ -222,15 +237,20 @@ class MessageForm extends React.Component {
                 likeBtnColour: "rgba(1, 22, 39, 1)",
                 dislikeBtnColour: "#9b3659"
             });
+            pop1.play();
+
         } else if(this.state.isLiked === false) {
             this.setState({isLiked: '',
                 dislikeBtnColour: "rgba(1, 22, 39, 1)"
             });
+            pop2.play();
+
         }else {
             this.setState({isLiked: false, 
                             likeBtnColour: "rgba(1, 22, 39, 1)",
                             dislikeBtnColour: "#9b3659"
                         });
+            pop1.play();
         }
     }
 
