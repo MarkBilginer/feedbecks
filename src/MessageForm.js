@@ -189,7 +189,21 @@ class MessageForm extends React.Component {
             this.IndexFormRemoveError('like-dislike');
         }
 
-        this.setState({isLiked: true, likeBtnColour: "#365899", dislikeBtnColour: "rgba(1, 22, 39, 1)"});
+        if(this.state.isLiked === true){
+            this.setState({isLiked: '', 
+                            likeBtnColour: "rgba(1, 22, 39, 1)"
+                        });
+        } else if(this.state.isLiked === false) {
+            this.setState({isLiked: true, 
+                            likeBtnColour: "#365899",
+                            dislikeBtnColour: "rgba(1, 22, 39, 1)"
+                        });
+        }else {
+            this.setState({isLiked: true, 
+                            likeBtnColour: "#365899",
+                            dislikeBtnColour: "rgba(1, 22, 39, 1)"
+                        });
+        }
     }
 
     checkDislike(e) {
@@ -203,7 +217,21 @@ class MessageForm extends React.Component {
             this.IndexFormRemoveError('like-dislike');
         }
 
-        this.setState({isLiked: false, likeBtnColour: "rgba(1, 22, 39, 1)", dislikeBtnColour: "#9b3659"});
+        if(this.state.isLiked === true){
+            this.setState({isLiked: false, 
+                likeBtnColour: "rgba(1, 22, 39, 1)",
+                dislikeBtnColour: "#9b3659"
+            });
+        } else if(this.state.isLiked === false) {
+            this.setState({isLiked: '',
+                dislikeBtnColour: "rgba(1, 22, 39, 1)"
+            });
+        }else {
+            this.setState({isLiked: false, 
+                            likeBtnColour: "rgba(1, 22, 39, 1)",
+                            dislikeBtnColour: "#9b3659"
+                        });
+        }
     }
 
     render() {
