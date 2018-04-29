@@ -354,6 +354,8 @@ textarea.input {
   padding: 0.3em;
   border-radius: 0.3em;
 
+  font-size: 1.5em;
+
   color: #fff;
   line-height: 1.2em;
 
@@ -373,6 +375,10 @@ textarea.input {
   -ms-transform: translateX(10px);
   -o-transform: translateX(10px);
   transform: translateX(10px);
+}
+
+.main-form-btn .text {
+  font-size: 0.7em;
 }
 
 .main-form-btn-next {

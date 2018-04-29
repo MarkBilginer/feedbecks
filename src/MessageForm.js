@@ -209,9 +209,6 @@ class MessageForm extends React.Component {
     render() {
         return (
             <Form className="main-form">
-
-            <div className="container-main-form-btn">
-
                 <div className="container-btn">
                     <div className="customtooltip like-dislike">
                         <span className="customtooltiptext like-dislike">
@@ -221,20 +218,22 @@ class MessageForm extends React.Component {
                     <i
                         className="main-form-btn mr fas fa-thumbs-down"
                         style={{
-                        fontSize: "200%",
                         color: this.state.dislikeBtnColour,
                         visibility: "visible"
                     }}
-                        onClick={this.checkDislike}></i>
+                        onClick={this.checkDislike}> 
+                        <span className="text"> Dislike</span>
+                    </i>
 
                     <i
                         className="main-form-btn fas fa-thumbs-up"
                         style={{
-                        fontSize: "200%",
                         color: this.state.likeBtnColour,
                         visibility: "visible"
                     }}
-                        onClick={this.checkLike}></i>
+                        onClick={this.checkLike}> 
+                        <span className="text"> Like</span>
+                    </i>
                     <span>
                         <svg className="input-error-svg-btn"></svg>
                     </span>
@@ -268,8 +267,6 @@ class MessageForm extends React.Component {
                     </Button>
 
                 </div>
-
-            </div>
         </Form>/* main form*/
         );
     }
