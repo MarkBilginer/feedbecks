@@ -6,7 +6,10 @@ import Footer from './Footer'
 window.React = React;
 
 class IndexSite extends React.Component {
+
   render() {
+    let companyPath = window.location.pathname; // returns /companyname/...
+    let companyName = companyPath.split('/').pop();
     return (
       <Grid fluid>
         <Row className="show-grid">
@@ -54,12 +57,14 @@ class IndexSite extends React.Component {
                     </svg>
                   </a>
                 </span>
-                <i className="company-akkol-logo"></i>
+                <div className="company-logo-wrapper">
+                  <i className={"company-logo " + companyName}></i>
+                </div>
                 <h1 className="main-form-title">Düşünceni belirt</h1>
               </div>
 
               <div id="main" className="wrap-main">
-                <MessageForm/>
+                <MessageForm companyName={ companyName }/>
               </div>
             </div>
           </Col>
@@ -123,6 +128,7 @@ class IndexSite extends React.Component {
             </Row>{/* left-header*/}
             <Row className="show-grid">
               <Col xs={12} sm={12} md={12} lg={12} className="communication-item-left-group">
+              <div className="communication-item-left-wrapper">
                 <div className="communication-item-left">
                   <i className="fas fa-users"></i>
                   <span className="communication-item-text">
@@ -141,6 +147,7 @@ class IndexSite extends React.Component {
                     Şirket üst-düzey yöneticisi değerlendirsin
                   </span>
                 </div>
+              </div>
               </Col>{/* communication-item-group*/}
             </Row>{/* communication-item-left-group*/}
           </Col>

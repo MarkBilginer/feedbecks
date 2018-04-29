@@ -62,11 +62,16 @@ svg .speak-head {
 
 .communication-item-left-group {
   font-family: 'Arvo', serif;
+  display: flex;
+  justify-content: center;
+}
+
+.communication-item-left-wrapper {
+  display: "inline-block";
 }
 
 .communication-item-left {
-    margin-bottom: 2.5em;
-    margin-left: 2em;
+    margin: 2.5em auto;
     font-size: 1.5em;
     font-weight: bold;
     line-height: 1.5em;
@@ -74,7 +79,7 @@ svg .speak-head {
 }
 
 .left-header {
-  margin-bottom: 13em;
+  margin-bottom: 10em;
   text-align: center;
 }
 
@@ -88,16 +93,86 @@ svg .speak-head {
   display: block;
 }
 
-.company-akkol-logo {
-  background-image: url(../images/company/akkol-logo.png);
-  background-size: 100%;
-  background-repeat: no-repeat;
-  width: 12.5em;
-  height: 3.4em;
-  display: inline-block;
-  margin-bottom: 2em;
+/*Dynamic Company Logo Depending on window.location
+------------------------*/
+.company-logo-wrapper {
 }
 
+.company-logo {
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 12.5em;
+  height: 4.0em;
+  display: inline-block;
+}
+
+.company-logo.akkol {
+  background-image: url(../images/company/akkol.png);
+}
+.company-logo.caglayankitap {
+  background-image: url(../images/company/caglayankitap.png);
+}
+.company-logo.fibabanka {
+  background-image: url(../images/company/fibabanka.png);
+  margin-left: 5em;
+}
+.company-logo.gursel {
+  background-image: url(../images/company/gursel.png);
+}
+.company-logo.harvest {
+  background-image: url(../images/company/harvest.png);
+  margin-left: 4em;
+}
+.company-logo.izcocukgelisim {
+  background-image: url(../images/company/izcocukgelisim.png);
+  margin-left: 6em;
+}
+.company-logo.kasikla {
+  background-image: url(../images/company/kasikla.png);
+}
+.company-logo.kidemsanat {
+  background-image: url(../images/company/kidemsanat.png);
+  margin-left: 4em;
+}
+.company-logo.kumpirbox {
+  background-image: url(../images/company/kumpirbox.png);
+}
+.company-logo.kyocera {
+  background-image: url(../images/company/kyocera.png);
+}
+.company-logo.marmarisbufe {
+  background-image: url(../images/company/marmarisbufe.png);
+  margin-left: 7em;
+}
+.company-logo.nero {
+  background-image: url(../images/company/nero.png);
+  margin-left: 4em;
+}
+.company-logo.ozu {
+  background-image: url(../images/company/ozu.png);
+}
+.company-logo.ozusportscafe {
+  background-image: url(../images/company/ozusportscafe.png);
+  margin-left: 6em;
+}
+.company-logo.pizzahotslice {
+  background-image: url(../images/company/pizzahotslice.png);
+  margin-left: 7em;
+}
+.company-logo.simitcidunyasi {
+  background-image: url(../images/company/simitcidunyasi.png);
+  margin-left: 6em;
+}
+.company-logo.subway {
+  background-image: url(../images/company/subway.png);
+}
+.company-logo.vodafone {
+  background-image: url(../images/company/vodafone.png);
+}
+.company-logo.youthstore {
+  background-image: url(../images/company/youthstore.png);
+  margin-left: 5em;
+}
 /* IndexForm
 ------------------------*/
 
@@ -150,7 +225,8 @@ iframe {
 .wrap-main {
   width: 23.3em;
   min-width: 22.5em;
-  margin-left: 9em;
+  margin-left: auto;
+  margin-right: auto;
   border: 0.18em solid rgba(1, 22, 39, 1);
   border-radius: 0.6em;
   position: relative;
@@ -178,7 +254,6 @@ iframe {
 }
 
 .container-main {
-  max-width: 50vh;
 }
 
 .container-thank {
@@ -192,7 +267,8 @@ iframe {
   text-align: center;
   margin-bottom: 1em;
   margin-top: 0.6em;
-  margin-left: 9em;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .main-form-header h1 {

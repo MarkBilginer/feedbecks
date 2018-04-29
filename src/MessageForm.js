@@ -150,9 +150,11 @@ class MessageForm extends React.Component {
             this.IndexFormAddError('textarea');
             return;
         }
-
+        console.log('sending request to: https://api.dusuncembu.com/'
+                        + this.props.companyName +
+                        '/consumer/submitForm');
         request
-            .post('https://api.dusuncembu.com/private_test/consumer/submitForm')
+            .post('https://api.dusuncembu.com/'+ this.props.companyName +'/consumer/submitForm')
             .send({'userText': userText, 'isLiked': isLiked}) // sends a JSON post body
             .set('Content-Type', "application/x-www-form-urlencoded")
             .timeout({deadline: 10000}) // if there is no response after 10 seconds abort
@@ -171,7 +173,8 @@ class MessageForm extends React.Component {
         //.catch(function(err){ alert('error'); });
 
         ReactDOM.render(
-            <EmailForm/>, document.getElementById('main'));
+            <EmailForm companyName={this.props.companyName}/>,
+                 document.getElementById('main'));
 
     }
 
