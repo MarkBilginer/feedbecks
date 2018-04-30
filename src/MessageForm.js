@@ -37,13 +37,13 @@ class MessageForm extends React.Component {
         this.countWord = this
             .countWord
             .bind(this);
-        
+
     }
 
     countWord = (e) => {
         var currentText = e.target.value;
-        // Now we need to recalculate the number of characters that have been typed in so
-        // far
+        // Now we need to recalculate the number of characters that have been typed in
+        // so far
         var characterCount = currentText.length;
         var l_charsLeft = this.state.charsPerMessage - characterCount;
         this.setState({'charsLeft': l_charsLeft});
@@ -153,11 +153,9 @@ class MessageForm extends React.Component {
             this.IndexFormAddError('textarea');
             return;
         }
-        console.log('sending request to: https://api.dusuncembu.com/'
-                        + this.props.companyName +
-                        '/consumer/submitForm');
+        console.log('sending request to: https://api.dusuncembu.com/' + this.props.companyName + '/consumer/submitForm');
         request
-            .post('https://api.dusuncembu.com/'+ this.props.companyName +'/consumer/submitForm')
+            .post('https://api.dusuncembu.com/' + this.props.companyName + '/consumer/submitForm')
             .send({'userText': userText, 'isLiked': isLiked}) // sends a JSON post body
             .set('Content-Type', "application/x-www-form-urlencoded")
             .timeout({deadline: 10000}) // if there is no response after 10 seconds abort
@@ -176,8 +174,7 @@ class MessageForm extends React.Component {
         //.catch(function(err){ alert('error'); });
 
         ReactDOM.render(
-            <EmailForm companyName={this.props.companyName}/>,
-                 document.getElementById('main'));
+            <EmailForm companyName={this.props.companyName}/>, document.getElementById('main'));
 
     }
 
@@ -195,24 +192,16 @@ class MessageForm extends React.Component {
             this.IndexFormRemoveError('like-dislike');
         }
 
-        if(this.state.isLiked === true){
-            this.setState({isLiked: '', 
-                            likeBtnColour: "rgba(1, 22, 39, 1)"
-                        });
+        if (this.state.isLiked === true) {
+            this.setState({isLiked: null, likeBtnColour: "rgba(1, 22, 39, 1)"});
             pop2.play();
 
-        } else if(this.state.isLiked === false) {
-            this.setState({isLiked: true, 
-                            likeBtnColour: "#365899",
-                            dislikeBtnColour: "rgba(1, 22, 39, 1)"
-                        });
+        } else if (this.state.isLiked === false) {
+            this.setState({isLiked: true, likeBtnColour: "#365899", dislikeBtnColour: "rgba(1, 22, 39, 1)"});
             pop1.play();
 
-        }else {
-            this.setState({isLiked: true, 
-                            likeBtnColour: "#365899",
-                            dislikeBtnColour: "rgba(1, 22, 39, 1)"
-                        });
+        } else {
+            this.setState({isLiked: true, likeBtnColour: "#365899", dislikeBtnColour: "rgba(1, 22, 39, 1)"});
             pop1.play();
 
         }
@@ -232,24 +221,16 @@ class MessageForm extends React.Component {
             this.IndexFormRemoveError('like-dislike');
         }
 
-        if(this.state.isLiked === true){
-            this.setState({isLiked: false, 
-                likeBtnColour: "rgba(1, 22, 39, 1)",
-                dislikeBtnColour: "#9b3659"
-            });
+        if (this.state.isLiked === true) {
+            this.setState({isLiked: false, likeBtnColour: "rgba(1, 22, 39, 1)", dislikeBtnColour: "#9b3659"});
             pop1.play();
 
-        } else if(this.state.isLiked === false) {
-            this.setState({isLiked: '',
-                dislikeBtnColour: "rgba(1, 22, 39, 1)"
-            });
+        } else if (this.state.isLiked === false) {
+            this.setState({isLiked: null, dislikeBtnColour: "rgba(1, 22, 39, 1)"});
             pop2.play();
 
-        }else {
-            this.setState({isLiked: false, 
-                            likeBtnColour: "rgba(1, 22, 39, 1)",
-                            dislikeBtnColour: "#9b3659"
-                        });
+        } else {
+            this.setState({isLiked: false, likeBtnColour: "rgba(1, 22, 39, 1)", dislikeBtnColour: "#9b3659"});
             pop1.play();
         }
     }
@@ -257,64 +238,66 @@ class MessageForm extends React.Component {
     render() {
         return (
             <Form className="main-form">
-                <div className="container-btn">
-                    <div className="customtooltip like-dislike">
-                        <span className="customtooltiptext like-dislike">
-                            Lütfen beğenip beğenmediğini seç.
-                        </span>
-                    </div>
-                    <i
-                        className="main-form-btn mr fas fa-thumbs-down"
-                        style={{
-                        color: this.state.dislikeBtnColour,
-                        visibility: "visible"
-                    }}
-                        onClick={this.checkDislike}> 
-                        <span className="text"> Dislike</span>
-                    </i>
-
-                    <i
-                        className="main-form-btn fas fa-thumbs-up"
-                        style={{
-                        color: this.state.likeBtnColour,
-                        visibility: "visible"
-                    }}
-                        onClick={this.checkLike}> 
-                        <span className="text"> Like</span>
-                    </i>
-                    <span>
-                        <svg className="input-error-svg-btn"></svg>
-                    </span>
-
-                </div>
-
-                <div className="wrap-input">
-                    <div className="customtooltip textarea">
-                        <span className="customtooltiptext textarea">
-                            İyi veya kötü bir değerlendirme yaz, İşletmeler neyi iyi ve kötü yaptıklarını
-                            öğrensinler.
-                        </span>
-                    </div>
-                    <textarea
-                        className="input form-validate"
-                        onChange={this.onChange}
-                        maxLength='280'
-                        placeholder="Görüşünüz bizim için önemli"></textarea>
-
-                    <span>
-                        <svg className="input-error-svg-textarea"></svg>
+            <div className="container-btn">
+                <div className="customtooltip like-dislike">
+                    <span className="customtooltiptext like-dislike">
+                        Lütfen beğenip beğenmediğini seç.
                     </span>
                 </div>
+                <i
+                    className="main-form-btn mr fas fa-thumbs-down"
+                    style={{
+                    color: this.state.dislikeBtnColour,
+                    visibility: "visible"
+                }}
+                    onClick={this.checkDislike}>
+                    <span className="text">
+                        Dislike</span>
+                </i>
 
-                <span id='wordcount'>{this.state.charsLeft}</span>
+                <i
+                    className="main-form-btn fas fa-thumbs-up"
+                    style={{
+                    color: this.state.likeBtnColour,
+                    visibility: "visible"
+                }}
+                    onClick={this.checkLike}>
+                    <span className="text">
+                        Like</span>
+                </i>
+                <span>
+                    <svg className="input-error-svg-btn"></svg>
+                </span>
 
-                <div className="container-main-form-btn">
+            </div>
 
-                    <Button className="main-form-btn-next" onClick={this.onNext}>
-                        İleri
-                    </Button>
-
+            <div className="wrap-input">
+                <div className="customtooltip textarea">
+                    <span className="customtooltiptext textarea">
+                        İyi veya kötü bir değerlendirme yaz, İşletmeler neyi iyi ve kötü yaptıklarını
+                        öğrensinler.
+                    </span>
                 </div>
+                <textarea
+                    className="input form-validate"
+                    onChange={this.onChange}
+                    maxLength='280'
+                    placeholder="Görüşünüz bizim için önemli"></textarea>
+
+                <span>
+                    <svg className="input-error-svg-textarea"></svg>
+                </span>
+            </div>
+
+            <span id='wordcount'>{this.state.charsLeft}</span>
+
+            <div className="container-main-form-btn">
+
+                <Button className="main-form-btn-next" onClick={this.onNext}>
+                    İleri
+                </Button>
+
+            </div>
         </Form>/* main form*/
         );
     }

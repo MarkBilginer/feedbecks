@@ -80,14 +80,10 @@ class EmailForm extends React.Component {
   onSubmit = (event) => {
     event.preventDefault();
 
-    const mail = this.state.mail;
-
-    localStorage.setItem('email', mail);
-
     if (this.state.mail === '') {
       this.EmailFormAddError();
       return;
-    } else if (!this.isEmailValid(mail)) {}
+    }
 
     const stateLength = store
       .getState()
@@ -103,11 +99,10 @@ class EmailForm extends React.Component {
     console.log('parsed: ' + responseParsed.formId);
     const formID = responseParsed.formId;
 
-    console.log('sending request to: https://api.dusuncembu.com/'
-                        + this.props.companyName +
-                        '/consumer/submitForm');
+    console.log('sending request to: https://api.dusuncembu.com/' + this.props.companyName + '/consumer/submitForm');
+    const mail = this.state.mail;
     request
-      .post('https://api.dusuncembu.com/'+ this.props.companyName +'/consumer/updateForm')
+      .post('https://api.dusuncembu.com/' + this.props.companyName + '/consumer/updateForm')
       .send({'formID': formID, 'mail': mail}) // sends a JSON post body
       .set('Content-Type', "application/x-www-form-urlencoded")
       .then(response => {
@@ -115,10 +110,16 @@ class EmailForm extends React.Component {
         console.log('formID: ' + formID + ' mail: ' + mail);
         const responseObject = JSON.parse(response.text);
         console.log(JSON.stringify(responseObject));
-      });
 
-    ReactDOM.render(
-      <ThankNote/>, document.getElementById('main'));
+        if (responseObject.isSucceed) {
+          localStorage.setItem('email', mail);
+          ReactDOM.render(
+            <ThankNote/>, document.getElementById('main'));
+        } else {
+          this.EmailFormAddError();
+        }
+
+      });
 
   }
 
@@ -149,7 +150,7 @@ class EmailForm extends React.Component {
           style={{
           color: 'rgba(1, 22, 39, 1)',
           cursor: 'pointer'
-          }}
+        }}
           onClick={this.clearEmailField}></i>
         <div className="container-main-form-btn">
           <Button className="main-form-btn-next" onClick={this.onSubmit}>

@@ -9,18 +9,15 @@ class IndexSite extends React.Component {
 
   render() {
     let companyPath = window.location.pathname; // returns /companyname/...
-    let companyName = companyPath.split('/').pop();
+    let companyName = companyPath
+      .split('/')
+      .pop();
     return (
-      <Grid fluid
-        style={{minWidth:'360px'}}>
+      <Grid fluid style={{
+        minWidth: '360px'
+      }}>
         <Row className="show-grid">
-          <Col
-            xs={12}
-            sm={12}
-            md={12}
-            lg={6}
-            lgPush={6}
-            className="container-right-half">
+          <Col xs={12} sm={12} md={12} lg={6} lgPush={6} className="container-right-half">
             <div className="container-main">
               <div className="main-form-header">
                 <span className="thoughtbubble-image" aria-hidden="true">
@@ -62,26 +59,92 @@ class IndexSite extends React.Component {
                 </div>
 
                 <div className="main-form-title">
-                  <svg version="1.1" className="dusuncembu-logo mr" x="0px" y="0px"
-                    viewBox="0 0 480 480" style={{enableBackground:"new 0 0 480 480"}} xmlSpace="preserve">
-                    <path style= {{fill:"#FF9900"}} d="M440,176h-56v16h56V176z M336,144h104v-16h24v188.8l-34.4-34.4c-1.6-1.6-3.2-2.4-5.6-2.4h-50.4
+                  <svg
+                    version="1.1"
+                    className="dusuncembu-logo mr"
+                    x="0px"
+                    y="0px"
+                    viewBox="0 0 480 480"
+                    style={{
+                    enableBackground: "new 0 0 480 480"
+                  }}
+                    xmlSpace="preserve">
+                    <path
+                      style={{
+                      fill: "#FF9900"
+                    }}
+                      d="M440,176h-56v16h56V176z M336,144h104v-16h24v188.8l-34.4-34.4c-1.6-1.6-3.2-2.4-5.6-2.4h-50.4
                       c-2.4-6.4-6.4-12-11.2-16c8-6.4,13.6-16.8,13.6-28c0-20-16-36-36-36h-92v-56h8h64H336z"/>
                     <g>
-                      <rect x="384" y="176" style={{fill:"#000000"}} width="56" height="16"/>
-                      <rect x="336" y="128" style={{fill:"#000000"}} width="104" height="16"/>
-                      <rect x="408" y="80" style={{fill:"#000000"}} width="32" height="16"/>
-                      <rect x="256" y="80" style={{fill:"#000000"}} width="128" height="16"/>
-                      <rect x="256" y="128" style={{fill:"#000000"}} width="64" height="16"/>
+                      <rect
+                        x="384"
+                        y="176"
+                        style={{
+                        fill: "#000000"
+                      }}
+                        width="56"
+                        height="16"/>
+                      <rect
+                        x="336"
+                        y="128"
+                        style={{
+                        fill: "#000000"
+                      }}
+                        width="104"
+                        height="16"/>
+                      <rect
+                        x="408"
+                        y="80"
+                        style={{
+                        fill: "#000000"
+                      }}
+                        width="32"
+                        height="16"/>
+                      <rect
+                        x="256"
+                        y="80"
+                        style={{
+                        fill: "#000000"
+                      }}
+                        width="128"
+                        height="16"/>
+                      <rect
+                        x="256"
+                        y="128"
+                        style={{
+                        fill: "#000000"
+                      }}
+                        width="64"
+                        height="16"/>
                     </g>
-                    <path style={{fill:"#FFF8EF"}} d="M340,216c11.2,0,20,8.8,20,20s-8.8,20-20,20h-52h-16v16h16h52c11.2,0,20,8.8,20,20s-8.8,20-20,20h-52
+                    <path
+                      style={{
+                      fill: "#FFF8EF"
+                    }}
+                      d="M340,216c11.2,0,20,8.8,20,20s-8.8,20-20,20h-52h-16v16h16h52c11.2,0,20,8.8,20,20s-8.8,20-20,20h-52
                       h-16v16h16h52c11.2,0,20,8.8,20,20s-8.8,20-20,20h-52h-16v16h16h52c11.2,0,20,8.8,20,20s-8.8,20-20,20H163.2l-21.6-21.6
                       c-1.6-1.6-3.2-2.4-5.6-2.4h-24V248h32c2.4,0,4.8-1.6,6.4-4l32-48c0.8-1.6,1.6-2.4,1.6-4v-65.6c0-8,4-15.2,10.4-20s14.4-5.6,22.4-3.2
                       c9.6,3.2,16,12.8,16,22.4V208c0,4,4,8,8,8H340z"/>
-                    <path style={{fill:"#FF9900"}} d="M440,80h-32v16h32V80z M384,80H256v16h128V80z M336,128v16h-16v-16h-64v16h-8v-17.6
+                    <path
+                      style={{
+                      fill: "#FF9900"
+                    }}
+                      d="M440,80h-32v16h32V80z M384,80H256v16h128V80z M336,128v16h-16v-16h-64v16h-8v-17.6
                       c0-16.8-10.4-32-25.6-37.6c-12-4.8-26.4-3.2-36.8,4.8c-11.2,7.2-16.8,20-16.8,32.8v63.2l-24,36V67.2C144,61.6,148.8,56,156,56h296.8
                       c5.6,0,11.2,5.6,11.2,11.2V128h-24H336z"/>
-                    <rect x="16" y="224" style={{fill:"#2FB4C2"}}  width="80" height="192"/>
-                    <path style={{fill:"#000000"}} d="M96,416V224H16v192H96z M340,200c20,0,36,16,36,36c0,11.2-5.6,21.6-13.6,28c4.8,4,8.8,9.6,11.2,16
+                    <rect
+                      x="16"
+                      y="224"
+                      style={{
+                      fill: "#2FB4C2"
+                    }}
+                      width="80"
+                      height="192"/>
+                    <path
+                      style={{
+                      fill: "#000000"
+                    }}
+                      d="M96,416V224H16v192H96z M340,200c20,0,36,16,36,36c0,11.2-5.6,21.6-13.6,28c4.8,4,8.8,9.6,11.2,16
                       H424c2.4,0,4,0.8,5.6,2.4l34.4,34.4V128V67.2c0-5.6-5.6-11.2-12-11.2H156c-7.2,0-12,5.6-12,11.2v158.4l24-36v-63.2
                       c0-12.8,6.4-25.6,16.8-32.8c11.2-7.2,24.8-8.8,36.8-4.8c15.2,5.6,25.6,20.8,25.6,37.6V144v56H340z M376,404c0,20-16,36-36,36H160
                       c-2.4,0-4-0.8-5.6-2.4L132.8,416H112v8c0,4-3.2,8-8,8H8c-4,0-8-4-8-8V216c0-4,4-8,8-8h96c4.8,0,8,4,8,8v16h16V67.2
@@ -91,23 +154,53 @@ class IndexSite extends React.Component {
                       c-6.4,4.8-10.4,12-10.4,20V192c0,1.6-0.8,3.2-1.6,4l-32,48c-0.8,2.4-3.2,4-5.6,4h-32v152h24c2.4,0,4,0.8,5.6,2.4l21.6,21.6H340
                       c11.2,0,20-8.8,20-20s-8.8-20-20-20h-52h-16v-16h16h52c11.2,0,20-8.8,20-20s-8.8-20-20-20h-52h-16v-16h16h52c11.2,0,20-8.8,20-20
                       s-8.8-20-20-20h-52h-16v-16h16H340z"/>
-                    <path style={{fill:"#1D9AAE"}} d="M16,224l37.6,9.6c16,4,27.2,17.6,28.8,33.6L96,416V224H16z"/>
+                    <path
+                      style={{
+                      fill: "#1D9AAE"
+                    }}
+                      d="M16,224l37.6,9.6c16,4,27.2,17.6,28.8,33.6L96,416V224H16z"/>
                     <g>
-                      <path style={{fill:"#D9CDC1"}} d="M232,128v-1.6c0-9.6-6.4-19.2-16-22.4c-7.2-2.4-15.2-1.6-22.4,3.2c-6.4,4.8-10.4,12-10.4,20v0.8
+                      <path
+                        style={{
+                        fill: "#D9CDC1"
+                      }}
+                        d="M232,128v-1.6c0-9.6-6.4-19.2-16-22.4c-7.2-2.4-15.2-1.6-22.4,3.2c-6.4,4.8-10.4,12-10.4,20v0.8
                         C184,128,208,104,232,128z"/>
-                      <path style={{fill:"#D9CDC1"}} d="M340,216h-4c0,0,16,16,0,40h4c11.2,0,20-8.8,20-20S351.2,216,340,216z"/>
-                      <path style={{fill:"#D9CDC1"}} d="M340,272h-4c0,0,16,16,0,40h4c11.2,0,20-8.8,20-20S351.2,272,340,272z"/>
-                      <path style={{fill:"#D9CDC1"}} d="M340,328h-4c0,0,16,16,0,40h4c11.2,0,20-8.8,20-20S351.2,328,340,328z"/>
-                      <path style={{fill:"#D9CDC1"}} d="M340,384h-4c0,0,16,16,0,40h4c11.2,0,20-8.8,20-20S351.2,384,340,384z"/>
+                      <path
+                        style={{
+                        fill: "#D9CDC1"
+                      }}
+                        d="M340,216h-4c0,0,16,16,0,40h4c11.2,0,20-8.8,20-20S351.2,216,340,216z"/>
+                      <path
+                        style={{
+                        fill: "#D9CDC1"
+                      }}
+                        d="M340,272h-4c0,0,16,16,0,40h4c11.2,0,20-8.8,20-20S351.2,272,340,272z"/>
+                      <path
+                        style={{
+                        fill: "#D9CDC1"
+                      }}
+                        d="M340,328h-4c0,0,16,16,0,40h4c11.2,0,20-8.8,20-20S351.2,328,340,328z"/>
+                      <path
+                        style={{
+                        fill: "#D9CDC1"
+                      }}
+                        d="M340,384h-4c0,0,16,16,0,40h4c11.2,0,20-8.8,20-20S351.2,384,340,384z"/>
                     </g>
-                    <path style={{fill:"#FF7D00"}} d="M464,128V68c0-7.2-4.8-12-12-12H154.4l0,0l263.2,14.4c12.8,0.8,24,11.2,24.8,24L464,316l0,0V128z"/>
+                    <path
+                      style={{
+                      fill: "#FF7D00"
+                    }}
+                      d="M464,128V68c0-7.2-4.8-12-12-12H154.4l0,0l263.2,14.4c12.8,0.8,24,11.2,24.8,24L464,316l0,0V128z"/>
                   </svg>
-                  <h1 style={{display: 'inline-block'}}>Düşünceni belirt</h1>
+                  <h1 style={{
+                    display: 'inline-block'
+                  }}>Düşünceni belirt</h1>
                 </div>
               </div>
 
               <div id="main" className="wrap-main">
-                <MessageForm companyName={ companyName }/>
+                <MessageForm companyName={companyName}/>
               </div>
             </div>
           </Col>
@@ -170,26 +263,26 @@ class IndexSite extends React.Component {
             </Row>{/* left-header*/}
             <Row className="show-grid">
               <Col xs={12} sm={12} md={12} lg={12} className="communication-item-left-group">
-              <div className="communication-item-left-wrapper">
-                <div className="communication-item-left">
-                  <i className="fas fa-users"></i>
-                  <span className="communication-item-text">
-                    Düşünceni belirt
-                  </span>
+                <div className="communication-item-left-wrapper">
+                  <div className="communication-item-left">
+                    <i className="fas fa-users"></i>
+                    <span className="communication-item-text">
+                      Düşünceni belirt
+                    </span>
+                  </div>
+                  <div className="communication-item-left">
+                    <i className="fas fa-search"></i>
+                    <span className="communication-item-text">
+                      Biz Şirkete ulaştıralım
+                    </span>
+                  </div>
+                  <div className="communication-item-left">
+                    <i className="fas fa-file-alt"></i>
+                    <span className="communication-item-text">
+                      Şirket üst-düzey yöneticisi değerlendirsin
+                    </span>
+                  </div>
                 </div>
-                <div className="communication-item-left">
-                  <i className="fas fa-search"></i>
-                  <span className="communication-item-text">
-                    Biz Şirkete ulaştıralım
-                  </span>
-                </div>
-                <div className="communication-item-left">
-                  <i className="fas fa-file-alt"></i>
-                  <span className="communication-item-text">
-                    Şirket üst-düzey yöneticisi değerlendirsin
-                  </span>
-                </div>
-              </div>
               </Col>{/* communication-item-group*/}
             </Row>{/* communication-item-left-group*/}
           </Col>
