@@ -6,8 +6,9 @@ import './fonts/fontawesome-free-5.0.8/web-fonts-with-css/css/fontawesome-all.mi
 import EmailForm from './EmailForm'
 import store from './store.js';
 import {addToFormId} from './actions/formid-actions';
-import audioPop1 from './sounds/pop1.mp3'
-import audioPop2 from './sounds/pop2.mp3'
+import audioPop1 from './sounds/pop1.mp3';
+import audioPop2 from './sounds/pop2.mp3';
+import LikeDisklikeAnimation from './animations/LikeDislikeAnimation';
 
 class MessageForm extends React.Component {
     constructor(props) {
@@ -38,6 +39,10 @@ class MessageForm extends React.Component {
             .countWord
             .bind(this);
 
+    }
+
+    componentDidMount() {
+        LikeDisklikeAnimation();
     }
 
     countWord = (e) => {
@@ -244,27 +249,25 @@ class MessageForm extends React.Component {
                         Lütfen beğenip beğenmediğini seç.
                     </span>
                 </div>
-                <i
-                    className="main-form-btn mr fas fa-thumbs-down"
-                    style={{
-                    color: this.state.dislikeBtnColour,
-                    visibility: "visible"
-                }}
-                    onClick={this.checkDislike}>
-                    <span className="text">
-                        Dislike</span>
-                </i>
+                <button className="main-form-btn" onClick={this.checkDislike}>
+                    <span
+                        className="fas fa-thumbs-down"
+                        style={{color: this.state.dislikeBtnColour}}>
+                    </span>
+                    {/* <span className="text">
+                        Dislike
+                    </span> */}
+                </button>
 
-                <i
-                    className="main-form-btn fas fa-thumbs-up"
-                    style={{
-                    color: this.state.likeBtnColour,
-                    visibility: "visible"
-                }}
-                    onClick={this.checkLike}>
-                    <span className="text">
-                        Like</span>
-                </i>
+                <button className="main-form-btn" onClick={this.checkLike}>
+                    <span
+                        className="fas fa-thumbs-up"
+                        style={{color: this.state.likeBtnColour}}>
+                    </span>
+                    {/* <span className="text">
+                        Like
+                    </span> */}
+                </button>
                 <span>
                     <svg className="input-error-svg-btn"></svg>
                 </span>
@@ -291,7 +294,7 @@ class MessageForm extends React.Component {
 
             <span id='wordcount'>{this.state.charsLeft}</span>
 
-            <div className="container-main-form-btn">
+            <div className="container-main-form-btn-next">
 
                 <Button className="main-form-btn-next" onClick={this.onNext}>
                     İleri

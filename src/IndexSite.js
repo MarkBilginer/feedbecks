@@ -14,7 +14,7 @@ class IndexSite extends React.Component {
       .pop();
     return (
       <Grid fluid style={{
-        minWidth: '360px'
+        minWidth: '300px'
       }}>
         <Row className="show-grid">
           <Col xs={12} sm={12} md={12} lg={6} lgPush={6} className="container-right-half">

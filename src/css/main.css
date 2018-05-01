@@ -1,46 +1,24 @@
-
-/*//////////////////////////////////////////////////////////////////
-[ RESTYLE TAG ]*/
-
-* {
-	margin: 0px; 
-	padding: 0px; 
-	box-sizing: border-box;
-}
-
-html,
-body {
-  height: 100%;
-  font-size: 100%;
-}
-/*----------------------------------------------------
-      LEFT HALF
-------------------------------------------------------*/
-
-
-
-/*----------------------------------------------------
-      RIGHT HALF
-------------------------------------------------------*/
-
 .container-right-half {
-  height: 95vh;
-  background: rgba(241, 226, 215, 0.2);;
+    background: rgba(241, 226, 215, 0.2);
+    min-height: 95vh;
+    height: 100%;
 }
 
 .thoughtbubble-logo {
-  height: 6.25em;
-  width: 6.25em;
+    height: 6.25em;
+    width: 6.25em;
 }
 
 .container-left-half {
-  height: 95vh;
-  justify-content: center;
-  align-items: center;
+    background-color: rgba(1, 22, 39, 1);
+    min-height: 95vh;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
 }
 
 .test-speak {
-   -webkit-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
     height: 5.9em;
     min-width: 6.3em;
@@ -48,594 +26,594 @@ body {
     margin-top: 0.6em;
 }
 
-svg .speak-voice{
-  fill: #FFAC33;
+svg .speak-voice {
+    fill: #FFAC33;
 }
 
 svg .speak-head {
-  fill: #f0ffff;
+    fill: #f0ffff;
 }
 
 .fas {
-  margin-right: 1.8em;
+    margin-right: 1.0em;
+    margin-left: 2em;
 }
 
 .communication-item-left-group {
-  font-family: 'Arvo', serif;
-  display: flex;
-  justify-content: center;
+    font-family: 'Arvo', serif;
+    /* May want to do this if there is risk the container may be narrower than the element inside */
+    white-space: nowrap;
+    display: flex;
+    justify-content: center;
+}
+
+.communication-item-left-group:before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: -0.25em;
+    /* Adjusts for spacing */
 }
 
 .communication-item-left-wrapper {
-  display: "inline-block";
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .communication-item-left {
     margin: 2.5em auto;
-    font-size: 1.5em;
     font-weight: bold;
     line-height: 1.5em;
     color: white;
 }
 
 .left-header {
-  margin-bottom: 10em;
-  text-align: center;
+    margin-bottom: 10em;
+    text-align: center;
 }
 
-.container-left-half {
-  background-color: rgba(1, 22, 39, 1);
-}
-
-/*Header
-------------------------*/
-.thoughtbubble-image{
-  display: block;
+.thoughtbubble-image {
+    display: block;
 }
 
 /*Dynamic Company Logo Depending on window.location
 ------------------------*/
-.company-logo-wrapper {
-}
+
+.company-logo-wrapper {}
 
 .company-logo {
-  background-size: contain;
-  background-repeat: no-repeat;
-  width: 12.5em;
-  height: 4.0em;
-  display: inline-block;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 12.5em;
+    height: 4.0em;
+    display: inline-block;
+    margin-bottom: 3em;
 }
 
 .dusuncembu-logo {
-  width: 2.5em;
-  display: inline-block;
+    width: 2.5em;
+    display: inline-block;
 }
 
 .company-logo.akkol {
-  background-image: url(../images/company/akkol.png);
+    background-image: url(../images/company/akkol.png);
 }
+
 .company-logo.caglayankitap {
-  background-image: url(../images/company/caglayankitap.png);
+    background-image: url(../images/company/caglayankitap.png);
 }
+
 .company-logo.fibabanka {
-  background-image: url(../images/company/fibabanka.png);
-  margin-left: 5em;
+    background-image: url(../images/company/fibabanka.png);
+    margin-left: 5em;
 }
+
 .company-logo.gursel {
-  background-image: url(../images/company/gursel.png);
+    background-image: url(../images/company/gursel.png);
 }
+
 .company-logo.harvest {
-  background-image: url(../images/company/harvest.png);
-  margin-left: 4em;
+    background-image: url(../images/company/harvest.png);
+    margin-left: 4em;
 }
+
 .company-logo.izcocukgelisim {
-  background-image: url(../images/company/izcocukgelisim.png);
-  margin-left: 6em;
+    background-image: url(../images/company/izcocukgelisim.png);
+    margin-left: 6em;
 }
+
 .company-logo.kasikla {
-  background-image: url(../images/company/kasikla.png);
+    background-image: url(../images/company/kasikla.png);
 }
+
 .company-logo.kidemsanat {
-  background-image: url(../images/company/kidemsanat.png);
-  margin-left: 4em;
+    background-image: url(../images/company/kidemsanat.png);
+    margin-left: 4em;
 }
+
 .company-logo.kumpirbox {
-  background-image: url(../images/company/kumpirbox.png);
+    background-image: url(../images/company/kumpirbox.png);
 }
+
 .company-logo.kyocera {
-  background-image: url(../images/company/kyocera.png);
+    background-image: url(../images/company/kyocera.png);
 }
+
 .company-logo.marmarisbufe {
-  background-image: url(../images/company/marmarisbufe.png);
-  margin-left: 7em;
+    background-image: url(../images/company/marmarisbufe.png);
+    margin-left: 7em;
 }
+
 .company-logo.nero {
-  background-image: url(../images/company/nero.png);
-  margin-left: 4em;
+    background-image: url(../images/company/nero.png);
+    margin-left: 4em;
 }
+
 .company-logo.ozu {
-  background-image: url(../images/company/ozu.png);
+    background-image: url(../images/company/ozu.png);
 }
+
 .company-logo.ozusportscafe {
-  background-image: url(../images/company/ozusportscafe.png);
-  margin-left: 6em;
+    background-image: url(../images/company/ozusportscafe.png);
+    margin-left: 6em;
 }
+
 .company-logo.pizzahotslice {
-  background-image: url(../images/company/pizzahotslice.png);
-  margin-left: 7em;
+    background-image: url(../images/company/pizzahotslice.png);
+    margin-left: 7em;
 }
+
 .company-logo.simitcidunyasi {
-  background-image: url(../images/company/simitcidunyasi.png);
-  margin-left: 6em;
+    background-image: url(../images/company/simitcidunyasi.png);
+    margin-left: 6em;
 }
+
 .company-logo.subway {
-  background-image: url(../images/company/subway.png);
+    background-image: url(../images/company/subway.png);
 }
+
 .company-logo.vodafone {
-  background-image: url(../images/company/vodafone.png);
+    background-image: url(../images/company/vodafone.png);
 }
+
 .company-logo.youthstore {
-  background-image: url(../images/company/youthstore.png);
-  margin-left: 5em;
+    background-image: url(../images/company/youthstore.png);
+    margin-left: 5em;
 }
-/* IndexForm
-------------------------*/
 
 textarea {
-  outline: none;
-  border: none;
+    outline: none;
+    border: none;
 }
 
-textarea::-webkit-input-placeholder {color: #999999;}
-textarea:-moz-placeholder {color: #999999;}
-textarea::-moz-placeholder {color: #999999;}
-textarea:-ms-input-placeholder {color: #999999;}
+textarea::-webkit-input-placeholder {
+    color: #999999;
+}
 
-/* MyEmailForm
-------------------------*/
+textarea:-moz-placeholder {
+    color: #999999;
+}
+
+textarea::-moz-placeholder {
+    color: #999999;
+}
+
+textarea:-ms-input-placeholder {
+    color: #999999;
+}
+
 input {
-	outline: none;
-	border: none;
+    outline: none;
+    border: none;
 }
 
-input:focus::-webkit-input-placeholder { color:transparent; }
-input:focus:-moz-placeholder { color:transparent; }
-input:focus::-moz-placeholder { color:transparent; }
-input:focus:-ms-input-placeholder { color:transparent; }
+input:focus::-webkit-input-placeholder {
+    color: transparent;
+}
 
-input::-webkit-input-placeholder {color: #999999;}
-input:-moz-placeholder {color: #999999;}
-input::-moz-placeholder {color: #999999;}
-input:-ms-input-placeholder {color: #999999;}
+input:focus:-moz-placeholder {
+    color: transparent;
+}
 
-/*---------------------------------------------*/
+input:focus::-moz-placeholder {
+    color: transparent;
+}
+
+input:focus:-ms-input-placeholder {
+    color: transparent;
+}
+
+input::-webkit-input-placeholder {
+    color: #999999;
+}
+
+input:-moz-placeholder {
+    color: #999999;
+}
+
+input::-moz-placeholder {
+    color: #999999;
+}
+
+input:-ms-input-placeholder {
+    color: #999999;
+}
+
 button {
-	outline: none !important;
-	border: none;
-	background: transparent;
+    outline: none !important;
+    border: none;
+    background: transparent;
 }
 
 button:hover {
-	cursor: pointer;
+    cursor: pointer;
 }
 
 iframe {
-	border: none !important;
+    border: none !important;
 }
-
-
-/*//////////////////////////////////////////////////////////////////
-[ Contact ]*/
 
 .wrap-main {
-  width: 23.3em;
-  min-width: 22.5em;
-  margin-left: auto;
-  margin-right: auto;
-  border: 0.18em solid rgba(1, 22, 39, 1);
-  border-radius: 0.6em;
-  position: relative;
+    width: 20.0em;
+    min-width: 20.0em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10%;
+    border: 0.18em solid rgba(1, 22, 39, 1);
+    border-radius: 0.6em;
+    position: relative;
 }
 
-.dislike-button{
-  border: none;
-  color: white;
-  padding: 1.2em;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  margin: 0.25em 0.12em;
-
+.dislike-button {
+    border: none;
+    color: white;
+    padding: 1.2em;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 0.25em 0.12em;
 }
 
 .like-button {
-  border: none;
-  color: white;
-  padding: 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  margin: 0.25em 0.12em;
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 0.25em 0.12em;
 }
 
-.container-main {
-}
+.container-main {}
 
 .container-thank {
-  color: rgba(1, 22, 39, 1);
+    color: rgba(1, 22, 39, 1);
 }
 
-/*==================================================================
-[ Form ]*/
-.main-form-header{
-  width: 100%;
-  text-align: center;
-  margin-bottom: 1em;
-  margin-top: 0.6em;
-  margin-left: auto;
-  margin-right: auto;
+.main-form-header {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 1em;
+    margin-top: 0.6em;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .main-form-header h1 {
-  font-family: 'Arvo', serif;
-  font-size: 24px;
-  font-weight: 700;
-  color: rgba(1, 22, 39, 1);
-  margin-bottom: 1em;
+    font-family: 'Arvo', serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: rgba(1, 22, 39, 1);
+    margin-bottom: 0.1em;
 }
+
 .main-form-header h2 {
-  font-weight: 100;
+    font-weight: 100;
 }
 
 .main-form {
-  padding: 2em 2.8em 2em 2.8em;
+    padding: 2em 2.8em 2em 2.8em;
 }
 
 .main-form-email {
-  padding: 2em 0.8em 2em 2.8em;
+    padding: 2em 0.8em 2em 2.8em;
 }
 
-/*------------------------------------------------------------------
-[ Input ]*/
-
 .wrap-input {
-  display: inline-block;
-  width: 100%;
-  position: relative;
-  border-bottom: 1px solid rgba(1, 22, 39, 1);
-  margin-bottom: 0.6em;
+    display: inline-block;
+    width: 100%;
+    position: relative;
+    border-bottom: 1px solid rgba(1, 22, 39, 1);
+    margin-bottom: 0.6em;
 }
 
 .wrap-input.email {
-  width: 85%;
+    width: 75%;
 }
 
 .input {
-  font-size: 1.1em;
-  color: #555555;
-  line-height: 1.2em;
-
-  display: block;
-  width: 100%;
-  background: transparent;
-  padding: 0 0.3em;
+    font-size: 1.1em;
+    color: #555555;
+    line-height: 1.2em;
+    display: block;
+    width: 100%;
+    background: transparent;
+    padding: 0 0.3em;
 }
 
 /*---------------------------------------------*/
 
 #wordcount {
-  color: #555555;
-  position: relative;
-  left: 88%;
+    color: #555555;
+    position: relative;
+    left: 88%;
 }
-
-
 
 /*---------------------------------------------*/
-input.input {
-  height: 2.8em;
-}
 
+input.input {
+    height: 2.8em;
+}
 
 textarea.input {
-  color:rgba(1, 22, 39, 1);
-  min-height: 7em;
-  margin-top: 1.8em;
-  padding-bottom: 0;
+    color: rgba(1, 22, 39, 1);
+    min-height: 7em;
+    margin-top: 1.8em;
+    padding-bottom: 0;
 }
 
-/*------------------------------------------------------------------
-[ Button ]*/
-.container-main-form-btn {
-}
+.container-main-form-btn-next {}
 
-.container-btn {
-}
-
+.container-btn {}
 
 .main-form-btn {
-  justify-content: center;
-  align-items: center;
-  padding: 0.3em;
-  border-radius: 0.3em;
-
-  font-size: 1.5em;
-
-  color: #fff;
-  line-height: 1.2em;
-
-  -webkit-transition: all 0.4s;
-  -o-transition: all 0.4s;
-  -moz-transition: all 0.4s;
-  transition: all 0.4s;
+    border: none;
+    font-size: 1.5em;
+    line-height: 1.2em;
 }
 
 .main-form-btn:hover {
-  cursor: pointer;
-}
-
-.main-form-btn:active {
-  -webkit-transform: translateX(10px);
-  -moz-transform: translateX(10px);
-  -ms-transform: translateX(10px);
-  -o-transform: translateX(10px);
-  transform: translateX(10px);
+    cursor: pointer;
 }
 
 .main-form-btn .text {
-  font-size: 0.7em;
+    font-size: 0.7em;
 }
 
 .main-form-btn-next {
-  justify-content: center;
-  align-items: center;
-  padding: 0 1.3em;
-  margin-top: 0.6em;
-  min-width: 23em;
-  height: 2.5em;
-  margin-left: -1.5em;
-  background: linear-gradient(#67ae55, #578843);
-  background-color: #69a74e;
-  box-shadow: inset 0 0.06em 0.06em #a4e388;
-  border: 0.06em solid;
-  border-color: #3b6e22 #3b6e22 #2c5115;
-  border-radius: 0.3em;
-
-  color: #fff;
-  line-height: 1.2em;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0 1.3em;
+    margin-top: 0.6em;
+    min-width: 17em;
+    height: 2.5em;
+    margin-left: -1.5em;
+    background: linear-gradient(#67ae55, #578843);
+    background-color: #69a74e;
+    box-shadow: inset 0 0.06em 0.06em #a4e388;
+    border: 0.06em solid;
+    border-color: #3b6e22 #3b6e22 #2c5115;
+    border-radius: 0.3em;
+    color: #fff;
+    line-height: 1.2em;
 }
 
 div {
-color: #ebf8e1;
+    color: #ebf8e1;
 }
 
 .main-form-btn-next:hover {
-  border: 0.06em solid black;
+    border: 0.06em solid black;
 }
 
-/*----------------------------------------------------
-      BOTTOM
-------------------------------------------------------*/
-/*Footer
-------------------------*/
 .container-footer {
-  font-family: 'Arvo', serif;
-  padding-right: 1em;
-  padding-left: 1em;
-  padding-bottom: 2.5em;
-  background-color: #E0DDCF;
-  height: 8vh;
+    font-family: 'Arvo', serif;
+    padding-right: 0.5em;
+    padding-left: 0.5em;
+    padding-bottom: 0.2em;
+    padding-top: 0.5em;
+    background-color: #E0DDCF;
+    min-height: 5vh;
+    height: 100%;
 }
 
 .footer-links {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  list-style: none;
-  justify-content: center;
-  padding-top: 1.0em;
-  padding-bottom: auto;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    padding-left: 0;
 }
 
 .footer-links a {
-  text-decoration: none;
-  font-size: 1em;
+    text-decoration: none;
+    font-size: 1em;
 }
 
 .mr {
-  margin-right: 0.9em;
+    margin-right: 0.9em;
 }
 
-/*--------------------------
-      Form-Validation
---------------------------*/
-.customtooltip{
-  font-family: 'Lato', sans-serif;
-  visibility: hidden;
-  position: absolute;
-  display: inline-block;
-  border-bottom: 1px dotted black;
-  background-color: rgb(226, 76, 75);
-  text-align: center;
-  border-radius: 0.4em;
-  padding: 0.3em 0;
+.customtooltip {
+    font-family: 'Lato', sans-serif;
+    visibility: hidden;
+    position: absolute;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+    background-color: rgb(226, 76, 75);
+    text-align: center;
+    border-radius: 0.4em;
+    padding: 0.3em 0;
 }
+
 .customtooltiptext {
-  line-height: 1.8em;
+    line-height: 1.8em;
 }
-/*textarea and its error notification*/
 
 .customtooltip.textarea {
-  top: -4.8em;
-  left: -1.2em;
-  width: 20.5em;
+    top: -4.8em;
+    left: -1.2em;
+    width: 20.5em;
 }
 
 .customtooltip.textarea.error {
-  visibility: visible;
+    visibility: visible;
 }
 
 .customtooltip.textarea:after {
-  visibility: hidden;
-  content: "";
-  position: absolute;
-  top: 4.1em;
-  left: 0.8em;
-  border-width: 0.5em;
-  border-style: solid;
-  border-color: rgb(226, 76, 75) transparent transparent transparent;
+    visibility: hidden;
+    content: "";
+    position: absolute;
+    top: 4.1em;
+    left: 0.8em;
+    border-width: 0.5em;
+    border-style: solid;
+    border-color: rgb(226, 76, 75) transparent transparent transparent;
 }
 
 .customtooltip.textarea.error:after {
-  visibility: visible;
+    visibility: visible;
 }
 
 textarea.input {
-  border-radius: 0.3em;
+    border-radius: 0.3em;
 }
 
 textarea.input.error {
-  border: 1px solid red;
+    border: 1px solid red;
 }
 
 .input-error-svg-textarea {
-  visibility: hidden;
-  background-image: url("../images/warning.svg");
-  background-repeat: no-repeat;
-  width: 1.9em;
-  height: 1.9em;
-  position: absolute;
-  right: 0.3em;
-  top: 1.8em;
+    visibility: hidden;
+    background-image: url("../images/warning.svg");
+    background-repeat: no-repeat;
+    width: 1.9em;
+    height: 1.9em;
+    position: absolute;
+    left: 14.1em;
+    top: 2em;
 }
 
 .input-error-svg-textarea.error {
-  visibility: visible;
+    visibility: visible;
 }
 
-/*like or dislike and its error notification*/
 .container-btn {
-  border-radius: 0.3em;
-  width: 100%;
+    border-radius: 0.3em;
+    width: 100%;
 }
 
 .container-btn.error {
-  border: 1px solid red;
+    border: 1px solid red;
 }
 
 .input-error-svg-btn {
-  visibility: hidden;
-  background-image: url("../images/warning.svg");
-  background-repeat: no-repeat;
-  width: 1.9em;
-  height: 1.9em;
-  position: absolute;
-  right: 3.2em;
-  top: 2.7em;
+    visibility: hidden;
+    background-image: url("../images/warning.svg");
+    background-repeat: no-repeat;
+    width: 1.9em;
+    height: 1.9em;
+    position: absolute;
+    right: 0.8em;
+    top: 2.1em;
 }
 
 .input-error-svg-btn.error {
-  visibility: visible;
+    visibility: visible;
 }
 
 .customtooltip.like-dislike {
-  visibility: hidden;
-  top: -0.9em;
-  left: 1.8em;
-  width: 16em;
+    visibility: hidden;
+    top: -0.9em;
+    left: 1.8em;
+    width: 16em;
 }
 
 .customtooltip.like-dislike.error {
-  visibility: visible;
+    visibility: visible;
 }
 
 .customtooltip.like-dislike:after {
-  visibility: hidden;
-  content: "";
-  position: absolute;
-  top: 2.3em;
-  left: 0.6em;
-  border-width: 0.5em;
-  border-style: solid;
-  border-color: rgb(226, 76, 75) transparent transparent transparent;
-}
-.customtooltip.like-dislike.error:after {
-  visibility: visible;
+    visibility: hidden;
+    content: "";
+    position: absolute;
+    top: 2.3em;
+    left: 0.6em;
+    border-width: 0.5em;
+    border-style: solid;
+    border-color: rgb(226, 76, 75) transparent transparent transparent;
 }
 
-/*email and its error notification*/
+.customtooltip.like-dislike.error:after {
+    visibility: visible;
+}
 
 input.input {
-  border-radius: 0.3em;
+    border-radius: 0.3em;
 }
 
 input.input.error {
-  border: 1px solid red;
+    border: 1px solid red;
 }
 
 .input-error-svg-email {
-  visibility: hidden;
-  background-image: url("../images/warning.svg");
-  background-repeat: no-repeat;
-  width: 1.9em;
-  height: 1.9em;
-  position: absolute;
-  right: 0.5em;
-  top: 0.6em;
+    visibility: hidden;
+    background-image: url("../images/warning.svg");
+    background-repeat: no-repeat;
+    width: 1.9em;
+    height: 1.9em;
+    position: absolute;
+    right: 0.5em;
+    top: 0.6em;
 }
 
 .input-error-svg-email.error {
-  visibility: visible;
+    visibility: visible;
 }
 
 .customtooltip.email {
-  visibility: hidden;
-  top: -3.9em;
-  left: -1.2em;
-  width: 20em;
+    visibility: hidden;
+    top: -3.9em;
+    left: -1.2em;
+    width: 20em;
 }
+
 .customtooltip.email.error {
-  visibility: visible;
+    visibility: visible;
 }
 
 .customtooltip.email.error:after {
-  visibility: hidden;
-  content: "";
-  position: absolute;
-  top: 3.3em;
-  left: 0.5em;
-  border-width: 0.5em;
-  border-style: solid;
-  border-color: rgb(226, 76, 75) transparent transparent transparent;
+    visibility: hidden;
+    content: "";
+    position: absolute;
+    top: 3.3em;
+    left: 0.5em;
+    border-width: 0.5em;
+    border-style: solid;
+    border-color: rgb(226, 76, 75) transparent transparent transparent;
 }
 
 .customtooltip.email.error:after {
-  visibility: visible;
+    visibility: visible;
 }
-
-/*--------------------------
-      Responsive
---------------------------*/
 
 /*for phone only*/
-/* @media (min-width: 0px) and (max-width: 600px) { 
-  .container-left-right {
-  }
-    
-  .container-right-half {
-  }
 
-  .container-left-half {
-  }
-    
-  .container-footer {
-  }
+@media (min-width: 0px) and (max-width: 600px) {
+        .communication-item-text {
+            font-size: 0.8em;
+        }
 
-} */
+        .container-footer {
+            font-size: 0.8em;
+        }
+}
 
 /* for tablet portrait up */
+
 /* @media (min-width: 600px) and (max-width: 1100px) {
   .container-left-right {
   }
@@ -648,32 +626,39 @@ input.input.error {
   .container-footer {
   }
 } */
+
 /*for tablet portait only*/
+
 /* @media (min-width: 600px) and (max-width: 899px) { 
   
 } */
 
 /*for tablet landscape up*/
+
 /* @media (min-width: 900px) { 
   
 } */
 
 /*for tablet landscape only*/
+
 /* @media (min-width: 900px) and (max-width: 1199px) { 
 
 } */
 
 /*for desktop up*/
+
 /* @media (min-width: 1200px) { 
   
 } */
 
 /*for desktop only*/
+
 /* @media (min-width: 1200px) and (max-width: 1799px) {
   
 } */
 
 /*for big desktop up*/
+
 /* @media (min-width: 1800px) { 
   
 } */
