@@ -122,6 +122,11 @@ svg .speak-head {
     margin-left: 9em;
 }
 
+.company-logo.hotslice {
+    background-image: url(../images/company/hotslice.png);
+    margin-left: 7em;
+}
+
 .company-logo.izcocukgelisim {
     background-image: url(../images/company/izcocukgelisim.png);
     margin-left: 6em;
@@ -161,11 +166,6 @@ svg .speak-head {
 .company-logo.ozusportscafe {
     background-image: url(../images/company/ozusportscafe.png);
     margin-left: 6em;
-}
-
-.company-logo.pizzahotslice {
-    background-image: url(../images/company/pizzahotslice.png);
-    margin-left: 7em;
 }
 
 .company-logo.simitcidunyasi {
