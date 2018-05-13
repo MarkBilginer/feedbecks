@@ -1,3 +1,7 @@
+body {
+    font-size: 16px;
+}
+
 .container-right-half {
     background: rgba(241, 226, 215, 0.2);
     min-height: 95vh;
@@ -99,7 +103,13 @@ svg .speak-head {
     background-image: url(../images/company/akkol.png);
 }
 
+.company-logo.avendotomatlar {}
+
 .company-logo.caglayankitap {
+    background-image: url(../images/company/caglayankitap.png);
+}
+
+.company-logo.cafe24 {
     background-image: url(../images/company/caglayankitap.png);
 }
 
@@ -196,6 +206,13 @@ textarea {
     border: none;
 }
 
+textarea.form-control {
+    resize: none;
+    min-height: 20vmax;
+    max-height: 20vmax;
+    height: auto;
+}
+
 textarea::-webkit-input-placeholder {
     color: #999999;
 }
@@ -263,16 +280,14 @@ iframe {
     border: none !important;
 }
 
-.wrap-main {
-    width: 20.0em;
-    min-width: 20.0em;
+/* .wrap-main {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 10%;
     border: 0.18em solid rgba(1, 22, 39, 1);
     border-radius: 0.6em;
     position: relative;
-}
+} */
 
 .dislike-button {
     border: none;
@@ -296,6 +311,13 @@ iframe {
 
 .container-main {}
 
+#main {
+    display: flex;
+    height: 70vh;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .container-thank {
     color: rgba(1, 22, 39, 1);
 }
@@ -311,7 +333,6 @@ iframe {
 
 .main-form-header h1 {
     font-family: 'Arvo', serif;
-    font-size: 24px;
     font-weight: 700;
     color: rgba(1, 22, 39, 1);
     margin-bottom: 0.1em;
@@ -322,7 +343,7 @@ iframe {
 }
 
 .main-form {
-    padding: 2em 2.8em 2em 2.8em;
+    padding: 2em 1.8em 2em 1.8em;
 }
 
 .main-form-email {
@@ -342,7 +363,6 @@ iframe {
 }
 
 .input {
-    font-size: 1.1em;
     color: #555555;
     line-height: 1.2em;
     display: block;
@@ -359,6 +379,16 @@ iframe {
     left: 88%;
 }
 
+.textarea-label-wrapper{
+    position: relative;
+}
+
+#count_message {
+    position: absolute;
+    right: 2%;
+    bottom: 4%;
+}
+
 /*---------------------------------------------*/
 
 input.input {
@@ -370,6 +400,7 @@ textarea.input {
     min-height: 7em;
     margin-top: 1.8em;
     padding-bottom: 0;
+    border-radius: 0.3em;
 }
 
 .container-main-form-btn-next {}
@@ -378,7 +409,6 @@ textarea.input {
 
 .main-form-btn {
     border: none;
-    font-size: 1.5em;
     line-height: 1.2em;
 }
 
@@ -386,18 +416,17 @@ textarea.input {
     cursor: pointer;
 }
 
-.main-form-btn .text {
-    font-size: 0.7em;
-}
+.main-form-btn .text {}
 
 .main-form-btn-next {
     display: inline-block;
     vertical-align: middle;
     padding: 0 1.3em;
     margin-top: 0.6em;
+    margin-left: auto;
+    margin-right: auto;
     min-width: 17em;
     height: 2.5em;
-    margin-left: -1.5em;
     background: linear-gradient(#67ae55, #578843);
     background-color: #69a74e;
     box-shadow: inset 0 0.06em 0.06em #a4e388;
@@ -440,7 +469,6 @@ div {
 
 .footer-links a {
     text-decoration: none;
-    font-size: 1em;
 }
 
 .mr {
@@ -486,10 +514,6 @@ div {
 
 .customtooltip.textarea.error:after {
     visibility: visible;
-}
-
-textarea.input {
-    border-radius: 0.3em;
 }
 
 textarea.input.error {
@@ -610,65 +634,196 @@ input.input.error {
     visibility: visible;
 }
 
-/*for phone only*/
+/* Smaller than Extra Small devices (up to 575px) */
 
-@media (min-width: 0px) and (max-width: 600px) {
-        .communication-item-text {
-            font-size: 0.8em;
-        }
-
-        .container-footer {
-            font-size: 0.8em;
-        }
+@media (max-width: 575px) {
+    .communication-item-left-group {
+        white-space: nowrap;
+    }
+    .communication-item-left {
+        font-size: 3.8vw;
+    }
+    .dusuncembu-logo {
+        font-size: 3.5vw;
+    }
+    .main-form-header h1 {
+        font-size: 6vw;
+    }
+    wrap-main {
+        width: auto;
+        min-width: 88vw;
+        max-width: 90vw;
+    }
+    .main-form-btn {
+        font-size: 7.5vw;
+    }
+    textarea.input {
+        font-size: 4.5vw;
+    }
+    .main-form-btn-next {
+        font-size: 4.5vw
+    }
+    .footer-links {
+        font-size: 3.5vw;
+    }
 }
 
-/* for tablet portrait up */
+/* Extra small devices (portrait phones, less than 576px) */
 
-/* @media (min-width: 600px) and (max-width: 1100px) {
-  .container-left-right {
-  }
-  .container-right-half {
-  }
+/* No media query since this is the default in Bootstrap */
 
-  .container-left-half {
-  }
-    
-  .container-footer {
-  }
-} */
+/* Small devices (landscape phones, 576px and up) */
 
-/*for tablet portait only*/
+@media (min-width: 576px) {
+    .communication-item-left-group {
+        white-space: nowrap;
+    }
+    .communication-item-left {
+        font-size: 3vw;
+    }
+    .dusuncembu-logo {
+        font-size: 3vw;
+    }
+    .main-form-header h1 {
+        font-size: 3vw;
+    }
+    wrap-main {
+        width: 20.0em;
+        min-width: 20.0em;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 10%;
+        border: 0.18em solid rgba(1, 22, 39, 1);
+        border-radius: 0.6em;
+        position: relative;
+    }
+    .main-form-btn {
+        font-size: 2.5vw;
+    }
+    textarea.input {
+        font-size: 3vw;
+    }
+    .main-form-btn-next {
+        font-size: 1.5vw;
+    }
+    .footer-links {
+        font-size: 2vw;
+    }
+}
 
-/* @media (min-width: 600px) and (max-width: 899px) { 
-  
-} */
+/* Medium devices (tablets, 768px and up) */
 
-/*for tablet landscape up*/
+@media (min-width: 768px) {
+    .communication-item-left-group {
+        white-space: nowrap;
+    }
+    .communication-item-left {
+        font-size: 3vw;
+    }
+    .dusuncembu-logo {
+        font-size: 3vw;
+    }
+    .main-form-header h1 {
+        font-size: 3vw;
+    }
+    wrap-main {
+        width: 20.0em;
+        min-width: 20.0em;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 10%;
+        border: 0.18em solid rgba(1, 22, 39, 1);
+        border-radius: 0.6em;
+        position: relative;
+    }
+    .main-form-btn {
+        font-size: 2.5vw;
+    }
+    textarea.input {
+        font-size: 3vw;
+    }
+    .main-form-btn-next {
+        font-size: 1.5vw;
+    }
+    .footer-links {
+        font-size: 2vw;
+    }
+}
 
-/* @media (min-width: 900px) { 
-  
-} */
+/* Large devices (desktops, 992px and up) */
 
-/*for tablet landscape only*/
+@media (min-width: 992px) {
+    .communication-item-left-group {
+        white-space: nowrap;
+    }
+    .communication-item-left {
+        font-size: 3vw;
+    }
+    .dusuncembu-logo {
+        font-size: 3vw;
+    }
+    .main-form-header h1 {
+        font-size: 3vw;
+    }
+    wrap-main {
+        width: 20.0em;
+        min-width: 20.0em;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 10%;
+        border: 0.18em solid rgba(1, 22, 39, 1);
+        border-radius: 0.6em;
+        position: relative;
+    }
+    .main-form-btn {
+        font-size: 2.5vw;
+    }
+    textarea.input {
+        font-size: 3vw;
+    }
+    .main-form-btn-next {
+        font-size: 1.5vw;
+    }
+    .footer-links {
+        font-size: 2vw;
+    }
+}
 
-/* @media (min-width: 900px) and (max-width: 1199px) { 
+/* Extra large devices (large desktops, 1200px and up) */
 
-} */
-
-/*for desktop up*/
-
-/* @media (min-width: 1200px) { 
-  
-} */
-
-/*for desktop only*/
-
-/* @media (min-width: 1200px) and (max-width: 1799px) {
-  
-} */
-
-/*for big desktop up*/
-
-/* @media (min-width: 1800px) { 
-  
-} */
+@media (min-width: 1200px) {
+    .communication-item-left-group {
+        white-space: nowrap;
+    }
+    .communication-item-left {
+        font-size: 3vw;
+    }
+    .dusuncembu-logo {
+        font-size: 3vw;
+    }
+    .main-form-header h1 {
+        font-size: 3vw;
+    }
+    wrap-main {
+        width: 20.0em;
+        min-width: 20.0em;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 10%;
+        border: 0.18em solid rgba(1, 22, 39, 1);
+        border-radius: 0.6em;
+        position: relative;
+    }
+    .main-form-btn {
+        font-size: 2.5vw;
+    }
+    textarea.input {
+        font-size: 3vw;
+    }
+    .main-form-btn-next {
+        font-size: 1.5vw;
+    }
+    .footer-links {
+        font-size: 2vw;
+    }
+}

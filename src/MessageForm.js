@@ -1,14 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import request from 'superagent';
-import {Form, Button} from 'react-bootstrap';
-import './fonts/fontawesome-free-5.0.8/web-fonts-with-css/css/fontawesome-all.min.css'
+import $ from 'jquery';
+import {
+    Form,
+    FormGroup,
+    FormControl,
+    ControlLabel,
+    Col,
+    Button,
+    Tooltip,
+    Well,
+    Label,
+    HelpBlock
+} from 'react-bootstrap';
+import FontAwesome from 'react-fontawesome';
+// import
+// './fonts/fontawesome-free-5.0.8/web-fonts-with-css/css/fontawesome-all.min.css
+// '
 import EmailForm from './EmailForm'
 import store from './store.js';
 import {addToFormId} from './actions/formid-actions';
 import audioPop1 from './sounds/pop1.mp3';
 import audioPop2 from './sounds/pop2.mp3';
-import LikeDisklikeAnimation from './animations/LikeDislikeAnimation';
+import 'font-awesome/css/font-awesome.min.css';
+// import LikeDisklikeAnimation from './animations/LikeDislikeAnimation';
 
 class MessageForm extends React.Component {
     constructor(props) {
@@ -42,10 +58,18 @@ class MessageForm extends React.Component {
     }
 
     componentDidMount() {
-        LikeDisklikeAnimation();
+        // LikeDisklikeAnimation();
     }
 
     countWord = (e) => {
+        var text_max = 200;
+        $('#formControlsMessage').keyup(function() {
+        var text_length = $('#formControlsMessage').val().length;
+        var text_remaining = text_max - text_length;
+        
+        $('#count_message').html(text_length + ' / ' + text_max);
+        });
+
         var currentText = e.target.value;
         // Now we need to recalculate the number of characters that have been typed in
         // so far
@@ -58,13 +82,14 @@ class MessageForm extends React.Component {
         // Because we named the inputs to match their corresponding values in state,
         // it's super easy to update the state if (this.state.charsLeft === 0) { } else
         // if(this.state.charsLeft === 280){ }
-        const textarea_tooltip_error = document.querySelector('.customtooltip.textarea.error');
-        const textarea_input_error = document.querySelector('textarea.input.error');
-        const input_svg_error = document.querySelector('.input-error-svg-textarea.error');
 
-        if (textarea_tooltip_error && textarea_input_error && input_svg_error) {
-            this.IndexFormRemoveError('textarea');
-        }
+        // const textarea_tooltip_error = document.querySelector('.customtooltip.textarea.error');
+        // const textarea_input_error = document.querySelector('textarea.input.error');
+        // const input_svg_error = document.querySelector('.input-error-svg-textarea.error');
+
+        // if (textarea_tooltip_error && textarea_input_error && input_svg_error) {
+        //     this.IndexFormRemoveError('textarea');
+        // }
 
         this.countWord(e);
         var userText = this.state.userText;
@@ -242,66 +267,93 @@ class MessageForm extends React.Component {
 
     render() {
         return (
-            <Form className="main-form">
-            <div className="container-btn">
-                <div className="customtooltip like-dislike">
-                    <span className="customtooltiptext like-dislike">
-                        Lütfen beğenip beğenmediğini seç.
-                    </span>
-                </div>
-                <button className="main-form-btn" onClick={this.checkDislike}>
-                    <span
-                        className="fas fa-thumbs-down"
-                        style={{color: this.state.dislikeBtnColour}}>
-                    </span>
-                    {/* <span className="text">
-                        Dislike
-                    </span> */}
-                </button>
+            <Well bsSize="small">
+                <Form horizontal>
+                    <FormGroup>
+                        <Tooltip placement="top" className="in" id="tooltip-top">
+                            Tooltip top
+                        </Tooltip>
+                        <Col
+                            xsOffset={3}
+                            xs={1}
+                            smOffset={4}
+                            sm={1}
+                            mdOffset={4}
+                            md={1}
+                            lgOffset={5}
+                            lg={1}>
+                            <Button>
+                                <FontAwesome
+                                    className='super-crazy-colors'
+                                    name='thumbs-o-up'
+                                    size='2x'
+                                    style={{
+                                    textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)'
+                                }}/> {' '}Like &nbsp; &nbsp;
+                            </Button>
+                        </Col>
+                        {/* lg doesnt solve problem */}
+                        <Col
+                            xsOffset={2}
+                            xs={1}
+                            smOffset={2}
+                            sm={1}
+                            mdOffset={2}
+                            md={1}
+                            lgOffset={0}
+                            lg={1}>
+                            <Button>
+                                <FontAwesome
+                                    className='super-crazy-colors'
+                                    name='thumbs-o-down'
+                                    size='2x'
+                                    style={{
+                                    textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)'
+                                }}/> {' '}Dislike
+                            </Button>
+                        </Col>
+                    </FormGroup>
 
-                <button className="main-form-btn" onClick={this.checkLike}>
-                    <span
-                        className="fas fa-thumbs-up"
-                        style={{color: this.state.likeBtnColour}}>
-                    </span>
-                    {/* <span className="text">
-                        Like
-                    </span> */}
-                </button>
-                <span>
-                    <svg className="input-error-svg-btn"></svg>
-                </span>
+                    <FormGroup controlId="formControlsMessage">
+                        <Tooltip placement="left" className="in" id="tooltip-left">
+                            Tooltip left
+                        </Tooltip>
+                        <Col
+                            xsOffset={1}
+                            xs={10}
+                            smOffset={2}
+                            sm={8}
+                            mdOffset={3}
+                            md={6}
+                            lgOffset={4}
+                            lg={4}>
+                            {"Message"}
+                            <div className="textarea-label-wrapper">
+                                <FormControl
+                                    componentClass="textarea"
+                                    maxLength="280"
+                                    onChange={this.onChange}
+                                    placeholder="Örnek"/>
+                                <Label id="count_message">0 / 200</Label>
+                            </div>
+                        </Col>
+                    </FormGroup>
 
-            </div>
-
-            <div className="wrap-input">
-                <div className="customtooltip textarea">
-                    <span className="customtooltiptext textarea">
-                        İyi veya kötü bir değerlendirme yaz, İşletmeler neyi iyi ve kötü yaptıklarını
-                        öğrensinler.
-                    </span>
-                </div>
-                <textarea
-                    className="input form-validate"
-                    onChange={this.onChange}
-                    maxLength='280'
-                    placeholder="Görüşünüz bizim için önemli"></textarea>
-
-                <span>
-                    <svg className="input-error-svg-textarea"></svg>
-                </span>
-            </div>
-
-            <span id='wordcount'>{this.state.charsLeft}</span>
-
-            <div className="container-main-form-btn-next">
-
-                <Button className="main-form-btn-next" onClick={this.onNext}>
-                    İleri
-                </Button>
-
-            </div>
-        </Form>/* main form*/
+                    <FormGroup>
+                        <Col
+                            xsOffset={1}
+                            xs={10}
+                            smOffset={2}
+                            sm={8}
+                            mdOffset={3}
+                            md={6}
+                            lgOffset={4}
+                            lg={4}>
+                            <Button bsStyle="primary" type="submit" block>Next</Button>
+                        </Col>
+                    </FormGroup>
+                </Form>
+            </Well>
         );
     }
 }

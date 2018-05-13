@@ -199,9 +199,10 @@ class IndexSite extends React.Component {
                 </div>
               </div>
 
-              <div id="main" className="wrap-main">
+              <div id="main">
                 <MessageForm companyName={companyName}/>
               </div>
+              
             </div>
           </Col>
           {/* Container right half*/}

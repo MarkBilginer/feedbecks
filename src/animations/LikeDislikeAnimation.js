@@ -79,7 +79,7 @@ Animocon.prototype.options = {
 
 function init() {
     //Like Dislike Button array
-    var items = [].slice.call(document.querySelectorAll('button.main-form-btn'));
+    var items = [].slice.call(document.querySelectorAll('.main-form-btn'));
 
     /* Like Button */
     var elLike = items[1],
