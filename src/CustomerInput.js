@@ -32,7 +32,7 @@ class CustomerInput extends React.Component {
         super(props);
         this.state = {
             isLiked: null,
-            userText: null,
+            userText: '',
             formID: '',
             charsPerMessage: 280,
             validationState: [
@@ -83,6 +83,19 @@ class CustomerInput extends React.Component {
         this.countWord(e);
         var userText = this.state.userText;
         userText = e.target.value;
+
+        if (userText !== '') {
+            this.showMessageOverlay = false;
+            let validationStateCopy = JSON.parse(JSON.stringify(this.state.validationState))
+            //make changes to ingredients
+            validationStateCopy[0].message = "";
+            this.showValidationState = validationStateCopy[0].message;
+            document
+                .querySelector(".input-error-svg-textarea")
+                .classList
+                .remove("error");
+        }
+
         this.setState({'userText': userText});
     }
 
@@ -90,6 +103,8 @@ class CustomerInput extends React.Component {
         e.preventDefault();
         // get our form data out of state
         const {isLiked, userText, validationState} = this.state;
+
+        this.showMessageOverlay = false;
 
         if (this.state.isLiked === null) {
             // add error classes for visualization if the person hasnt liked yet
@@ -111,6 +126,7 @@ class CustomerInput extends React.Component {
 
         if (this.state.userText === '') {
             // add error classes for visualization if the message is empty
+            this.showMessageOverlay = true;
             console.log("usertext length" + this.state.userText.length === 0)
             document
                 .querySelector(".input-error-svg-textarea")
@@ -119,7 +135,7 @@ class CustomerInput extends React.Component {
             let validationStateCopy = JSON.parse(JSON.stringify(this.state.validationState))
             //make changes to ingredients
             validationStateCopy[0].message = "error";
-            this.setState({validationState: validationStateCopy});
+            this.showValidationState = validationStateCopy[0].message;
             return;
         }
 
@@ -208,14 +224,7 @@ class CustomerInput extends React.Component {
     }
 
     render() {
-        console.log("parent: " + this.state.validationState[0]['likeDislike']);
         const showError = this.state.validationState[0]['likeDislike'] === "error"
-            ? true
-            : false;
-        const showValidationState = this.state.validationState[0]['message'] === "error"
-            ? "error"
-            : null;
-        const showMessageOverlay = this.state.userText === ''
             ? true
             : false;
 
@@ -231,8 +240,8 @@ class CustomerInput extends React.Component {
                     <MessageForm
                         charsPerMessage={this.state.charsPerMessage}
                         onChange={this.onChange}
-                        showMessageOverlay={showMessageOverlay}
-                        showValidationState={showValidationState}/>
+                        showMessageOverlay={this.showMessageOverlay}
+                        showValidationState={this.showValidationState}/>
                     <FormGroup>
                         <Col
                             xsOffset={1}
