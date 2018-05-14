@@ -43,17 +43,17 @@ class LikeDislikeButtons extends React.Component {
 
         return (
             <FormGroup
-                className="formGroupLikeDislike"
+                className="formGroupCustom"
                 ref={formGroup => {
                 this.target = formGroup;
             }}>
                 <Overlay {...sharedProps} placement="top">
-                    <Tooltip placement="top" className="in" id="tooltip-top">
+                    <Tooltip placement="top" className="in customAlign-tooltip" id="tooltip-top">
                         Tooltip Like/Dislike
                     </Tooltip>
                 </Overlay>
                 <Col
-                xsPull={1}
+                    xsPull={1}
                     xsOffset={2}
                     xs={1}
                     smPull={0}
@@ -61,7 +61,7 @@ class LikeDislikeButtons extends React.Component {
                     sm={1}
                     mdOffset={4}
                     md={1}
-                    lgOffset={5}
+                    lgOffset={2}
                     lg={1}>
                     <Button onClick={this.props.checkLike}>
                         <FontAwesome
@@ -81,7 +81,7 @@ class LikeDislikeButtons extends React.Component {
                         </span>
                     </Button>
                 </Col>
-                {/* lg doesnt solve problem */}
+
                 <Col
                     xsOffset={2}
                     xs={1}
@@ -90,7 +90,7 @@ class LikeDislikeButtons extends React.Component {
                     sm={1}
                     mdOffset={2}
                     md={1}
-                    lgOffset={0}
+                    lgOffset={2}
                     lg={1}>
                     <Button onClick={this.props.checkDislike}>
                         <FontAwesome
@@ -113,13 +113,10 @@ class LikeDislikeButtons extends React.Component {
                 <Col xsOffset={2} xs={1}>
                     <FormControl.Feedback>
                         <div>
-                        <svg className="input-error-svg-btn"></svg>
+                            <svg className="input-error-svg-btn"></svg>
                         </div>
                     </FormControl.Feedback>
                 </Col>
-                {/* <FormControl.Feedback>
-                            <Glyphicon glyph="music" />
-                        </FormControl.Feedback> */}
             </FormGroup>
         );
     }

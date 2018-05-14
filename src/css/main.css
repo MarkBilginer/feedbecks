@@ -127,12 +127,11 @@ textarea:-ms-input-placeholder {
     color: #999999;
 }
 
-.formGroupLikeDislike{
+.formGroupCustom{
     position: relative;
 }
 
 /* overwritten default bootstrap style */
-
 .tooltip-inner {
     background-color: rgb(226, 76, 75);
 }
@@ -311,17 +310,7 @@ input.input {
     height: 2.8em;
 }
 
-textarea.input {
-    color: rgba(1, 22, 39, 1);
-    min-height: 7em;
-    margin-top: 1.8em;
-    padding-bottom: 0;
-    border-radius: 0.3em;
-}
 
-.container-main-form-btn-next {}
-
-.container-btn {}
 
 .main-form-btn {
     border: none;
@@ -391,45 +380,8 @@ div {
     margin-right: 0.9em;
 }
 
-.customtooltip {
-    font-family: 'Lato', sans-serif;
-    visibility: hidden;
-    position: absolute;
-    display: inline-block;
-    border-bottom: 1px dotted black;
-    background-color: rgb(226, 76, 75);
-    text-align: center;
-    border-radius: 0.4em;
-    padding: 0.3em 0;
-}
-
 .customtooltiptext {
     line-height: 1.8em;
-}
-
-.customtooltip.textarea {
-    top: -4.8em;
-    left: -1.2em;
-    width: 20.5em;
-}
-
-.customtooltip.textarea.error {
-    visibility: visible;
-}
-
-.customtooltip.textarea:after {
-    visibility: hidden;
-    content: "";
-    position: absolute;
-    top: 4.1em;
-    left: 0.8em;
-    border-width: 0.5em;
-    border-style: solid;
-    border-color: rgb(226, 76, 75) transparent transparent transparent;
-}
-
-.customtooltip.textarea.error:after {
-    visibility: visible;
 }
 
 textarea.input.error {
@@ -437,7 +389,7 @@ textarea.input.error {
 }
 
 .input-error-svg-textarea {
-    visibility: hidden;
+    opacity: 0;
     position: absolute;
     bottom: 4%;
     left: 1%;
@@ -447,7 +399,7 @@ textarea.input.error {
 }
 
 .input-error-svg-textarea.error {
-    visibility: visible;
+    opacity: 1;
 }
 
 .container-btn {
@@ -474,17 +426,6 @@ textarea.input.error {
 
 .input-error-svg-btn.error {
     opacity:1;
-}
-
-.customtooltip.like-dislike {
-    visibility: hidden;
-    top: -0.9em;
-    left: 1.8em;
-    width: 16em;
-}
-
-.customtooltip.like-dislike.error {
-    visibility: visible;
 }
 
 .customtooltip.like-dislike:after {

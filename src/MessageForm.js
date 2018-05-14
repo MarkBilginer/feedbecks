@@ -34,13 +34,13 @@ class MessageForm extends React.Component {
 
         return (
             <FormGroup
-                controlId="formControlsMessage"
+                className="formGroupCustom"
                 ref={formGroup => {
                 this.target = formGroup;
             }}
                 validationState={this.props.showValidationState}>
                 <Overlay {...sharedProps} placement="top">
-                    <Tooltip placement="top" className="in" id="tooltip-top">
+                    <Tooltip placement="top" className="in customAlign-Tooltip" id="tooltip-top">
                         Tooltip Message
                     </Tooltip>
                 </Overlay>
@@ -51,8 +51,8 @@ class MessageForm extends React.Component {
                     sm={8}
                     mdOffset={3}
                     md={6}
-                    lgOffset={4}
-                    lg={4}>
+                    lgOffset={2}
+                    lg={8}>
                     {"Message"}
                     <div className="textarea-label-wrapper">
                         <FormControl

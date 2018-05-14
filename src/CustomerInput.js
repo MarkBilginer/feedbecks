@@ -32,10 +32,9 @@ class CustomerInput extends React.Component {
         super(props);
         this.state = {
             isLiked: null,
-            userText: '',
+            userText: null,
             formID: '',
             charsPerMessage: 280,
-            charsLeft: 280,
             validationState: [
                 {
                     message: null,
@@ -78,96 +77,13 @@ class CustomerInput extends React.Component {
         });
 
         var currentText = e.target.value;
-        // Now we need to recalculate the number of characters that have been typed in
-        // so far var characterCount = currentText.length; var l_charsLeft =
-        // this.state.charsPerMessage - characterCount; this.setState({'charsLeft':
-        // l_charsLeft});
     }
 
     onChange = (e) => {
-        // Because we named the inputs to match their corresponding values in state,
-        // it's super easy to update the state if (this.state.charsLeft === 0) { } else
-        // if(this.state.charsLeft === 280){ } const textarea_tooltip_error =
-        // document.querySelector('.customtooltip.textarea.error'); const
-        // textarea_input_error = document.querySelector('textarea.input.error'); const
-        // input_svg_error = document.querySelector('.input-error-svg-textarea.error');
-        // if (textarea_tooltip_error && textarea_input_error && input_svg_error) {
-        // this.IndexFormRemoveError('textarea'); }
-
         this.countWord(e);
         var userText = this.state.userText;
         userText = e.target.value;
         this.setState({'userText': userText});
-    }
-
-    IndexFormAddError(string) {
-        switch (string) {
-            case
-                'like-dislike':
-                document
-                    .querySelector(".container-btn")
-                    .classList
-                    .add("error");
-                document
-                    .querySelector(".input-error-svg-btn")
-                    .classList
-                    .add("error");
-                document
-                    .querySelector(".customtooltip.like-dislike")
-                    .classList
-                    .add("error");
-                break;
-            case 'textarea':
-                document
-                    .querySelector(".customtooltip.textarea")
-                    .classList
-                    .add("error");
-                document
-                    .querySelector("textarea.input")
-                    .classList
-                    .add("error");
-                document
-                    .querySelector(".input-error-svg-textarea")
-                    .classList
-                    .add("error");
-                break;
-            default:
-                break;
-        }
-    }
-    IndexFormRemoveError(string) {
-        switch (string) {
-            case 'like-dislike':
-                document
-                    .querySelector(".container-btn")
-                    .classList
-                    .remove("error");
-                document
-                    .querySelector(".input-error-svg-btn")
-                    .classList
-                    .remove("error");
-                document
-                    .querySelector(".customtooltip.like-dislike")
-                    .classList
-                    .remove("error");
-                break;
-            case 'textarea':
-                document
-                    .querySelector(".customtooltip.textarea")
-                    .classList
-                    .remove("error");
-                document
-                    .querySelector("textarea.input")
-                    .classList
-                    .remove("error");
-                document
-                    .querySelector(".input-error-svg-textarea")
-                    .classList
-                    .remove("error");
-                break;
-            default:
-                break;
-        }
     }
 
     onNext = (e) => {
@@ -177,7 +93,6 @@ class CustomerInput extends React.Component {
 
         if (this.state.isLiked === null) {
             // add error classes for visualization if the person hasnt liked yet
-            // this.IndexFormAddError('like-dislike');
             document
                 .querySelector(".input-error-svg-btn")
                 .classList
@@ -196,7 +111,6 @@ class CustomerInput extends React.Component {
 
         if (this.state.userText === '') {
             // add error classes for visualization if the message is empty
-            // this.setState({validationState: ['','error']});
             console.log("usertext length" + this.state.userText.length === 0)
             document
                 .querySelector(".input-error-svg-textarea")
@@ -240,13 +154,6 @@ class CustomerInput extends React.Component {
         let pop1 = new Audio(audioPop1);
         let pop2 = new Audio(audioPop2);
 
-        // const container_btn_error = document.querySelector('.container-btn.error');
-        // const input_svg_error = document.querySelector('.input-error-svg-btn.error');
-        // const btn_tooltip_error =
-        // document.querySelector('.customtooltip.like-dislike.error'); if
-        // (container_btn_error && input_svg_error && btn_tooltip_error) {     //
-        // this.IndexFormRemoveError('like-dislike'); }
-
         if (this.state.isLiked === true) {
             this.setState({isLiked: null, likeBtnColour: "rgba(1, 22, 39, 1)"});
             pop2.play();
@@ -263,6 +170,11 @@ class CustomerInput extends React.Component {
             this.setState({validationState: validationStateCopy});
             pop1.play();
 
+            document
+                .querySelector(".input-error-svg-btn")
+                .classList
+                .remove("error");
+
         }
     }
 
@@ -271,14 +183,7 @@ class CustomerInput extends React.Component {
 
         let pop1 = new Audio(audioPop1);
         let pop2 = new Audio(audioPop2);
-
-        // const container_btn_error = document.querySelector('.container-btn.error');
-        // const input_svg_error = document.querySelector('.input-error-svg-btn.error');
-        // const btn_tooltip_error =
-        // document.querySelector('.customtooltip.like-dislike.error'); if
-        // (container_btn_error && input_svg_error && btn_tooltip_error) {     //
-        // this.IndexFormRemoveError('like-dislike'); }
-
+        
         if (this.state.isLiked === true) {
             this.setState({isLiked: false, likeBtnColour: "rgba(1, 22, 39, 1)", dislikeBtnColour: "#9b3659"});
             pop1.play();
@@ -294,6 +199,11 @@ class CustomerInput extends React.Component {
             validationStateCopy[0].likeDislike = false;
             this.setState({validationState: validationStateCopy});
             pop1.play();
+
+            document
+                .querySelector(".input-error-svg-btn")
+                .classList
+                .remove("error");
         }
     }
 
@@ -305,7 +215,7 @@ class CustomerInput extends React.Component {
         const showValidationState = this.state.validationState[0]['message'] === "error"
             ? "error"
             : null;
-        const showMessageOverlay = this.state.userText == ''
+        const showMessageOverlay = this.state.userText === ''
             ? true
             : false;
 
@@ -331,8 +241,8 @@ class CustomerInput extends React.Component {
                             sm={8}
                             mdOffset={3}
                             md={6}
-                            lgOffset={4}
-                            lg={4}>
+                            lgOffset={2}
+                            lg={8}>
                             <Button bsStyle="primary" type="submit" onClick={this.onNext} block>Next</Button>
                         </Col>
                     </FormGroup>
