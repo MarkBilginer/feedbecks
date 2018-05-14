@@ -19,11 +19,6 @@ class LikeDislikeButtons extends React.Component {
         this.getTarget = this
             .getTarget
             .bind(this);
-
-        let initialState= (props.showError === "error" ? true : false);
-        this.state = {
-            show: initialState
-        };
     }
 
     getTarget() {
@@ -31,19 +26,22 @@ class LikeDislikeButtons extends React.Component {
     }
 
     componentWillUpdate(){
+        // let initialState= (this.props.showError === "error" ? true : false);
+        // this.setState( {
+        //     show: initialState
+        // });
         console.log("child: "+this.props.showError );
         console.log(typeof this.props.showError);
         console.log(JSON.stringify(this.props.showError));
-        console.log(this.state.show);
+        // console.log(this.state.show);
     }
 
     render() {
         const sharedProps = {
             container: this,
             target: this.getTarget,
-            show: this.state.show
+            show: this.props.showError
         };
-        // console.log("child: "+this.props.showError );
 
         return (
             <FormGroup
@@ -53,7 +51,7 @@ class LikeDislikeButtons extends React.Component {
             }}>
                 <Overlay {...sharedProps} placement="top">
                     <Tooltip placement="top" className="in" id="tooltip-top">
-                        Tooltip top
+                        Tooltip Like/Dislike
                     </Tooltip>
                 </Overlay>
                 <Col

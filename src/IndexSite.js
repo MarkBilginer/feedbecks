@@ -1,6 +1,6 @@
 import React from 'react';
 import {Grid, Row, Col} from 'react-bootstrap';
-import MessageForm from './MessageForm'
+import CustomerInput from './CustomerInput';
 import Footer from './Footer'
 import './css/main.css';
 import './css/company-logo.css';
@@ -202,7 +202,7 @@ class IndexSite extends React.Component {
               </div>
 
               <div id="main">
-                <MessageForm companyName={companyName}/>
+                <CustomerInput companyName={companyName}/>
               </div>
               
             </div>
