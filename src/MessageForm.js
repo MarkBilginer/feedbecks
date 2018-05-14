@@ -6,19 +6,19 @@ import {
     Form,
     FormGroup,
     FormControl,
-    ControlLabel,
     Col,
     Button,
     Tooltip,
     Well,
     Label,
-    HelpBlock
+    Overlay
 } from 'react-bootstrap';
 import FontAwesome from 'react-fontawesome';
 // import
-// './fonts/fontawesome-free-5.0.8/web-fonts-with-css/css/fontawesome-all.min.css
-// '
+// './fonts/fontawesome-free-5.0.8/web-fonts-with-css/css/fontawesome-all.min.cs
+// s '
 import EmailForm from './EmailForm'
+import LikeDislikeButtons from './LikeDislikeButtons';
 import store from './store.js';
 import {addToFormId} from './actions/formid-actions';
 import audioPop1 from './sounds/pop1.mp3';
@@ -35,7 +35,12 @@ class MessageForm extends React.Component {
             formID: '',
             charsPerMessage: 280,
             charsLeft: 280,
-            notificationText: '',
+            validationState: [
+                {
+                    message: null,
+                    likeDislike: null
+                }
+            ],
             likeBtnColour: "rgba(1, 22, 39, 1)",
             dislikeBtnColour: "rgba(1, 22, 39, 1)"
         };
@@ -54,7 +59,6 @@ class MessageForm extends React.Component {
         this.countWord = this
             .countWord
             .bind(this);
-
     }
 
     componentDidMount() {
@@ -63,33 +67,31 @@ class MessageForm extends React.Component {
 
     countWord = (e) => {
         var text_max = 200;
-        $('#formControlsMessage').keyup(function() {
-        var text_length = $('#formControlsMessage').val().length;
-        var text_remaining = text_max - text_length;
-        
-        $('#count_message').html(text_length + ' / ' + text_max);
+        $('#formControlsMessage').keyup(function () {
+            var text_length = $('#formControlsMessage')
+                .val()
+                .length;
+            // var text_remaining = text_max - text_length;
+
+            $('#count_message').html(text_length + ' / ' + text_max);
         });
 
         var currentText = e.target.value;
         // Now we need to recalculate the number of characters that have been typed in
-        // so far
-        var characterCount = currentText.length;
-        var l_charsLeft = this.state.charsPerMessage - characterCount;
-        this.setState({'charsLeft': l_charsLeft});
+        // so far var characterCount = currentText.length; var l_charsLeft =
+        // this.state.charsPerMessage - characterCount; this.setState({'charsLeft':
+        // l_charsLeft});
     }
 
     onChange = (e) => {
         // Because we named the inputs to match their corresponding values in state,
         // it's super easy to update the state if (this.state.charsLeft === 0) { } else
-        // if(this.state.charsLeft === 280){ }
-
-        // const textarea_tooltip_error = document.querySelector('.customtooltip.textarea.error');
-        // const textarea_input_error = document.querySelector('textarea.input.error');
-        // const input_svg_error = document.querySelector('.input-error-svg-textarea.error');
-
+        // if(this.state.charsLeft === 280){ } const textarea_tooltip_error =
+        // document.querySelector('.customtooltip.textarea.error'); const
+        // textarea_input_error = document.querySelector('textarea.input.error'); const
+        // input_svg_error = document.querySelector('.input-error-svg-textarea.error');
         // if (textarea_tooltip_error && textarea_input_error && input_svg_error) {
-        //     this.IndexFormRemoveError('textarea');
-        // }
+        // this.IndexFormRemoveError('textarea'); }
 
         this.countWord(e);
         var userText = this.state.userText;
@@ -98,9 +100,9 @@ class MessageForm extends React.Component {
     }
 
     IndexFormAddError(string) {
-
         switch (string) {
-            case 'like-dislike':
+            case
+                'like-dislike':
                 document
                     .querySelector(".container-btn")
                     .classList
@@ -132,9 +134,7 @@ class MessageForm extends React.Component {
                 break;
         }
     }
-
     IndexFormRemoveError(string) {
-
         switch (string) {
             case 'like-dislike':
                 document
@@ -172,15 +172,27 @@ class MessageForm extends React.Component {
     onNext = (e) => {
         e.preventDefault();
         // get our form data out of state
-        const {isLiked, userText} = this.state;
+        const {isLiked, userText, validationState} = this.state;
 
         if (this.state.isLiked === null) {
-            //add error classes for visualization if the person hasnt liked yet
-            this.IndexFormAddError('like-dislike');
+            // add error classes for visualization if the person hasnt liked yet
+            // this.IndexFormAddError('like-dislike');
+            let validationStateCopy = JSON.parse(JSON.stringify(this.state.validationState))
+            //make changes to ingredients
+            validationStateCopy[0].likeDislike = "error";
+            this.setState({validationState: validationStateCopy});
             return;
         } else if (this.state.userText.length === 0) {
-            //add error classes for visualization if the message is empty
-            this.IndexFormAddError('textarea');
+            // add error classes for visualization if the message is empty
+            // this.setState({validationState: ['','error']});
+            document
+                .querySelector(".input-error-svg-textarea")
+                .classList
+                .add("error");
+            let validationStateCopy = JSON.parse(JSON.stringify(this.state.validationState))
+            //make changes to ingredients
+            validationStateCopy[0].message = "error";
+            this.setState({validationState: validationStateCopy});
             return;
         }
         console.log('sending request to: https://api.dusuncembu.com/' + this.props.companyName + '/consumer/submitForm');
@@ -214,13 +226,12 @@ class MessageForm extends React.Component {
         let pop1 = new Audio(audioPop1);
         let pop2 = new Audio(audioPop2);
 
-        const container_btn_error = document.querySelector('.container-btn.error');
-        const input_svg_error = document.querySelector('.input-error-svg-btn.error');
-        const btn_tooltip_error = document.querySelector('.customtooltip.like-dislike.error');
-
-        if (container_btn_error && input_svg_error && btn_tooltip_error) {
-            this.IndexFormRemoveError('like-dislike');
-        }
+        // const container_btn_error = document.querySelector('.container-btn.error');
+        // const input_svg_error = document.querySelector('.input-error-svg-btn.error');
+        // const btn_tooltip_error =
+        // document.querySelector('.customtooltip.like-dislike.error'); if
+        // (container_btn_error && input_svg_error && btn_tooltip_error) {     //
+        // this.IndexFormRemoveError('like-dislike'); }
 
         if (this.state.isLiked === true) {
             this.setState({isLiked: null, likeBtnColour: "rgba(1, 22, 39, 1)"});
@@ -243,13 +254,12 @@ class MessageForm extends React.Component {
         let pop1 = new Audio(audioPop1);
         let pop2 = new Audio(audioPop2);
 
-        const container_btn_error = document.querySelector('.container-btn.error');
-        const input_svg_error = document.querySelector('.input-error-svg-btn.error');
-        const btn_tooltip_error = document.querySelector('.customtooltip.like-dislike.error');
-
-        if (container_btn_error && input_svg_error && btn_tooltip_error) {
-            this.IndexFormRemoveError('like-dislike');
-        }
+        // const container_btn_error = document.querySelector('.container-btn.error');
+        // const input_svg_error = document.querySelector('.input-error-svg-btn.error');
+        // const btn_tooltip_error =
+        // document.querySelector('.customtooltip.like-dislike.error'); if
+        // (container_btn_error && input_svg_error && btn_tooltip_error) {     //
+        // this.IndexFormRemoveError('like-dislike'); }
 
         if (this.state.isLiked === true) {
             this.setState({isLiked: false, likeBtnColour: "rgba(1, 22, 39, 1)", dislikeBtnColour: "#9b3659"});
@@ -266,55 +276,18 @@ class MessageForm extends React.Component {
     }
 
     render() {
+        console.log("parent: "+this.state.validationState[0]['likeDislike'] );
         return (
             <Well bsSize="small">
                 <Form horizontal>
-                    <FormGroup>
-                        <Tooltip placement="top" className="in" id="tooltip-top">
-                            Tooltip top
-                        </Tooltip>
-                        <Col
-                            xsOffset={3}
-                            xs={1}
-                            smOffset={4}
-                            sm={1}
-                            mdOffset={4}
-                            md={1}
-                            lgOffset={5}
-                            lg={1}>
-                            <Button>
-                                <FontAwesome
-                                    className='super-crazy-colors'
-                                    name='thumbs-o-up'
-                                    size='2x'
-                                    style={{
-                                    textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)'
-                                }}/> {' '}Like &nbsp; &nbsp;
-                            </Button>
-                        </Col>
-                        {/* lg doesnt solve problem */}
-                        <Col
-                            xsOffset={2}
-                            xs={1}
-                            smOffset={2}
-                            sm={1}
-                            mdOffset={2}
-                            md={1}
-                            lgOffset={0}
-                            lg={1}>
-                            <Button>
-                                <FontAwesome
-                                    className='super-crazy-colors'
-                                    name='thumbs-o-down'
-                                    size='2x'
-                                    style={{
-                                    textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)'
-                                }}/> {' '}Dislike
-                            </Button>
-                        </Col>
-                    </FormGroup>
-
-                    <FormGroup controlId="formControlsMessage">
+                    <LikeDislikeButtons checkLike={this.checkLike} 
+                        checkDislike={this.checkDislike}
+                        likeBtnColour={this.state.likeBtnColour}
+                        dislikeBtnColour={this.state.dislikeBtnColour}
+                        showError={this.state.validationState[0]['likeDislike']}/>
+                    <FormGroup
+                        controlId="formControlsMessage"
+                        validationState={this.state.validationState[0]['message']}>
                         <Tooltip placement="left" className="in" id="tooltip-left">
                             Tooltip left
                         </Tooltip>
@@ -331,9 +304,12 @@ class MessageForm extends React.Component {
                             <div className="textarea-label-wrapper">
                                 <FormControl
                                     componentClass="textarea"
-                                    maxLength="280"
+                                    maxLength={this.state.charsPerMessage}
                                     onChange={this.onChange}
                                     placeholder="Örnek"/>
+
+                                <svg className="input-error-svg-textarea"></svg>
+
                                 <Label id="count_message">0 / 200</Label>
                             </div>
                         </Col>
@@ -349,7 +325,7 @@ class MessageForm extends React.Component {
                             md={6}
                             lgOffset={4}
                             lg={4}>
-                            <Button bsStyle="primary" type="submit" block>Next</Button>
+                            <Button bsStyle="primary" type="submit" onClick={this.onNext} block>Next</Button>
                         </Col>
                     </FormGroup>
                 </Form>

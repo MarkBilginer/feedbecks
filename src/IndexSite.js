@@ -2,6 +2,8 @@ import React from 'react';
 import {Grid, Row, Col} from 'react-bootstrap';
 import MessageForm from './MessageForm'
 import Footer from './Footer'
+import './css/main.css';
+import './css/company-logo.css';
 
 window.React = React;
 
