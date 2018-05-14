@@ -53,8 +53,10 @@ class LikeDislikeButtons extends React.Component {
                     </Tooltip>
                 </Overlay>
                 <Col
-                    xsOffset={3}
+                xsPull={1}
+                    xsOffset={2}
                     xs={1}
+                    smPull={0}
                     smOffset={4}
                     sm={1}
                     mdOffset={4}
@@ -83,6 +85,7 @@ class LikeDislikeButtons extends React.Component {
                 <Col
                     xsOffset={2}
                     xs={1}
+                    smPush={0}
                     smOffset={2}
                     sm={1}
                     mdOffset={2}
@@ -107,11 +110,11 @@ class LikeDislikeButtons extends React.Component {
                     </Button>
                 </Col>
                 {/* needs to be fixed */}
-                <Col xsOffset={1} xs={1}>
+                <Col xsOffset={2} xs={1}>
                     <FormControl.Feedback>
-                        <span>
-                            <svg className="input-error-svg-btn"></svg>
-                        </span>
+                        <div>
+                        <svg className="input-error-svg-btn"></svg>
+                        </div>
                     </FormControl.Feedback>
                 </Col>
                 {/* <FormControl.Feedback>

@@ -460,18 +460,20 @@ textarea.input.error {
 }
 
 .input-error-svg-btn {
-    visibility: hidden;
+    opacity:0;
     background-image: url("../images/warning.svg");
     background-repeat: no-repeat;
     width: 1.9em;
     height: 1.9em;
-    position: absolute;
+    /* position: absolute;
     right: 0.8em;
-    top: 0.6em;
+    top: 0.6em; */
+    margin-top: 10px;
+    margin-left: 60px;
 }
 
 .input-error-svg-btn.error {
-    visibility: visible;
+    opacity:1;
 }
 
 .customtooltip.like-dislike {
