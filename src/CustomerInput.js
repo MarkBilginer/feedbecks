@@ -178,6 +178,10 @@ class CustomerInput extends React.Component {
         if (this.state.isLiked === null) {
             // add error classes for visualization if the person hasnt liked yet
             // this.IndexFormAddError('like-dislike');
+            document
+                .querySelector(".input-error-svg-btn")
+                .classList
+                .add("error");
             let validationStateCopy = JSON.parse(JSON.stringify(this.state.validationState))
             //make changes to ingredients
             validationStateCopy[0].likeDislike = "error";
@@ -193,7 +197,7 @@ class CustomerInput extends React.Component {
         if (this.state.userText === '') {
             // add error classes for visualization if the message is empty
             // this.setState({validationState: ['','error']});
-            console.log("usertext length"+this.state.userText.length === 0)
+            console.log("usertext length" + this.state.userText.length === 0)
             document
                 .querySelector(".input-error-svg-textarea")
                 .classList

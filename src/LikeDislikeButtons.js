@@ -25,12 +25,10 @@ class LikeDislikeButtons extends React.Component {
         return ReactDOM.findDOMNode(this.target);
     }
 
-    componentWillUpdate(){
+    componentWillUpdate() {
         // let initialState= (this.props.showError === "error" ? true : false);
-        // this.setState( {
-        //     show: initialState
-        // });
-        console.log("child: "+this.props.showError );
+        // this.setState( {     show: initialState });
+        console.log("child: " + this.props.showError);
         console.log(typeof this.props.showError);
         console.log(JSON.stringify(this.props.showError));
         // console.log(this.state.show);
@@ -109,11 +107,13 @@ class LikeDislikeButtons extends React.Component {
                     </Button>
                 </Col>
                 {/* needs to be fixed */}
-                {/* <Col xsOffset={1} xs={1}>
+                <Col xsOffset={1} xs={1}>
+                    <FormControl.Feedback>
                         <span>
                             <svg className="input-error-svg-btn"></svg>
                         </span>
-                        </Col> */}
+                    </FormControl.Feedback>
+                </Col>
                 {/* <FormControl.Feedback>
                             <Glyphicon glyph="music" />
                         </FormControl.Feedback> */}
