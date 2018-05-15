@@ -3,7 +3,7 @@ body {
 }
 
 .container-right-half {
-    background: rgba(241, 226, 215, 0.2);
+    background: white;
     min-height: 95vh;
     height: 100%;
 }
@@ -132,6 +132,23 @@ textarea:-ms-input-placeholder {
 }
 
 /* overwritten default bootstrap style */
+
+/* override default inline tooltip style */
+#tooltip-top {
+    top: 0 !important;
+    left: 0 !important;
+}
+
+#tooltip-top.like-dislike {
+    top: -80% !important;
+    left: 65% !important;
+}
+
+#tooltip-top.message {
+    top: -29% !important;
+    left: -10% !important;
+}
+
 .tooltip-inner {
     background-color: rgb(226, 76, 75);
 }
@@ -380,10 +397,6 @@ div {
     margin-right: 0.9em;
 }
 
-.customtooltiptext {
-    line-height: 1.8em;
-}
-
 textarea.input.error {
     border: 1px solid red;
 }
@@ -428,21 +441,6 @@ textarea.input.error {
     opacity:1;
 }
 
-.customtooltip.like-dislike:after {
-    visibility: hidden;
-    content: "";
-    position: absolute;
-    top: 2.3em;
-    left: 0.6em;
-    border-width: 0.5em;
-    border-style: solid;
-    border-color: rgb(226, 76, 75) transparent transparent transparent;
-}
-
-.customtooltip.like-dislike.error:after {
-    visibility: visible;
-}
-
 input.input {
     border-radius: 0.3em;
 }
@@ -464,224 +462,4 @@ input.input.error {
 
 .input-error-svg-email.error {
     visibility: visible;
-}
-
-.customtooltip.email {
-    visibility: hidden;
-    top: -3.9em;
-    left: -1.2em;
-    width: 20em;
-}
-
-.customtooltip.email.error {
-    visibility: visible;
-}
-
-.customtooltip.email.error:after {
-    visibility: hidden;
-    content: "";
-    position: absolute;
-    top: 3.3em;
-    left: 0.5em;
-    border-width: 0.5em;
-    border-style: solid;
-    border-color: rgb(226, 76, 75) transparent transparent transparent;
-}
-
-.customtooltip.email.error:after {
-    visibility: visible;
-}
-
-/* Smaller than Extra Small devices (up to 575px) */
-
-@media (max-width: 575px) {
-    .communication-item-left-group {
-        white-space: nowrap;
-    }
-    .communication-item-left {
-        font-size: 3.8vw;
-    }
-    .dusuncembu-logo {
-        font-size: 3.5vw;
-    }
-    .main-form-header h1 {
-        font-size: 6vw;
-    }
-    wrap-main {
-        width: auto;
-        min-width: 88vw;
-        max-width: 90vw;
-    }
-    .main-form-btn {
-        font-size: 7.5vw;
-    }
-    textarea.input {
-        font-size: 4.5vw;
-    }
-    .main-form-btn-next {
-        font-size: 4.5vw
-    }
-    .footer-links {
-        font-size: 3.5vw;
-    }
-}
-
-/* Extra small devices (portrait phones, less than 576px) */
-
-/* No media query since this is the default in Bootstrap */
-
-/* Small devices (landscape phones, 576px and up) */
-
-@media (min-width: 576px) {
-    .communication-item-left-group {
-        white-space: nowrap;
-    }
-    .communication-item-left {
-        font-size: 3vw;
-    }
-    .dusuncembu-logo {
-        font-size: 3vw;
-    }
-    .main-form-header h1 {
-        font-size: 3vw;
-    }
-    wrap-main {
-        width: 20.0em;
-        min-width: 20.0em;
-        margin-left: auto;
-        margin-right: auto;
-        margin-bottom: 10%;
-        border: 0.18em solid rgba(1, 22, 39, 1);
-        border-radius: 0.6em;
-        position: relative;
-    }
-    .main-form-btn {
-        font-size: 2.5vw;
-    }
-    textarea.input {
-        font-size: 3vw;
-    }
-    .main-form-btn-next {
-        font-size: 1.5vw;
-    }
-    .footer-links {
-        font-size: 2vw;
-    }
-}
-
-/* Medium devices (tablets, 768px and up) */
-
-@media (min-width: 768px) {
-    .communication-item-left-group {
-        white-space: nowrap;
-    }
-    .communication-item-left {
-        font-size: 3vw;
-    }
-    .dusuncembu-logo {
-        font-size: 3vw;
-    }
-    .main-form-header h1 {
-        font-size: 3vw;
-    }
-    wrap-main {
-        width: 20.0em;
-        min-width: 20.0em;
-        margin-left: auto;
-        margin-right: auto;
-        margin-bottom: 10%;
-        border: 0.18em solid rgba(1, 22, 39, 1);
-        border-radius: 0.6em;
-        position: relative;
-    }
-    .main-form-btn {
-        font-size: 2.5vw;
-    }
-    textarea.input {
-        font-size: 3vw;
-    }
-    .main-form-btn-next {
-        font-size: 1.5vw;
-    }
-    .footer-links {
-        font-size: 2vw;
-    }
-}
-
-/* Large devices (desktops, 992px and up) */
-
-@media (min-width: 992px) {
-    .communication-item-left-group {
-        white-space: nowrap;
-    }
-    .communication-item-left {
-        font-size: 3vw;
-    }
-    .dusuncembu-logo {
-        font-size: 3vw;
-    }
-    .main-form-header h1 {
-        font-size: 3vw;
-    }
-    wrap-main {
-        width: 20.0em;
-        min-width: 20.0em;
-        margin-left: auto;
-        margin-right: auto;
-        margin-bottom: 10%;
-        border: 0.18em solid rgba(1, 22, 39, 1);
-        border-radius: 0.6em;
-        position: relative;
-    }
-    .main-form-btn {
-        font-size: 2.5vw;
-    }
-    textarea.input {
-        font-size: 3vw;
-    }
-    .main-form-btn-next {
-        font-size: 1.5vw;
-    }
-    .footer-links {
-        font-size: 2vw;
-    }
-}
-
-/* Extra large devices (large desktops, 1200px and up) */
-
-@media (min-width: 1200px) {
-    .communication-item-left-group {
-        white-space: nowrap;
-    }
-    .communication-item-left {
-        font-size: 3vw;
-    }
-    .dusuncembu-logo {
-        font-size: 3vw;
-    }
-    .main-form-header h1 {
-        font-size: 3vw;
-    }
-    wrap-main {
-        width: 20.0em;
-        min-width: 20.0em;
-        margin-left: auto;
-        margin-right: auto;
-        margin-bottom: 10%;
-        border: 0.18em solid rgba(1, 22, 39, 1);
-        border-radius: 0.6em;
-        position: relative;
-    }
-    .main-form-btn {
-        font-size: 2.5vw;
-    }
-    textarea.input {
-        font-size: 3vw;
-    }
-    .main-form-btn-next {
-        font-size: 1.5vw;
-    }
-    .footer-links {
-        font-size: 2vw;
-    }
 }

@@ -1,0 +1,237 @@
+/* Smaller than Extra Small devices (up to 575px) */
+
+@media (max-width: 575px) {
+    .communication-item-left-group {
+        white-space: nowrap;
+    }
+    .communication-item-left {
+        font-size: 3.8vw;
+    }
+    .dusuncembu-logo {
+        font-size: 3.5vw;
+    }
+    .main-form-header h1 {
+        font-size: 6vw;
+    }
+    wrap-main {
+        width: auto;
+        min-width: 88vw;
+        max-width: 90vw;
+    }
+    .main-form-btn {
+        font-size: 7.5vw;
+    }
+    textarea.input {
+        font-size: 4.5vw;
+    }
+    .main-form-btn-next {
+        font-size: 4.5vw
+    }
+    .footer-links {
+        font-size: 3.5vw;
+    }
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+
+/* No media query since this is the default in Bootstrap */
+
+/* Small devices (landscape phones, 576px and up) */
+
+@media (min-width: 576px) {
+    #tooltip-top.like-dislike {
+        top: -80% !important;
+        left: 70% !important;
+    }
+    #tooltip-top.message {
+        top: -25% !important;
+        left: -5% !important;
+    }
+    .communication-item-left-group {
+        white-space: nowrap;
+    }
+    .communication-item-left {
+        font-size: 3vw;
+    }
+    .dusuncembu-logo {
+        font-size: 3vw;
+    }
+    .main-form-header h1 {
+        font-size: 3vw;
+    }
+    wrap-main {
+        width: 20.0em;
+        min-width: 20.0em;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 10%;
+        border: 0.18em solid rgba(1, 22, 39, 1);
+        border-radius: 0.6em;
+        position: relative;
+    }
+    .main-form-btn {
+        font-size: 2.5vw;
+    }
+    textarea.input {
+        font-size: 3vw;
+    }
+    .main-form-btn-next {
+        font-size: 1.5vw;
+    }
+    .footer-links {
+        font-size: 2vw;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+
+@media (min-width: 768px) {
+    #tooltip-top.like-dislike {
+        top: -80% !important;
+        left: 88% !important;
+    }
+    #tooltip-top.message {
+        top: -21% !important;
+        left: -2% !important;
+    }
+    .communication-item-left-group {
+        white-space: nowrap;
+    }
+    .communication-item-left {
+        font-size: 3vw;
+    }
+    .dusuncembu-logo {
+        font-size: 3vw;
+    }
+    .main-form-header h1 {
+        font-size: 3vw;
+    }
+    wrap-main {
+        width: 20.0em;
+        min-width: 20.0em;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 10%;
+        border: 0.18em solid rgba(1, 22, 39, 1);
+        border-radius: 0.6em;
+        position: relative;
+    }
+    .main-form-btn {
+        font-size: 2.5vw;
+    }
+    textarea.input {
+        font-size: 3vw;
+    }
+    .main-form-btn-next {
+        font-size: 1.5vw;
+    }
+    .footer-links {
+        font-size: 2vw;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+
+@media (min-width: 992px) {
+    #tooltip-top.like-dislike {
+        top: -80% !important;
+        left: 88% !important;
+    }
+    #tooltip-top.message {
+        top: -15% !important;
+        left: -2% !important;
+    }
+    .communication-item-left-group {
+        white-space: nowrap;
+    }
+    .communication-item-left {
+        font-size: 3vw;
+    }
+    .dusuncembu-logo {
+        font-size: 3vw;
+    }
+    .main-form-header h1 {
+        font-size: 3vw;
+    }
+    wrap-main {
+        width: 20.0em;
+        min-width: 20.0em;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 10%;
+        border: 0.18em solid rgba(1, 22, 39, 1);
+        border-radius: 0.6em;
+        position: relative;
+    }
+    .main-form-btn {
+        font-size: 2.5vw;
+    }
+    textarea.input {
+        font-size: 3vw;
+    }
+    .main-form-btn-next {
+        font-size: 1.5vw;
+    }
+    .footer-links {
+        font-size: 2vw;
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+
+@media (min-width: 1200px) {
+    #tooltip-top.like-dislike {
+        top: -80% !important;
+        left: 70% !important;
+    }
+    #tooltip-top.message {
+        top: -22% !important;
+        left: -14% !important;
+    }
+    .communication-item-left-group {
+        white-space: nowrap;
+    }
+    .communication-item-left {
+        font-size: 1.8vw;
+    }
+    .dusuncembu-logo {
+        font-size: 1.5vw;
+    }
+    .company-logo {
+        margin-bottom: 2em;
+    }
+    .main-form-header h1 {
+        font-size: 2vw;
+    }
+    wrap-main {
+        width: 20.0em;
+        min-width: 20.0em;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 10%;
+        border: 0.18em solid rgba(1, 22, 39, 1);
+        border-radius: 0.6em;
+        position: relative;
+    }
+    #main {
+        height: 100%;
+    }
+    textarea.form-control {
+        resize: none;
+        min-height: 12vmax;
+        max-height: 20vmax;
+        height: auto;
+    }
+    .main-form-btn {
+        font-size: 2.5vw;
+    }
+    textarea.input {
+        font-size: 3vw;
+    }
+    .main-form-btn-next {
+        font-size: 1.5vw;
+    }
+    .footer-links {
+        font-size: 2vw;
+    }
+}

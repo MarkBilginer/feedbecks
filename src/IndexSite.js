@@ -3,6 +3,7 @@ import {Grid, Row, Col} from 'react-bootstrap';
 import CustomerInput from './CustomerInput';
 import Footer from './Footer'
 import './css/main.css';
+import './css/media-queries.css';
 import './css/company-logo.css';
 
 window.React = React;

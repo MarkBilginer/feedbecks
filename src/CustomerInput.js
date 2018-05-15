@@ -67,7 +67,7 @@ class CustomerInput extends React.Component {
 
     countWord = (e) => {
         var text_max = this.state.charsPerMessage;
-        $('#formControlsMessage').keyup(function () {
+        $('#formControlsMessage').keydown(function () {
             var text_length = $('#formControlsMessage')
                 .val()
                 .length;
@@ -75,8 +75,6 @@ class CustomerInput extends React.Component {
 
             $('#count_message').html(text_length + ' / ' + text_max);
         });
-
-        var currentText = e.target.value;
     }
 
     onChange = (e) => {
@@ -88,7 +86,7 @@ class CustomerInput extends React.Component {
             this.showMessageOverlay = false;
             let validationStateCopy = JSON.parse(JSON.stringify(this.state.validationState))
             //make changes to ingredients
-            validationStateCopy[0].message = "";
+            validationStateCopy[0].message = null;
             this.showValidationState = validationStateCopy[0].message;
             document
                 .querySelector(".input-error-svg-textarea")
@@ -127,7 +125,6 @@ class CustomerInput extends React.Component {
         if (this.state.userText === '') {
             // add error classes for visualization if the message is empty
             this.showMessageOverlay = true;
-            console.log("usertext length" + this.state.userText.length === 0)
             document
                 .querySelector(".input-error-svg-textarea")
                 .classList
@@ -139,7 +136,7 @@ class CustomerInput extends React.Component {
             return;
         }
 
-        console.log('sending request to: https://api.dusuncembu.com/' + this.props.companyName + '/consumer/submitForm');
+        // console.log('sending request to: https://api.dusuncembu.com/' + this.props.companyName + '/consumer/submitForm');
         request
             .post('https://api.dusuncembu.com/' + this.props.companyName + '/consumer/submitForm')
             .send({'userText': userText, 'isLiked': isLiked}) // sends a JSON post body
@@ -155,7 +152,7 @@ class CustomerInput extends React.Component {
                     .getState()
                     .formId
                     .length;
-                console.log(store.getState().formId[stateLength - 1]);
+                // console.log(store.getState().formId[stateLength - 1]);
             });
         //.catch(function(err){ alert('error'); });
 
@@ -199,7 +196,7 @@ class CustomerInput extends React.Component {
 
         let pop1 = new Audio(audioPop1);
         let pop2 = new Audio(audioPop2);
-        
+
         if (this.state.isLiked === true) {
             this.setState({isLiked: false, likeBtnColour: "rgba(1, 22, 39, 1)", dislikeBtnColour: "#9b3659"});
             pop1.play();

@@ -26,12 +26,6 @@ class LikeDislikeButtons extends React.Component {
     }
 
     componentWillUpdate() {
-        // let initialState= (this.props.showError === "error" ? true : false);
-        // this.setState( {     show: initialState });
-        console.log("child: " + this.props.showError);
-        console.log(typeof this.props.showError);
-        console.log(JSON.stringify(this.props.showError));
-        // console.log(this.state.show);
     }
 
     render() {
@@ -48,7 +42,7 @@ class LikeDislikeButtons extends React.Component {
                 this.target = formGroup;
             }}>
                 <Overlay {...sharedProps} placement="top">
-                    <Tooltip placement="top" className="in customAlign-tooltip" id="tooltip-top">
+                    <Tooltip placement="top" className="in customAlign-tooltip like-dislike" id="tooltip-top">
                         Tooltip Like/Dislike
                     </Tooltip>
                 </Overlay>
