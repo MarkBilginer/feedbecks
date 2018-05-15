@@ -1,8 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import request from 'superagent';
-import {Form, Button} from 'react-bootstrap';
-import './fonts/fontawesome-free-5.0.8/web-fonts-with-css/css/fontawesome-all.min.css'
+import {
+  Form,
+  FormGroup,
+  FormControl,
+  Col,
+  Button,
+  Tooltip,
+  Well,
+  Label,
+  Overlay,
+  InputGroup,
+  HelpBlock
+} from 'react-bootstrap';
+import FontAwesome from 'react-fontawesome';
+// import
+// './fonts/fontawesome-free-5.0.8/web-fonts-with-css/css/fontawesome-all.min.cs
+// s '
 import store from './store'
 import ThankNote from './ThankNote'
 
@@ -72,11 +87,6 @@ class EmailForm extends React.Component {
       .remove("error");
   }
 
-  isEmailValid(string) {
-
-    return false;
-  }
-
   onSubmit = (event) => {
     event.preventDefault();
 
@@ -125,42 +135,81 @@ class EmailForm extends React.Component {
 
   clearEmailField = (event) => {
     event.preventDefault();
-    document.getElementsByName('email')[0].value = '';
+    document
+      .getElementById('formControlsEmail')
+      .value = '';
+  }
+
+  formatCompanyName() {
+    let str = this.props.companyName;
+    str = str
+      .toLowerCase()
+      .replace(/\b[a-z]/g, function (letter) {
+        return letter.toUpperCase();
+      });
+    return str;
   }
 
   render() {
     return (
-      <Form className="main-form-email">
-        <div className="wrap-input email">
-          <div className="customtooltip email">
-            Lütfen geçerli bir e-posta adresi gir. Şirketler buradan sana ulaşabileck.
-          </div>
-          <input
-            className="input"
-            type="email"
-            name="email"
-            onChange={this.onChange}
-            placeholder="your@email.com"/>
-          <span>
-            <svg className="input-error-svg-email"></svg>
-          </span>
-        </div>
-        <i
-          className="fas fa-times"
-          style={{
-          color: 'rgba(1, 22, 39, 1)',
-          cursor: 'pointer'
-        }}
-          onClick={this.clearEmailField}></i>
-        <div className="container-main-form-btn">
-          <Button className="main-form-btn-next" onClick={this.onSubmit}>
-            <span>Paylaş</span>
-          </Button>
-        </div>
-      </Form>
+      <Well bsSize="small">
+        <Form horizontal>
+          <FormGroup className="formGroupCustom">
+            <Col
+              xsOffset={1}
+              xs={10}
+              smOffset={2}
+              sm={8}
+              mdOffset={3}
+              md={6}
+              lgOffset={2}
+              lg={8}>
+              <span className="inputTitle">
+                <strong>Email</strong>
+              </span>
+              <InputGroup>
+                <FormControl
+                  id="formControlsEmail"
+                  type="email"
+                  bsSize="large"
+                  placeholder="Enter Email"
+                  onChange={this.onChange}/>
+                <InputGroup.Button>
+                  <Button onClick={this.clearEmailField}>
+                    <FontAwesome
+                      className='super-crazy-colors'
+                      name='user-times'
+                      size='2x'
+                      style={{
+                      textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)'
+                    }}/>
+                  </Button>
+                </InputGroup.Button>
+              </InputGroup>
+              <HelpBlock>Your e-mail will be shared only with &nbsp;{this.formatCompanyName()}.</HelpBlock>
+            </Col>
+          </FormGroup>
+
+          <FormGroup>
+            <Col
+              xsOffset={1}
+              xs={10}
+              smOffset={2}
+              sm={8}
+              mdOffset={3}
+              md={6}
+              lgOffset={2}
+              lg={8}>
+              <Button bsStyle="primary" type="submit" onClick={this.onSubmit} block>Share</Button>
+            </Col>
+          </FormGroup>
+        </Form>
+      </Well>
     );
   }
 
 }
 
 export default EmailForm;
+
+// Lütfen geçerli bir e-posta adresi gir. Şirketler buradan sana ulaşabileck.

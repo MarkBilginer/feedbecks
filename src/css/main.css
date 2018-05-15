@@ -99,6 +99,10 @@ svg .speak-head {
     display: inline-block;
 }
 
+.inputTitle {
+    color: rgba(1, 22, 39, 1);
+}
+
 textarea {
     outline: none;
     border: none;

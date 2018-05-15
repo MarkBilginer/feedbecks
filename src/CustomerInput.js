@@ -238,20 +238,8 @@ class CustomerInput extends React.Component {
                         charsPerMessage={this.state.charsPerMessage}
                         onChange={this.onChange}
                         showMessageOverlay={this.showMessageOverlay}
-                        showValidationState={this.showValidationState}/>
-                    <FormGroup>
-                        <Col
-                            xsOffset={1}
-                            xs={10}
-                            smOffset={2}
-                            sm={8}
-                            mdOffset={3}
-                            md={6}
-                            lgOffset={2}
-                            lg={8}>
-                            <Button bsStyle="primary" type="submit" onClick={this.onNext} block>Next</Button>
-                        </Col>
-                    </FormGroup>
+                        showValidationState={this.showValidationState}
+                        onNext={this.onNext}/>
                 </Form>
             </Well>
         );
