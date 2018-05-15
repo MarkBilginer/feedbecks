@@ -11,7 +11,7 @@
         font-size: 3.5vw;
     }
     .main-form-header h1 {
-        font-size: 6vw;
+        font-size: 5vw;
     }
     wrap-main {
         width: auto;
@@ -28,7 +28,7 @@
         font-size: 4.5vw
     }
     .footer-links {
-        font-size: 3.5vw;
+        font-size: 3.0vw;
     }
 }
 
@@ -54,7 +54,7 @@
         font-size: 3vw;
     }
     .dusuncembu-logo {
-        font-size: 3vw;
+        font-size: 2.5vw;
     }
     .main-form-header h1 {
         font-size: 3vw;
@@ -79,7 +79,7 @@
         font-size: 1.5vw;
     }
     .footer-links {
-        font-size: 2vw;
+        font-size: 2.5vw;
     }
 }
 
@@ -173,7 +173,7 @@
         font-size: 1.5vw;
     }
     .footer-links {
-        font-size: 2vw;
+        font-size: 1.8vw;
     }
 }
 
@@ -232,6 +232,6 @@
         font-size: 1.5vw;
     }
     .footer-links {
-        font-size: 2vw;
+        font-size: 1.3vw;
     }
 }

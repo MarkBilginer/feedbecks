@@ -12,6 +12,7 @@ import {
     Overlay
 } from 'react-bootstrap';
 import FontAwesome from 'react-fontawesome';
+import LikeDislikeAnimation from './animations/LikeDislikeAnimation';
 
 class LikeDislikeButtons extends React.Component {
     constructor(props, context) {
@@ -25,7 +26,10 @@ class LikeDislikeButtons extends React.Component {
         return ReactDOM.findDOMNode(this.target);
     }
 
-    componentWillUpdate() {
+    componentWillUpdate() {}
+
+    componentDidUpdate(){
+        // LikeDislikeAnimation();
     }
 
     render() {
@@ -42,7 +46,10 @@ class LikeDislikeButtons extends React.Component {
                 this.target = formGroup;
             }}>
                 <Overlay {...sharedProps} placement="top">
-                    <Tooltip placement="top" className="in customAlign-tooltip like-dislike" id="tooltip-top">
+                    <Tooltip
+                        placement="top"
+                        className="in customAlign-tooltip like-dislike"
+                        id="tooltip-top">
                         Tooltip Like/Dislike
                     </Tooltip>
                 </Overlay>
@@ -57,7 +64,7 @@ class LikeDislikeButtons extends React.Component {
                     md={1}
                     lgOffset={2}
                     lg={1}>
-                    <Button onClick={this.props.checkLike}>
+                    <Button className="likeDislikeAnim" onClick={this.props.checkLike}>
                         <FontAwesome
                             className='super-crazy-colors'
                             name='thumbs-o-up'
@@ -86,7 +93,7 @@ class LikeDislikeButtons extends React.Component {
                     md={1}
                     lgOffset={2}
                     lg={1}>
-                    <Button onClick={this.props.checkDislike}>
+                    <Button className="likeDislikeAnim" onClick={this.props.checkDislike}>
                         <FontAwesome
                             className='super-crazy-colors'
                             name='thumbs-o-down'

@@ -20,7 +20,8 @@ class IndexSite extends React.Component {
         minWidth: '300px'
       }}>
         <Row className="show-grid">
-          <Col xs={12} sm={12} md={12} lg={6} lgPush={6} className="container-right-half">
+          {/* thankModel spawns in right half contained */}
+          <Col xs={12} sm={12} md={12} lg={6} lgPush={6} className="container-right-half modal-container">
             <div className="container-main">
               <div className="main-form-header">
                 <span className="thoughtbubble-image" aria-hidden="true">

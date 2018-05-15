@@ -216,6 +216,13 @@ iframe {
     border: none !important;
 }
 
+.modal-container {
+    position: relative;
+  }
+  .modal-container .modal, .modal-container .modal-backdrop {
+    position: absolute;
+  }
+
 /* .wrap-main {
     margin-left: auto;
     margin-right: auto;
@@ -252,10 +259,6 @@ iframe {
     height: 70vh;
     flex-direction: column;
     justify-content: center;
-}
-
-.container-thank {
-    color: rgba(1, 22, 39, 1);
 }
 
 .main-form-header {

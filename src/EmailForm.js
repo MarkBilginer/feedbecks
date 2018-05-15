@@ -18,19 +18,19 @@ import FontAwesome from 'react-fontawesome';
 // import
 // './fonts/fontawesome-free-5.0.8/web-fonts-with-css/css/fontawesome-all.min.cs
 // s '
-import store from './store'
-import ThankNote from './ThankNote'
+import store from './store';
+import ThankModal from './ThankModal';
 
 class EmailForm extends React.Component {
   constructor(props) {
     super(props);
     let email = localStorage.getItem('email');
     this.state = {
-      mail: email
-        ? email
-        : ''
+      mail: email ? email : '',
+      showModel: false
     }
     console.log('contructor variable mail has value: ' + this.state.mail);
+    this.handleModal = this.handleModal.bind(this);
 
   }
 
@@ -123,8 +123,7 @@ class EmailForm extends React.Component {
 
         if (responseObject.isSucceed) {
           localStorage.setItem('email', mail);
-          ReactDOM.render(
-            <ThankNote/>, document.getElementById('main'));
+          this.setState({showModal: !this.state.showModal});
         } else {
           this.EmailFormAddError();
         }
@@ -149,9 +148,14 @@ class EmailForm extends React.Component {
       });
     return str;
   }
+    handleModal() {
+      let isVisible = this.state.showModal;
+      this.setState({ showModal: !isVisible });
+  }
 
   render() {
     return (
+      <div>
       <Well bsSize="small">
         <Form horizontal>
           <FormGroup className="formGroupCustom">
@@ -205,6 +209,8 @@ class EmailForm extends React.Component {
           </FormGroup>
         </Form>
       </Well>
+      <ThankModal show={this.state.showModal} onHide={this.handleModal}/>
+      </div>
     );
   }
 

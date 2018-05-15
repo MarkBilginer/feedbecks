@@ -79,11 +79,11 @@ Animocon.prototype.options = {
 
 function init() {
     //Like Dislike Button array
-    var items = [].slice.call(document.querySelectorAll('.main-form-btn'));
+    var items = [].slice.call(document.querySelectorAll('.likeDislikeAnim'));
 
     /* Like Button */
-    var elLike = items[1],
-        elLikeSpan = elLike.querySelector('span');
+    var elLike = items[0],
+        elLikeSpan = elLike.querySelector('.fa-thumbs-o-up');
     new Animocon(elLike, {
         tweens: [
             // burst animation
@@ -163,8 +163,8 @@ function init() {
     /* Like Button */
 
     /* Dislike Button */
-    var elDislike = items[0],
-        elDislikeSpan = elDislike.querySelector('span');
+    var elDislike = items[1],
+        elDislikeSpan = elDislike.querySelector('.fa-thumbs-o-down');
     new Animocon(elDislike, {
         tweens: [
             // burst animation
