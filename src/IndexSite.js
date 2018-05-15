@@ -1,5 +1,6 @@
 import React from 'react';
 import {Grid, Row, Col} from 'react-bootstrap';
+import FontAwesome from 'react-fontawesome';
 import CustomerInput from './CustomerInput';
 import Footer from './Footer'
 import './css/main.css';
@@ -197,7 +198,7 @@ class IndexSite extends React.Component {
                     }}
                       d="M464,128V68c0-7.2-4.8-12-12-12H154.4l0,0l263.2,14.4c12.8,0.8,24,11.2,24.8,24L464,316l0,0V128z"/>
                   </svg>
-                  <h1 style={{
+                  <h1 className="font-color-grey" style={{
                     display: 'inline-block'
                   }}>Düşünceni belirt</h1>
                 </div>
@@ -270,19 +271,28 @@ class IndexSite extends React.Component {
               <Col xs={12} sm={12} md={12} lg={12} className="communication-item-left-group">
                 <div className="communication-item-left-wrapper">
                   <div className="communication-item-left">
-                    <i className="fas fa-users"></i>
+                  <FontAwesome
+                            className='super-crazy-colors'
+                            name='users'
+                            /> &nbsp; &nbsp;
                     <span className="communication-item-text">
                       Düşünceni belirt
                     </span>
                   </div>
                   <div className="communication-item-left">
-                    <i className="fas fa-search"></i>
+                  <FontAwesome
+                            className='super-crazy-colors'
+                            name='search'
+                            /> &nbsp; &nbsp;
                     <span className="communication-item-text">
                       Biz Şirkete ulaştıralım
                     </span>
                   </div>
                   <div className="communication-item-left">
-                    <i className="fas fa-file-alt"></i>
+                  <FontAwesome
+                            className='super-crazy-colors'
+                            name='file'
+                            /> &nbsp; &nbsp;
                     <span className="communication-item-text">
                       Şirket üst-düzey yöneticisi değerlendirsin
                     </span>

@@ -36,7 +36,7 @@ class EmailForm extends React.Component {
 
   componentDidMount() {
     if (this.state.mail !== '') {
-      document.getElementsByName('email')[0].value = this.state.mail;
+      document.getElementById('formControlsEmail').value = this.state.mail;
     }
   }
 
@@ -129,7 +129,6 @@ class EmailForm extends React.Component {
         }
 
       });
-
   }
 
   clearEmailField = (event) => {
@@ -168,7 +167,7 @@ class EmailForm extends React.Component {
               md={6}
               lgOffset={2}
               lg={8}>
-              <span className="inputTitle">
+              <span className="font-color-grey">
                 <strong>Email</strong>
               </span>
               <InputGroup>

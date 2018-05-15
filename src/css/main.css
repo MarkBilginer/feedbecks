@@ -14,11 +14,18 @@ body {
 }
 
 .container-left-half {
-    background-color: rgba(1, 22, 39, 1);
+    background-color: rgb(54, 88, 153);
     min-height: 95vh;
     height: 100%;
     justify-content: center;
     align-items: center;
+}
+
+.font-color-grey {
+    color: rgb(55, 57, 58);
+}
+.font-color-gold {
+    color: rgb(218, 165, 32);
 }
 
 .test-speak {
@@ -35,7 +42,7 @@ svg .speak-voice {
 }
 
 svg .speak-head {
-    fill: #f0ffff;
+    fill: white;
 }
 
 .fas {
@@ -99,9 +106,6 @@ svg .speak-head {
     display: inline-block;
 }
 
-.inputTitle {
-    color: rgba(1, 22, 39, 1);
-}
 
 textarea {
     outline: none;
@@ -131,13 +135,14 @@ textarea:-ms-input-placeholder {
     color: #999999;
 }
 
-.formGroupCustom{
+.formGroupCustom {
     position: relative;
 }
 
 /* overwritten default bootstrap style */
 
 /* override default inline tooltip style */
+
 #tooltip-top {
     top: 0 !important;
     left: 0 !important;
@@ -218,38 +223,19 @@ iframe {
 
 .modal-container {
     position: relative;
-  }
-  .modal-container .modal, .modal-container .modal-backdrop {
-    position: absolute;
-  }
-
-/* .wrap-main {
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 10%;
-    border: 0.18em solid rgba(1, 22, 39, 1);
-    border-radius: 0.6em;
-    position: relative;
-} */
-
-.dislike-button {
-    border: none;
-    color: white;
-    padding: 1.2em;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    margin: 0.25em 0.12em;
 }
 
-.like-button {
-    border: none;
-    color: white;
-    padding: 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    margin: 0.25em 0.12em;
+.modal-container .modal,
+.modal-container .modal-backdrop {
+    position: absolute;
+}
+
+#contained-modal-title{
+   color: rgb(54, 88, 153);
+}
+
+.modal-body {
+    color: rgb(29, 33, 41);
 }
 
 .container-main {}
@@ -273,7 +259,6 @@ iframe {
 .main-form-header h1 {
     font-family: 'Arvo', serif;
     font-weight: 700;
-    color: rgba(1, 22, 39, 1);
     margin-bottom: 0.1em;
 }
 
@@ -333,8 +318,6 @@ iframe {
 input.input {
     height: 2.8em;
 }
-
-
 
 .main-form-btn {
     border: none;
@@ -432,7 +415,7 @@ textarea.input.error {
 }
 
 .input-error-svg-btn {
-    opacity:0;
+    opacity: 0;
     background-image: url("../images/warning.svg");
     background-repeat: no-repeat;
     width: 1.9em;
@@ -445,7 +428,7 @@ textarea.input.error {
 }
 
 .input-error-svg-btn.error {
-    opacity:1;
+    opacity: 1;
 }
 
 input.input {

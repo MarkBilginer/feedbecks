@@ -56,7 +56,7 @@ class MessageForm extends React.Component {
                             md={6}
                             lgOffset={2}
                             lg={8}>
-                            <span className="inputTitle"><strong>Message</strong></span>
+                            <span className="inputTitle font-color-grey"><strong>Message</strong></span>
                             <div className="textarea-label-wrapper" ref="targetMessage">
                                 <FormControl
                                     id="formControlsMessage"

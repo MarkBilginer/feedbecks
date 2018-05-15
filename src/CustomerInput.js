@@ -41,8 +41,8 @@ class CustomerInput extends React.Component {
                     likeDislike: null
                 }
             ],
-            likeBtnColour: "rgba(1, 22, 39, 1)",
-            dislikeBtnColour: "rgba(1, 22, 39, 1)"
+            likeBtnColour: "rgb(97, 103, 112)",
+            dislikeBtnColour: "rgb(97, 103, 112)"
         };
         this.onNext = this
             .onNext
@@ -168,15 +168,15 @@ class CustomerInput extends React.Component {
         let pop2 = new Audio(audioPop2);
 
         if (this.state.isLiked === true) {
-            this.setState({isLiked: null, likeBtnColour: "rgba(1, 22, 39, 1)"});
+            this.setState({isLiked: null, likeBtnColour: "rgb(97, 103, 112)"});
             pop2.play();
 
         } else if (this.state.isLiked === false) {
-            this.setState({isLiked: true, likeBtnColour: "#365899", dislikeBtnColour: "rgba(1, 22, 39, 1)"});
+            this.setState({isLiked: true, likeBtnColour: "#365899", dislikeBtnColour: "rgb(97, 103, 112)"});
             pop1.play();
 
         } else {
-            this.setState({isLiked: true, likeBtnColour: "#365899", dislikeBtnColour: "rgba(1, 22, 39, 1)"});
+            this.setState({isLiked: true, likeBtnColour: "#365899", dislikeBtnColour: "rgb(97, 103, 112)"});
             let validationStateCopy = JSON.parse(JSON.stringify(this.state.validationState));
             //make changes to ingredients
             validationStateCopy[0].likeDislike = false;
@@ -198,15 +198,15 @@ class CustomerInput extends React.Component {
         let pop2 = new Audio(audioPop2);
 
         if (this.state.isLiked === true) {
-            this.setState({isLiked: false, likeBtnColour: "rgba(1, 22, 39, 1)", dislikeBtnColour: "#9b3659"});
+            this.setState({isLiked: false, likeBtnColour: "rgb(97, 103, 112)", dislikeBtnColour: "#9b3659"});
             pop1.play();
 
         } else if (this.state.isLiked === false) {
-            this.setState({isLiked: null, dislikeBtnColour: "rgba(1, 22, 39, 1)"});
+            this.setState({isLiked: null, dislikeBtnColour: "rgb(97, 103, 112)"});
             pop2.play();
 
         } else {
-            this.setState({isLiked: false, likeBtnColour: "rgba(1, 22, 39, 1)", dislikeBtnColour: "#9b3659"});
+            this.setState({isLiked: false, likeBtnColour: "rgb(97, 103, 112)", dislikeBtnColour: "#9b3659"});
             let validationStateCopy = JSON.parse(JSON.stringify(this.state.validationState))
             //make changes to ingredients
             validationStateCopy[0].likeDislike = false;

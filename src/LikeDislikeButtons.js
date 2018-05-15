@@ -12,7 +12,7 @@ import {
     Overlay
 } from 'react-bootstrap';
 import FontAwesome from 'react-fontawesome';
-import LikeDislikeAnimation from './animations/LikeDislikeAnimation';
+// import LikeDislikeAnimation from './animations/LikeDislikeAnimation';
 
 class LikeDislikeButtons extends React.Component {
     constructor(props, context) {

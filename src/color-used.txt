@@ -1,0 +1,6 @@
+Grey-button-text: rgb(97, 103, 112);
+grey: rgb(55, 57, 58);
+like-blue: rgb(54, 88, 153);
+background-blue: rgb(54, 88, 153);
+dislike-red: rgb(155, 54, 89);
+gold: rgb(218, 165, 32);
