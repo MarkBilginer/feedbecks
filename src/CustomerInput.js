@@ -4,16 +4,8 @@ import request from 'superagent';
 import $ from 'jquery';
 import {
     Form,
-    FormGroup,
-    FormControl,
-    Col,
-    Button,
-    Tooltip,
     Well,
-    Label,
-    Overlay
 } from 'react-bootstrap';
-import FontAwesome from 'react-fontawesome';
 // import
 // './fonts/fontawesome-free-5.0.8/web-fonts-with-css/css/fontawesome-all.min.cs
 // s '
@@ -100,7 +92,7 @@ class CustomerInput extends React.Component {
     onNext = (e) => {
         e.preventDefault();
         // get our form data out of state
-        const {isLiked, userText, validationState} = this.state;
+        const {isLiked, userText} = this.state;
 
         this.showMessageOverlay = false;
 
@@ -148,10 +140,10 @@ class CustomerInput extends React.Component {
                 // console.log(JSON.stringify(responseObject)); this.setState({formID:
                 // responseObject.extras.formID});
                 store.dispatch(addToFormId(responseParsed.extras.formID));
-                var stateLength = store
-                    .getState()
-                    .formId
-                    .length;
+                // var stateLength = store
+                //     .getState()
+                //     .formId
+                //     .length;
                 // console.log(store.getState().formId[stateLength - 1]);
             });
         //.catch(function(err){ alert('error'); });

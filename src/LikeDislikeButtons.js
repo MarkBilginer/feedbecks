@@ -1,14 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {
-    Form,
     FormGroup,
     FormControl,
     Col,
     Button,
     Tooltip,
-    Well,
-    Label,
     Overlay
 } from 'react-bootstrap';
 import FontAwesome from 'react-fontawesome';

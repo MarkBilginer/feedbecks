@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import request from 'superagent';
 import {
   Form,
@@ -7,10 +6,7 @@ import {
   FormControl,
   Col,
   Button,
-  Tooltip,
   Well,
-  Label,
-  Overlay,
   InputGroup,
   HelpBlock
 } from 'react-bootstrap';

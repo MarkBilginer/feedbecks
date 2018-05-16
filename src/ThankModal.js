@@ -1,25 +1,11 @@
 import React from 'react';
 import {
-    Form,
-    FormGroup,
-    FormControl,
-    Col,
     Button,
-    Tooltip,
-    Well,
-    Label,
-    Overlay,
-    InputGroup,
-    HelpBlock,
     Modal
 } from 'react-bootstrap';
 import FontAwesome from 'react-fontawesome';
 
 class ThankModal extends React.Component {
-
-    constructor(props, context) {
-        super(props, context);
-    }
 
     render() {
         return (
