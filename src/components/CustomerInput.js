@@ -12,10 +12,10 @@ import {
 import MessageForm from './MessageForm';
 import EmailForm from './EmailForm';
 import LikeDislikeButtons from './LikeDislikeButtons';
-import store from './store.js';
-import {addToFormId} from './actions/formid-actions';
-import audioPop1 from './sounds/pop1.mp3';
-import audioPop2 from './sounds/pop2.mp3';
+import Store from './Store.js';
+import {addToFormId} from '../actions/formid-actions';
+import audioPop1 from '../sounds/pop1.mp3';
+import audioPop2 from '../sounds/pop2.mp3';
 import 'font-awesome/css/font-awesome.min.css';
 // import LikeDisklikeAnimation from './animations/LikeDislikeAnimation';
 
@@ -139,7 +139,7 @@ class CustomerInput extends React.Component {
                 const responseParsed = JSON.parse(response.text);
                 // console.log(JSON.stringify(responseObject)); this.setState({formID:
                 // responseObject.extras.formID});
-                store.dispatch(addToFormId(responseParsed.extras.formID));
+                Store.dispatch(addToFormId(responseParsed.extras.formID));
                 // var stateLength = store
                 //     .getState()
                 //     .formId
