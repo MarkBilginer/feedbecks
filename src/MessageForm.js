@@ -44,7 +44,7 @@ class MessageForm extends React.Component {
                                 placement="top"
                                 className="in customAlign-Tooltip message"
                                 id="tooltip-top">
-                                Tooltip Message
+                                Mesajın nedir?
                             </Tooltip>
                         </Overlay>
                         <Col
@@ -56,14 +56,14 @@ class MessageForm extends React.Component {
                             md={6}
                             lgOffset={2}
                             lg={8}>
-                            <span className="inputTitle font-color-grey"><strong>Message</strong></span>
+                            <span className="inputTitle font-color-grey"><strong>Mesaj</strong></span>
                             <div className="textarea-label-wrapper" ref="targetMessage">
                                 <FormControl
                                     id="formControlsMessage"
                                     componentClass="textarea"
                                     maxLength={this.props.charsPerMessage}
                                     onChange={this.props.onChange}
-                                    placeholder="Örnek: "/>
+                                    placeholder="Örnek: Yemekler soğuk. Çalan müzik listesi harika."/>
 
                                 <svg className="input-error-svg-textarea"></svg>
 

@@ -50,7 +50,7 @@ class LikeDislikeButtons extends React.Component {
                         placement="top"
                         className="in customAlign-tooltip like-dislike"
                         id="tooltip-top">
-                        Tooltip Like/Dislike
+                        Beğendin mi, Beğenmedin mi?
                     </Tooltip>
                 </Overlay>
                 <Col
@@ -64,7 +64,7 @@ class LikeDislikeButtons extends React.Component {
                     md={1}
                     lgOffset={2}
                     lg={1}>
-                    <Button className="likeDislikeAnim" onClick={this.props.checkLike}>
+                    <Button bsSize="small" className="likeDislikeAnim" onClick={this.props.checkLike}>
                         <FontAwesome
                             className='super-crazy-colors'
                             name='thumbs-o-up'
@@ -93,7 +93,7 @@ class LikeDislikeButtons extends React.Component {
                     md={1}
                     lgOffset={2}
                     lg={1}>
-                    <Button className="likeDislikeAnim" onClick={this.props.checkDislike}>
+                    <Button bsSize="small" className="likeDislikeAnim" onClick={this.props.checkDislike}>
                         <FontAwesome
                             className='super-crazy-colors'
                             name='thumbs-o-down'

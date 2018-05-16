@@ -165,14 +165,14 @@ class EmailForm extends React.Component {
                 lgOffset={2}
                 lg={8}>
                 <span className="font-color-grey">
-                  <strong>Email</strong>
+                  <strong>e-posta</strong>
                 </span>
                 <InputGroup>
                   <FormControl
                     id="formControlsEmail"
                     type="email"
                     bsSize="large"
-                    placeholder="Enter Email"
+                    placeholder="Email Address"
                     onChange={this.onChange}/>
                   <InputGroup.Button>
                     <Button onClick={this.clearEmailField}>
@@ -187,7 +187,7 @@ class EmailForm extends React.Component {
                     <svg className="input-error-svg-email"></svg>
                   </InputGroup.Button>
                 </InputGroup>
-                <HelpBlock>Your e-mail will be shared with &nbsp;{this.formatCompanyName()}.</HelpBlock>
+                <HelpBlock>e-posta adresin sadece &nbsp;{this.formatCompanyName()} &nbsp; ile paylaşılcak.</HelpBlock>
               </Col>
             </FormGroup>
 

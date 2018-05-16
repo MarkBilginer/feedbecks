@@ -205,7 +205,7 @@ class IndexSite extends React.Component {
                   <Col xs={8}>
                   <h1 className="font-color-grey" style={{
                     display: 'inline-block'
-                  }}>Memnun kaldığınız ve/yada kalmadığınız bir şeyi yazınız.</h1>
+                  }}>Memnun kaldığın ve/yada kalmadığın bir şeyi yaz.</h1>
                   </Col>
                 </Row>
               </div>
