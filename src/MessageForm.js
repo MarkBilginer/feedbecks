@@ -63,7 +63,7 @@ class MessageForm extends React.Component {
                                     componentClass="textarea"
                                     maxLength={this.props.charsPerMessage}
                                     onChange={this.props.onChange}
-                                    placeholder="Örnek"/>
+                                    placeholder="Örnek: "/>
 
                                 <svg className="input-error-svg-textarea"></svg>
 
@@ -81,7 +81,7 @@ class MessageForm extends React.Component {
                             md={6}
                             lgOffset={2}
                             lg={8}>
-                            <Button bsStyle="primary" type="submit" onClick={this.props.onNext} block>Next</Button>
+                            <Button bsStyle="primary" bsSize="small" type="submit" onClick={this.props.onNext} block>Next</Button>
                         </Col>
                     </FormGroup>
             </div>

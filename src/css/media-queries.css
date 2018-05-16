@@ -13,10 +13,18 @@
     .main-form-header h1 {
         font-size: 5vw;
     }
+    .dusuncembu-logo-wrapper {
+        transform: translate(0,+55%);
+    }
     wrap-main {
         width: auto;
         min-width: 88vw;
         max-width: 90vw;
+    }
+    #main {
+        min-height: 55vmax;
+        height: auto;
+        max-height: 60vmax;
     }
     .main-form-btn {
         font-size: 7.5vw;
@@ -58,6 +66,9 @@
     }
     .main-form-header h1 {
         font-size: 3vw;
+    }
+    .dusuncembu-logo-wrapper {
+        transform: translate(0,+55%);
     }
     wrap-main {
         width: 20.0em;
@@ -106,6 +117,9 @@
     .main-form-header h1 {
         font-size: 3vw;
     }
+    .dusuncembu-logo-wrapper {
+        transform: translate(0,+20%);
+    }
     wrap-main {
         width: 20.0em;
         min-width: 20.0em;
@@ -152,6 +166,9 @@
     }
     .main-form-header h1 {
         font-size: 3vw;
+    }
+    .dusuncembu-logo-wrapper {
+        transform: translate(0,+15%);
     }
     wrap-main {
         width: 20.0em;
@@ -201,7 +218,10 @@
         margin-bottom: 2em;
     }
     .main-form-header h1 {
-        font-size: 2vw;
+        font-size: 1.5vw;
+    }
+    .dusuncembu-logo-wrapper {
+        transform: translate(0,+10%);
     }
     wrap-main {
         width: 20.0em;
@@ -218,8 +238,8 @@
     }
     textarea.form-control {
         resize: none;
-        min-height: 12vmax;
-        max-height: 20vmax;
+        min-height: 8vmax;
+        max-height: 11vmax;
         height: auto;
     }
     .main-form-btn {
@@ -233,5 +253,6 @@
     }
     .footer-links {
         font-size: 1.3vw;
+        margin-bottom: 0;
     }
 }

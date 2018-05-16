@@ -63,7 +63,9 @@ class IndexSite extends React.Component {
                   <i className={"company-logo " + companyName}></i>
                 </div>
 
-                <div className="main-form-title">
+                <Row className="main-form-title">
+                  <Col xs={2} smPush={1} mdPush={1}>
+                  <div className="dusuncembu-logo-wrapper">
                   <svg
                     version="1.1"
                     className="dusuncembu-logo mr"
@@ -198,10 +200,14 @@ class IndexSite extends React.Component {
                     }}
                       d="M464,128V68c0-7.2-4.8-12-12-12H154.4l0,0l263.2,14.4c12.8,0.8,24,11.2,24.8,24L464,316l0,0V128z"/>
                   </svg>
+                  </div>
+                  </Col>
+                  <Col xs={8}>
                   <h1 className="font-color-grey" style={{
                     display: 'inline-block'
-                  }}>Düşünceni belirt</h1>
-                </div>
+                  }}>Memnun kaldığınız ve/yada kalmadığınız bir şeyi yazınız.</h1>
+                  </Col>
+                </Row>
               </div>
 
               <div id="main">
