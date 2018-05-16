@@ -22,6 +22,7 @@ class IndexSite extends React.Component {
       }}>
         <Row className="show-grid">
           {/* thankModel spawns in right half contained */}
+          <div className="background-image">
           <Col xs={12} sm={12} md={12} lg={6} lgPush={6} className="container-right-half modal-container">
             <div className="container-main">
               <div className="main-form-header">
@@ -216,6 +217,7 @@ class IndexSite extends React.Component {
               
             </div>
           </Col>
+          </div>
           {/* Container right half*/}
 
           <Col
