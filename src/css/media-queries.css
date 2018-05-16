@@ -12,9 +12,11 @@
     }
     .main-form-header h1 {
         font-size: 5vw;
+        display: inline-block;
+        text-align: start;
     }
     .dusuncembu-logo-wrapper {
-        transform: translate(0,+55%);
+        transform: translate(0, +55%);
     }
     wrap-main {
         width: auto;
@@ -66,9 +68,11 @@
     }
     .main-form-header h1 {
         font-size: 3vw;
+        display: inline-block;
+        text-align: start;
     }
     .dusuncembu-logo-wrapper {
-        transform: translate(0,+55%);
+        transform: translate(0, +55%);
     }
     wrap-main {
         width: 20.0em;
@@ -116,9 +120,12 @@
     }
     .main-form-header h1 {
         font-size: 3vw;
+        display: inline-block;
+        text-align: start;
+        margin-left: 0.5em;
     }
     .dusuncembu-logo-wrapper {
-        transform: translate(0,+20%);
+        transform: translate(0, +20%);
     }
     wrap-main {
         width: 20.0em;
@@ -166,9 +173,12 @@
     }
     .main-form-header h1 {
         font-size: 3vw;
+        display: inline-block;
+        text-align: start;
+        margin-left: 0.5em;
     }
     .dusuncembu-logo-wrapper {
-        transform: translate(0,+15%);
+        transform: translate(0, +15%);
     }
     wrap-main {
         width: 20.0em;
@@ -219,9 +229,12 @@
     }
     .main-form-header h1 {
         font-size: 1.5vw;
+        display: inline-block;
+        text-align: start;
+        margin-left: 0.5em;
     }
     .dusuncembu-logo-wrapper {
-        transform: translate(0,+10%);
+        transform: translate(0, +10%);
     }
     wrap-main {
         width: 20.0em;

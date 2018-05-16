@@ -50,15 +50,6 @@ class EmailForm extends React.Component {
   componentWillUnmount() {}
 
   onChange = (event) => {
-
-    const input_error = document.querySelector('input.input.error');
-    const input_svg_error = document.querySelector('.input-error-svg-email.error');
-    const input_tooltip_error = document.querySelector('.customtooltip.email.error');
-
-    if (input_error && input_svg_error && input_tooltip_error) {
-      this.EmailFormRemoveError('like-dislike');
-    }
-
     var mail = this.state.mail;
     mail = event.target.value;
     this.setState({'mail': mail});
