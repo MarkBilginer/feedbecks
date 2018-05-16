@@ -440,16 +440,16 @@ input.input.error {
 }
 
 .input-error-svg-email {
-    visibility: hidden;
+    opacity: 0;
     background-image: url("../images/warning.svg");
     background-repeat: no-repeat;
-    width: 1.9em;
-    height: 1.9em;
+    width: 50%;
+    height: 100%;
     position: absolute;
-    right: 0.5em;
-    top: 0.6em;
+    right: -56%;
+    top: 20%;
 }
 
 .input-error-svg-email.error {
-    visibility: visible;
+    opacity: 1;
 }

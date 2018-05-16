@@ -42,7 +42,7 @@ class ThankModal extends React.Component {
                         </Modal.Title>
                     </Modal.Header>
                     <Modal.Body className="font-color-grey">
-                        Your feedback will from now on be seen by related company managers.
+                        Your feedback will from now on be seen by the company managers.
                     </Modal.Body>
                     <Modal.Footer>
                         <Button bsStyle="primary" onClick={this.props.onHide}>Close</Button>
