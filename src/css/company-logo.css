@@ -72,6 +72,10 @@
     background-image: url(../images/company/ozu.png);
 }
 
+.company-logo.ozukuafor {
+    background-image: url(../images/company/ozukuafor.png);
+}
+
 .company-logo.ozusportscafe {
     background-image: url(../images/company/ozusportscafe.png);
     margin-left: 6em;
