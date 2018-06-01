@@ -2,7 +2,9 @@
     background-image: url(../images/company/akkol.png);
 }
 
-.company-logo.avendotomatlar {}
+.company-logo.avendotomatlar {
+    background-image: url(../images/company/avendotomatlar.png);
+}
 
 .company-logo.caglayankitap {
     background-image: url(../images/company/caglayankitap.png);
@@ -72,7 +74,7 @@
     background-image: url(../images/company/ozu.png);
 }
 
-.company-logo.ozukuafor {
+.company-logo.ozukuaf\%C3\%B6r {
     background-image: url(../images/company/ozukuafor.png);
 }
 
