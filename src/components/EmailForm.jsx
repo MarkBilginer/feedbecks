@@ -79,8 +79,14 @@ class EmailForm extends React.Component {
 
     console.log('sending request to: https://api.dusuncembu.com/' + this.props.companyName + '/consumer/submitForm');
     const mail = this.state.mail;
+
+    let companyName = this.props.companyName;
+        if(this.props.companyName == 'ozukuaf\%C3\%B6r') {
+            companyName = 'ozukuafor'
+        }
+
     request
-      .post('https://api.dusuncembu.com/' + this.props.companyName + '/consumer/updateForm')
+      .post('https://api.dusuncembu.com/' + companyName + '/consumer/updateForm')
       .send({'formID': formID, 'mail': mail}) // sends a JSON post body
       .set('Content-Type', "application/x-www-form-urlencoded")
       .then(response => {
@@ -120,7 +126,11 @@ class EmailForm extends React.Component {
   }
 
   formatCompanyName() {
+
     let str = this.props.companyName;
+    if(str == 'ozukuaf\%C3\%B6r') {
+        str = 'ozukuafor'
+    }
     str = str
       .toLowerCase()
       .replace(/\b[a-z]/g, function (letter) {
@@ -128,6 +138,7 @@ class EmailForm extends React.Component {
       });
     return str;
   }
+
   handleModal() {
     let isVisible = this.state.showModal;
     this.setState({
