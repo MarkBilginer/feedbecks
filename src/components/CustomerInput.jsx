@@ -128,9 +128,13 @@ class CustomerInput extends React.Component {
             return;
         }
 
+        let companyName = this.props.companyName;
+        if(this.props.companyName == 'ozukuaf\%C3\%B6r') {
+            companyName = 'ozukuafor'
+        }
         // console.log('sending request to: https://api.dusuncembu.com/' + this.props.companyName + '/consumer/submitForm');
         request
-            .post('https://api.dusuncembu.com/' + this.props.companyName + '/consumer/submitForm')
+            .post('https://api.dusuncembu.com/' + companyName + '/consumer/submitForm')
             .send({'userText': userText, 'isLiked': isLiked}) // sends a JSON post body
             .set('Content-Type', "application/x-www-form-urlencoded")
             .timeout({deadline: 10000}) // if there is no response after 10 seconds abort

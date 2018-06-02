@@ -1,6 +1,6 @@
-import {createStore} from "redux";
+import { createStore } from 'redux';
 import formidReducer from '../reducers/formid-reducer';
 
-let Store = createStore(formidReducer);
+const Store = createStore(formidReducer);
 
 export default Store;
