@@ -77,13 +77,13 @@ class EmailForm extends React.Component {
     console.log('parsed: ' + responseParsed.formId);
     const formID = responseParsed.formId;
 
-    console.log('sending request to: https://api.dusuncembu.com/' + this.props.companyName + '/consumer/submitForm');
-    const mail = this.state.mail;
-
     let companyName = this.props.companyName;
-        if(this.props.companyName == 'ozukuaf\%C3\%B6r') {
-            companyName = 'ozukuafor'
-        }
+    if(this.props.companyName == 'ozukuaf\%C3\%B6r') {
+        companyName = 'ozukuafor'
+    }
+
+    console.log('sending request to: https://api.dusuncembu.com/' + companyName + '/consumer/submitForm');
+    const mail = this.state.mail;
 
     request
       .post('https://api.dusuncembu.com/' + companyName + '/consumer/updateForm')
